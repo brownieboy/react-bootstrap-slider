@@ -4,6 +4,7 @@
 
 
 var SliderNative = React.createClass({
+    // Front end to the HTML5 native slider, i.e <input type="range">
     render: function () {
         return (
             <input id="mySlider"
@@ -18,26 +19,35 @@ var SliderNative = React.createClass({
 });
 
 var BootstrapSlider = React.createClass({
+    // Bootstrap-slider.js from https://github.com/seiyria/bootstrap-slider
     render: function () {
+        // The slider's an input.  That's all we need.  We'll do the rest in JS.
+        console.log("BootstrapSlider.render(), this.props.value=" + this.props.value);
         return (
-                <input id="mySlider"
-                    type="range"
-                    data-slider-value={this.props.value}
-                    data-slider-min={this.props.min}
-                    data-slider-max={this.props.max}
-                    data-slider-step={this.props.step} />
+                <input />
             );
     },
     componentDidMount: function () {
         var that = this;
         $.fn.bootstrapSlider = $.fn.bootstrapSlider || $.fn.slider;
-        var mySlider = $(this.getDOMNode()).bootstrapSlider().on("change", function (e) {
+        this.mySlider = $(this.getDOMNode()).bootstrapSlider();
+        this.updateSliderValues();
+        this.mySlider.on("change", function (e) {
             var fakeEvent = {
                 target: {}
             };
             fakeEvent.target.value = e.value.newValue;
             that.props.handleChange(fakeEvent);
         });
+    },
+    componentDidUpdate: function() {
+        this.updateSliderValues();
+    },
+    updateSliderValues: function() {
+        this.mySlider.bootstrapSlider("setValue", this.props.value);
+        this.mySlider.bootstrapSlider("setAttribute", "min", this.props.min);
+        this.mySlider.bootstrapSlider("setAttribute", "max", this.props.max);
+        this.mySlider.bootstrapSlider("setAttribute", "step", this.props.step);
     }
 });
 
@@ -46,7 +56,6 @@ var SliderNativeBootstrap = React.createClass({
     componentWillMount: function () {
         // Test whether range input is accepted by creating one, then seeing what its
         // type is set to.  
-        console.log("Writing supportsRange()");
         var input = document.createElement('input');
         input.setAttribute('type', 'range');
         this.supportsRange = input.type !== "text" ? true : false;
@@ -110,7 +119,7 @@ var Demo = React.createClass({
             );
     },
     changeValue: function(e) {
-        console.log("value = " + e.target.value);
+        console.log("Demo.changeValue(), value = " + e.target.value);
         this.setState({currentValue: e.target.value});
     },
     changeAll: function (){
