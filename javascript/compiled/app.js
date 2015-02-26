@@ -30,7 +30,8 @@ var BootstrapSlider = React.createClass({displayName: "BootstrapSlider",
     },
     componentDidMount: function () {
         var that = this;
-        var mySlider = $(this.getDOMNode()).slider().on("change", function (e) {
+        $.fn.bootstrapSlider = $.fn.bootstrapSlider || $.fn.slider;
+        var mySlider = $(this.getDOMNode()).bootstrapSlider().on("change", function (e) {
             var fakeEvent = {
                 target: {}
             };
