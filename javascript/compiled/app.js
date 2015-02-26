@@ -44,10 +44,11 @@ var BootstrapSlider = React.createClass({displayName: "BootstrapSlider",
         this.updateSliderValues();
     },
     updateSliderValues: function() {
-        this.mySlider.bootstrapSlider("setValue", this.props.value);
-        this.mySlider.bootstrapSlider("setAttribute", "min", this.props.min);
-        this.mySlider.bootstrapSlider("setAttribute", "max", this.props.max);
-        this.mySlider.bootstrapSlider("setAttribute", "step", this.props.step);
+        console.log("BootstrapSlider.updateSliderValues()");
+        $(this.mySlider).bootstrapSlider("setAttribute", "min", this.props.min);
+        $(this.mySlider).bootstrapSlider("setAttribute", "max", this.props.max);
+        $(this.mySlider).bootstrapSlider("setAttribute", "step", this.props.step);
+        $(this.mySlider).bootstrapSlider("setValue", this.props.value);
     }
 });
 
