@@ -19,7 +19,6 @@ var Demo = React.createClass({
         return (
             <div>
                 <SliderNativeBootstrap
-                    polyfill={false}
                     value={this.state.currentValue}
                     handleChange={this.changeValue}
                     step={this.state.step}
@@ -34,6 +33,7 @@ var Demo = React.createClass({
             );
     },
     changeValue: function(e) {
+        console.log("changeValue");
         this.setState({currentValue: e.target.value});
     },
     changeAxes: function (){
@@ -45,7 +45,6 @@ var Demo = React.createClass({
         });
     }
 });
-
 
 React.render(<Demo
         startValue={3000}
