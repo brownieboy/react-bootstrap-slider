@@ -93,7 +93,7 @@ The **value**, **step**, **max** and **min** parameters should be self-explanato
 
 
 ####Forcing the Bootstrap version all the time
-An optional parameter is **polyfill**.  When set to **true** (the default if you leave the parameter out) the component acts as I've described it above, i.e. displaying the HTML5 native slider for these browsers that support it properly, and the Bootstrap version for those that don't.  If you set this parameter to *false*, then the component will display the Bootstrap slider for *all* browsers.  Here's how you do might do that:
+An optional parameter is **polyfill**.  When set to **true** (the default if you leave the parameter out) the component acts as I've described it above, i.e. displaying the HTML5 native slider for these browsers that support it properly, and the Bootstrap version for those that don't.  If you want to force the use of the Bootstrap slider for *all* browsers then you should set this parameter to **false**, like so:
 
 ```JavaScript
 <SliderNativeBootstrap
@@ -105,7 +105,8 @@ An optional parameter is **polyfill**.  When set to **true** (the default if you
     min={this.state.min} />
 ```
 
-[Seiyria's Bootstrap Slider] (https://github.com/seiyria/bootstrap-slider) component has many other options and parameters, of course.  I can look at rolling some of those into my compnent if anybody has a need for them.  I've kept it nice and simple for this version version though.
+####Other parameters
+[Seiyria's Bootstrap Slider] (https://github.com/seiyria/bootstrap-slider) component has many other options and parameters, of course.  I can look at rolling some of those into my compnent if anybody has a need for them.  I've kept it nice and simple for this initial version though.
 
 
 
