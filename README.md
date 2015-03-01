@@ -31,7 +31,7 @@ But knock me down with a feather if there aren't problems with IE.
 ####Internet Explorer Problems
 
 #####Range control not supported on IE9
-As the heading says, the &lt;input type="range"&gt; HTML5 element simply isnt supported on IE 9 and below.  It will actually display as a type="text" element, so instead of slider, you'll get a text box with a number in it.
+As the heading says, the &lt;input type="range"&gt; HTML5 element simply isn't supported on IE 9 and below.  It will actually display as a type="text" element, so instead of slider, you'll get a text box with a number in it.
 
 This is what prompted me to create a React control that would fall back to the Bootstrap Slider for browsers that didn't support the &lt;input type="range"&gt; element.
 
@@ -50,8 +50,7 @@ Sweet, I could now insert the Bootstrap Slider for browsers that don't support t
 
 
 #####Change and Input events don't work correctly on IE 10 & 11
-Apparently, the initial spec for the HTML5 range input element was defined rather vaguely.  In particular, it wasn't clear that the it's actually the Input event ('onInput' in ReactJS) that coders should look at to see if the user has moved the slider.  Whereas the Change event ('onChange' in ReactJS) is to be triggered when the user has actually *comitted* their change - i.e they've let go of the slider.  The Impressive Webs site has [a more detailed explanation of how the range slider events work](http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/).
-
+Apparently, the initial spec for the HTML5 range input element was defined rather vaguely.  In particular, it wasn't clear that the it's actually the Input event ('onInput' in ReactJS) that coders should look at to see if the user has moved the slider.  Whereas the Change event ('onChange' in ReactJS) is to be triggered only when the user has actually *comitted* their change - i.e they've let go of the slider.  The Impressive Webs site has [a more detailed explanation of how the range slider events work](http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/).
 
 In my testing with ReactJS, the two events work in the same way: they both fire when the user moves the slider, and not when (s)he's let go of it.  Except for IE, which as ever, goes its own way.  
 
@@ -64,12 +63,13 @@ Check the **oninput in IE11** video on [that Impressive Webs article](http://www
 
 It's not just ugly, IMHO.  It's inpractical too.  See how the handler (the bit on the control that you actually slide) is the same height as the rest of the sider?  Only IE does it this way.  Other browsers display a handler that is much more prominent, so its easier to pick out with your eye, not to mention with your finger if you're on a tablet.  (Thankfully, the latter would only ever be an issue on Microsoft tablets, and seeing as they've sold about a dozen of these through the known universe, I guess that's not a major problem!.)
 
-In the end, I made an executive decision in my React Bootstrap Slider component: I don't display the native HTML5 slider control on IE.  At least not for IE 10 or IE 11.  IE 12 is, apparently, a whole new ball game - it looks like Microsoft is ditching the much loved (not!) Trident rendering engine for Webkit!!!  I've not actually tested it on IE 12, but I've given it the benefit of the doubt, and will display the native control there.
+In the end, I made an executive decision in my React Bootstrap Slider component: I don't display the native HTML5 slider control on IE.  At least not for IE 10 or IE 11.  IE 12 is, apparently, a whole new ball game - it looks like Microsoft is ditching the much loved (not!) Trident rendering engine for Webkit.  I've not actually tested it on IE 12, but I've given it the benefit of the doubt, and will display the native control there.
 
 This means that I've had to implement some nasty, browser-sniffing code after all, and I've implemented this as a ReactJS mixin, BrowserDetectMixin.  The mixin will report back IE version numbers up to version 12.  The component code will then display the Bootstrap Slider for IE 10 and IE 11.  For all other browsers, it will then do the feature detection thing, displaying the native HTML5 slider for those browsers that support it, and the Bootstrap Slider for those that don't!
 
 
 ###Requirements
+- [ReactJS](http://facebook.github.io/react/).  Of course.
 - [jQuery](http://jquery.com/).  I'll look at a non-jQuery version soon.  It shouldn't be too hard
 - [Bootstrap 3](http://getbootstrap.com/), the JavaScript and the CSS
 - [Seiyria's Bootstrap Slider] (https://github.com/seiyria/bootstrap-slider), again the JavaScript and the CSS
@@ -85,7 +85,7 @@ The component is called SliderNativeBootstrap.  Here's an example of how you mig
 ```JavaScript
 <SliderNativeBootstrap
     value={this.state.currentValue}
-    handleChange={this.changeValue}
+    handleChange={this.changeValue}http://facebook.github.io/react/
     step={this.state.step}
     max={this.state.max}
     min={this.state.min} />
@@ -100,6 +100,16 @@ An optional parameter is **polyfill**.  When set to **true** (the default if you
 ```JavaScript
 <SliderNativeBootstrap
 	polyfill={false}
+    value={this.state.currentValue}
+    handleChange={this.changeValue}
+    step={this.state.step}
+    max={this.state.max}
+    min={this.state.min} />
+```
+Alternatively, you could just the BootstrapSlider component instead.  It takes the same paramaters as SliderNativeBootstrap, except of course, for the **polyfill** parameter:
+
+```JavaScript
+<BootstrapSlider
     value={this.state.currentValue}
     handleChange={this.changeValue}
     step={this.state.step}
