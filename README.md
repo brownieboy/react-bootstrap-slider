@@ -54,7 +54,7 @@ Apparently, the initial spec for the HTML5 range input element was defined rathe
 
 In my testing with ReactJS, the two events work in the same way: they both fire when the user moves the slider, and not when (s)he's let go of it.  Except for IE, which as ever, goes its own way.  
 
-In my testing, I couldn't get IE 10 to respond correctly to either event with ReactJS.  I'm not sure if this is a ReactJS issue or an IE issue or a mixture of both.  I was going to dig into this further, but decided not to because...
+In my testing, I couldn't get IE 10 to respond correctly to either event with ReactJS.  I'm not sure if this is a ReactJS issue or an IE issue or a mixture of both.  There's [a discussion of the issue on React's Github Issues section](https://github.com/facebook/react/issues/3096) and [another one here](https://github.com/facebook/react/issues/554).  I was going to try coding around this issue for IE, but decided not to because...
 
 
 
