@@ -50,6 +50,19 @@ var BootstrapSlider = React.createClass({displayName: "BootstrapSlider",
             .bootstrapSlider("setAttribute", "max", this.props.max)
             .bootstrapSlider("setAttribute", "step", this.props.step)
             .bootstrapSlider("setValue", this.props.value);
+
+        var sliderEnable = this.props.disabled === "disabled" ? false : true;
+        var currentlyEnabled = $(this.mySlider).bootstrapSlider("isEnabled");
+        if(sliderEnable) {
+            if(!currentlyEnabled) {
+                $(this.mySlider).bootstrapSlider("enable");
+            }
+        }
+        else {
+            if(currentlyEnabled) {
+                $(this.mySlider).bootstrapSlider("disable");
+            }
+        }
     }
 });
 
