@@ -1,15 +1,15 @@
-var SliderNative = React.createClass({
+var SliderNative = React.createClass({displayName: "SliderNative",
     // Front end to the HTML5 native slider, i.e <input type="range">
     render: function () {
         return (
-            <input id="mySlider"
-                type="range"
-                value={this.props.value}
-                min={this.props.min}
-                max={this.props.max}
-                onInput={this.props.handleChange}
-                onChange={this.handleOnChange}
-                step={this.props.step} />
+            React.createElement("input", {id: "mySlider", 
+                type: "range", 
+                value: this.props.value, 
+                min: this.props.min, 
+                max: this.props.max, 
+                onInput: this.props.handleChange, 
+                onChange: this.handleOnChange, 
+                step: this.props.step})
         );
     },
     handleOnChange: function () {
@@ -18,12 +18,12 @@ var SliderNative = React.createClass({
     }
 });
 
-var BootstrapSlider = React.createClass({
+var BootstrapSlider = React.createClass({displayName: "BootstrapSlider",
     // Bootstrap-slider.js from https://github.com/seiyria/bootstrap-slider
     render: function () {
         // The slider's an input.  That's all we need.  We'll do the rest in JS.
         return (
-                <input />
+                React.createElement("input", null)
             );
     },
     componentDidMount: function () {
@@ -67,7 +67,7 @@ var BootstrapSlider = React.createClass({
 });
 
 
-var SliderNativeBootstrap = React.createClass({
+var SliderNativeBootstrap = React.createClass({displayName: "SliderNativeBootstrap",
     mixins: [BrowserDetectMixin],
     componentWillMount: function () {
         // Although IE10+ displays the native range control,it:
@@ -96,18 +96,18 @@ var SliderNativeBootstrap = React.createClass({
         if(polyfill) {
             if(this.supportsRange) {
                 return (
-                    <SliderNative {...this.props} />
+                    React.createElement(SliderNative, React.__spread({},  this.props))
                 );
             }
             else {
                 return (
-                    <BootstrapSlider {...this.props} />
+                    React.createElement(BootstrapSlider, React.__spread({},  this.props))
                 );
             }
         }
         else {
             return (
-                <BootstrapSlider {...this.props} />
+                React.createElement(BootstrapSlider, React.__spread({},  this.props))
             );            
         }
     }

@@ -1,7 +1,7 @@
 # React Bootstrap Native Slider
 
 ###Overview
-A ReactJS wrapper for the HTML5 input type="range" slider component, but using [seiyria's Bootstrap Slider component] (https://github.com/seiyria/bootstrap-slider) as a polyfill where the HTML5 version is not available (IE 9) or otherwise suffers from a problematic implementation (any other version of IE).
+A ReactJS wrapper for the HTML5 input type="range" slider component, but using [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider) as a polyfill where the HTML5 version is not available (IE 9) or otherwise suffers from a problematic implementation (any other version of IE).
 
 
 ###Background
@@ -33,7 +33,7 @@ But knock me down with a feather if there aren't problems with IE.
 #####Range control not supported on IE9
 As the heading says, the &lt;input type="range"&gt; HTML5 element simply isn't supported on IE 9 and below.  It will actually display as a type="text" element, so instead of slider, you'll get a text box with a number in it.
 
-This is what prompted me to create a React control that would fall back to the Bootstrap Slider for browsers that didn't support the &lt;input type="range"&gt; element.
+This is what prompted me to create a React control that would fall back to the Bootstr-ap Slider for browsers that didn't support the &lt;input type="range"&gt; element.
 
 As we all know, browser sniffing is evil, so I found this bit of code (can't remember where) to feature detect the presence of the input type="range" element:
 
@@ -72,7 +72,7 @@ This means that I've had to implement some nasty, browser-sniffing code after al
 - [ReactJS](http://facebook.github.io/react/).  Of course.
 - [jQuery](http://jquery.com/).  I'll look at a non-jQuery version soon.  It shouldn't be too hard
 - [Bootstrap 3](http://getbootstrap.com/), the JavaScript and the CSS
-- [Seiyria's Bootstrap Slider] (https://github.com/seiyria/bootstrap-slider), again the JavaScript and the CSS
+- [Seiyria's Bootstrap Slider](https://github.com/seiyria/bootstrap-slider), again the JavaScript and the CSS
 - react-native-bootstrap-slider.js and browserdetect-mixin.js from this repository
 
 
@@ -88,10 +88,14 @@ The component is called SliderNativeBootstrap.  Here's an example of how you mig
     handleChange={this.changeValue}http://facebook.github.io/react/
     step={this.state.step}
     max={this.state.max}
-    min={this.state.min} />
+    min={this.state.min}
+    disabled="disabled" />
+    }
 ```
 
 The **value**, **step**, **max** and **min** parameters should be self-explanatory.  handleChange is the callback method that will be called when the slider actually changes.  (NB: this is the onInput event for the native HTML5 control, and the "change" event for the Bootstrap slider.)
+
+If the optional parameter **disabled** is included, and is set to "disabled", then the slider will display in a disabled state.  If the parameter is not included, or is set to anything else except "disabled", then the slider control will be enabled. 
 
 
 ####Forcing the Bootstrap version all the time
@@ -127,7 +131,7 @@ Click on the **Change axes!** button, and the slider range changes from 0 to 2,0
 
 
 ###Future work
-[Seiyria's Bootstrap Slider] (https://github.com/seiyria/bootstrap-slider) component has many other options and parameters, of course.  I can look at rolling some of those into my compnent if anybody has a need for them.  I've kept it nice and simple for this initial version though.
+[Seiyria's Bootstrap Slider](https://github.com/seiyria/bootstrap-slider) component has many other options and parameters, of course.  I can look at rolling some of those into my compnent if anybody has a need for them.  I've kept it nice and simple for this initial version though.
 
 I'll be putting the component on [npm](https://www.npmjs.com/), and thereby the [React Components site](http://react-components.com/) just as soon as I work out how to do it!
 
