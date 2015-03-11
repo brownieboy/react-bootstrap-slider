@@ -85,7 +85,7 @@ The component is called SliderNativeBootstrap.  Here's an example of how you mig
 ```JavaScript
 <SliderNativeBootstrap
     value={this.state.currentValue}
-    handleChange={this.changeValue}http://facebook.github.io/react/
+    handleChange={this.changeValue}
     step={this.state.step}
     max={this.state.max}
     min={this.state.min}

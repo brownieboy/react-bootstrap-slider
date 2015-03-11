@@ -1,6 +1,6 @@
 {
-  "name": "React Bootstrap Native Slider",
-  "version": "1.0.0",
+  "name": "react-bootstrap-native-slider",
+  "version": "1.0.1",
   "description": "Native Slider with Boostrap Slider failover component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
