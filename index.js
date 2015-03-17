@@ -124,14 +124,14 @@ var SliderNative = function(
             require('react'),
             require('jquery'),
             require('bootstrap-slider'),
-            require('javascript/libs/browserdetect-mixin.js'));
+            require('./javascript/libs/browserdetect-mixin.js'));
     } else if (typeof define === 'function' && define.amd) {
         define(function(require) {
             return SliderNative(
                 require('react'),
                 require('jquery'),
                 require('bootstrap-slider'),
-                require('javascript/libs/browserdetect-mixin.js'));
+                require('./javascript/libs/browserdetect-mixin.js'));
         });
     } else {
         window.SliderNative = SliderNative(
