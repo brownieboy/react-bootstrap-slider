@@ -73,7 +73,7 @@ If you want to force the HTML5 native slider control all the time and never see 
 
 ```import ReactNativeSlider from 'react-bootstrap-native-slider';   // For ES6```
 
-Corresondingly, if you want to fore the Bootstrap version all the time, import its module like so:
+Correspondingly, if you want to fore the Bootstrap version all the time, import its module like so:
 
 ```import ReactBootstrapSlider from 'react-bootstrap-native-slider';   // For ES6```
 
