@@ -80,6 +80,7 @@ Correspondingly, if you want to fore the Bootstrap version all the time, import 
 
 (Check the CommonJS versions let you import all functions)
 
+
 ###Demo
 Is [here](http://users.on.net/~mikeandgeminoz/code/react.bootstrap.slidertest/index.html).
 

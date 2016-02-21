@@ -4,6 +4,11 @@ import es6BindAll from 'es6bindall';
 import ReactNativeBootstrapSlider from  './react-native-bootstrap-slider.jsx';
 console.log("app.jsx loaded");
 
+var ReactNativeBootstrapSliderObj = require('./react-native-bootstrap-slider.jsx');
+
+var ReactNativeSlider = ReactNativeBootstrapSliderObj.ReactNativeSlider;
+console.log("stop");
+
 // const mySlider = new reactNativeBootstrapSlider();
 
 class Demo extends React.Component {
