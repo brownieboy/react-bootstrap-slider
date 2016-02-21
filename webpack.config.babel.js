@@ -103,7 +103,18 @@ if (TARGET === 'start' || !TARGET) {
     exportModule = merge(common, {
         output: {
             filename: 'src/main.js'
-        }
+        },
+        devServer: {
+            colors: true,
+            noInfo: false,
+            historyApiFallback: true,
+            // hot: true,
+            inline: true,
+            progress: true
+        },
+        plugins: [
+            new webpack.HotModuleReplacementPlugin()
+        ]
     });
 }
 

@@ -1,18 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+// import 'bootstrap';
 import 'bootstrap-slider';	// No variable name.  It will attach itself to jQuery.
 import browser from 'detect-browser';
 import es6BindAll from 'es6bindall';
-
 // jQuery assumed to be provided as a global
 
-console.log("react-native-bootstrapslider.jsx loaded");
-console.log(browser.name);
-console.log(browser.version);
 
-class ReactSliderNative extends React.component {
-	constructor(props) {
-		super(props);
-	}
+class ReactNativeSlider extends React.Component {
 	render() {
 	   return (
          <input id="mySlider"
@@ -22,42 +17,36 @@ class ReactSliderNative extends React.component {
              max={this.props.max}
              onInput={this.props.handleChange}
              onChange={this.handleOnChange}
-             step={this.props.step} />
+             step={this.props.step}
+             className="react-native-slider" />
      );
 	}
+	handleOnChange() {
+        // Nothing to do here.  Only present to prevent reactjs warning
+        // about onChange not being present
+    }
 }
 
+        // this.mySlider = $(this.getDOMNode()).bootstrapSlider({
+        //     "tooltip": this.props.tooltip || "show"
+        // });
 
-class reactNativeBootstrapSlider extends React.component {
-	render() {
-	   return (
-         <input id="mySlider"
-             type="range"
-             value={this.props.value}
-             min={this.props.min}
-             max={this.props.max}
-             onInput={this.props.handleChange}
-             onChange={this.handleOnChange}
-             step={this.props.step} />
-     );
-	}
-}
 
-class BootstrapSlider extends React.component {
+class ReactBootstrapSlider extends React.Component {
 	constructor(props){
 		super(props);
 		es6BindAll(this, ["updateSliderValues"]);
 	}
-    // Bootstrap-slider.js from https://github.com/seiyria/bootstrap-slider
     render() {
-        // The slider's an input.  That's all we need.  We'll do the rest in JS.
+        // The slider's an input.  That's all we need.  We'll do the rest in
+        // the componentDidMount() method.
         return <input />;
     }
 
     componentDidMount() {
         var that = this;
         $.fn.bootstrapSlider = $.fn.bootstrapSlider || $.fn.slider;
-        this.mySlider = $(this).bootstrapSlider({
+        this.mySlider = $(ReactDOM.findDOMNode(this)).bootstrapSlider({
             "tooltip": this.props.tooltip || "show"
         });
         this.updateSliderValues();
@@ -95,7 +84,7 @@ class BootstrapSlider extends React.component {
 }
 
 
-class SliderNativeBootstrap extends React.component {
+class ReactSliderNativeBootstrap extends React.Component {
     componentWillMount() {
         // Although IE10+ displays the native range control,it:
         //      a) looks crap
@@ -120,16 +109,17 @@ class SliderNativeBootstrap extends React.component {
     render() {
         var polyfill = typeof this.props.polyfill == "undefined" ? true : this.props.polyfill;
         if(polyfill && this.supportsRange) {
-             return <SliderNative {...this.props} />;
+             return <ReactNativeSlider {...this.props} />;
+
           }
           else {
-             return <BootstrapSlider {...this.props} />;
+             return <ReactBootstrapSlider {...this.props} />;
          }
     }
 }
 
 
-export default reactNativeBootstrapSlider;
+export default ReactSliderNativeBootstrap;
 
 
 

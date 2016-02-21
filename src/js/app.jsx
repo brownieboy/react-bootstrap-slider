@@ -1,9 +1,12 @@
-import reactNativeBootstrapSlider from  './react-native-bootstrap-slider.jsx';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import es6BindAll from 'es6bindall';
+import ReactNativeBootstrapSlider from  './react-native-bootstrap-slider.jsx';
 console.log("app.jsx loaded");
 
 // const mySlider = new reactNativeBootstrapSlider();
 
-class Demo extends ReactDOM {
+class Demo extends React.Component {
     constructor(props){
     	super(props);
       this.state = {
@@ -12,7 +15,7 @@ class Demo extends ReactDOM {
          max: this.props.max,
          step: this.props.step
       };
-     	es6BindAll(this, ["changeValues", "changeAxes"]);
+     	es6BindAll(this, ["changeValue", "changeAxes"]);
    }
    changeValue(e) {
         console.log("changeValue");
@@ -30,7 +33,7 @@ class Demo extends ReactDOM {
         var newValue = this.state.currentValue;
         return (
             <div>
-                <SliderNativeBootstrap
+                 <ReactNativeBootstrapSlider
                     value={this.state.currentValue}
                     handleChange={this.changeValue}
                     step={this.state.step}
@@ -48,6 +51,7 @@ class Demo extends ReactDOM {
 }
 
 ReactDOM.render(<Demo
+		polyfill={false}
         startValue={3000}
         max={20000}
         min={1000}
