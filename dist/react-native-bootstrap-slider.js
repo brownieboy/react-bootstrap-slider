@@ -16,6 +16,7 @@
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
+    exports.ReactNativeBootstrapSlider = exports.ReactBootstrapSlider = exports.ReactNativeSlider = undefined;
 
     var _react2 = _interopRequireDefault(_react);
 
@@ -79,7 +80,7 @@
         if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
 
-    var ReactNativeSlider = function (_React$Component) {
+    var ReactNativeSlider = exports.ReactNativeSlider = function (_React$Component) {
         _inherits(ReactNativeSlider, _React$Component);
 
         function ReactNativeSlider() {
@@ -112,7 +113,7 @@
         return ReactNativeSlider;
     }(_react2.default.Component);
 
-    var ReactBootstrapSlider = function (_React$Component2) {
+    var ReactBootstrapSlider = exports.ReactBootstrapSlider = function (_React$Component2) {
         _inherits(ReactBootstrapSlider, _React$Component2);
 
         function ReactBootstrapSlider(props) {
@@ -175,16 +176,16 @@
         return ReactBootstrapSlider;
     }(_react2.default.Component);
 
-    var ReactSliderNativeBootstrap = function (_React$Component3) {
-        _inherits(ReactSliderNativeBootstrap, _React$Component3);
+    var ReactNativeBootstrapSlider = exports.ReactNativeBootstrapSlider = function (_React$Component3) {
+        _inherits(ReactNativeBootstrapSlider, _React$Component3);
 
-        function ReactSliderNativeBootstrap() {
-            _classCallCheck(this, ReactSliderNativeBootstrap);
+        function ReactNativeBootstrapSlider() {
+            _classCallCheck(this, ReactNativeBootstrapSlider);
 
-            return _possibleConstructorReturn(this, Object.getPrototypeOf(ReactSliderNativeBootstrap).apply(this, arguments));
+            return _possibleConstructorReturn(this, Object.getPrototypeOf(ReactNativeBootstrapSlider).apply(this, arguments));
         }
 
-        _createClass(ReactSliderNativeBootstrap, [{
+        _createClass(ReactNativeBootstrapSlider, [{
             key: 'componentWillMount',
             value: function componentWillMount() {
                 // Although IE10+ displays the native range control,it:
@@ -217,8 +218,8 @@
             }
         }]);
 
-        return ReactSliderNativeBootstrap;
+        return ReactNativeBootstrapSlider;
     }(_react2.default.Component);
 
-    exports.default = ReactSliderNativeBootstrap;
+    exports.default = ReactNativeBootstrapSlider;
 });

@@ -38,17 +38,22 @@ In the end, I made an executive decision in my React Bootstrap Slider component:
 ###How to use
 Install from npm with:
 
-```npm install --save react-bootstrap-native-slider```
+    npm install --save react-bootstrap-native-slider
 
-Require or import like so:
+Require or import like so for ES6:
 
-```import ReactSliderNativeBootstrap from 'react-bootstrap-native-slider';  // For ES6 ```
+    import ReactSliderNativeBootstrap from 'react-bootstrap-native-slider';
 
-or
+or like this for CommonJS:
 
-```var ReactSliderNativeBootstrap = require('react-bootstrap-native-slider') // For CommonJS ```
+    var reactNativeBootstrapSliderObj = require('./react-native-bootstrap-slider.jsx');
+    var ReactNativeBootstrapSlider = reactNativeBootstrapSliderObj.ReactNativeBootstrapSlider;
+
+The CommonJS syntax is a little more complicated because although CommonJS can handle a default export and named exports, unlike ES6 it cannot handle both at the same time.  Note: this CommonJS syntax is a breaking change from version 1.0.3; sorry about that.
+
 
 The control is implmented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
+
 
 Here's an example of how you might call it in your ReactJS's render method:
 
@@ -69,17 +74,37 @@ If the optional parameter **disabled** is included, and is set to "disabled", th
 
 
 ####Forcing the Bootstrap or Native version all the time
-If you want to force the HTML5 native slider control all the time and never see the Bootstrap version, then import its module like so:
+If you want to force the HTML5 native slider control all the time and never see the Bootstrap version, then you can use the module's named imports to import that actual class/function.  Here's how to do it in ES6:
 
-```import ReactNativeSlider from 'react-bootstrap-native-slider';   // For ES6```
+    import ReactNativeSlider from 'react-bootstrap-native-slider';
 
-Correspondingly, if you want to fore the Bootstrap version all the time, import its module like so:
+Correspondingly, if you want to forcee the Bootstrap version all the time, then import _its_ module like so in ES6:
 
-```import ReactBootstrapSlider from 'react-bootstrap-native-slider';   // For ES6```
+    import ReactBootstrapSlider from 'react-bootstrap-native-slider';
+
+Here's how you would do the same using CommonJS:
+
+    var reactNativeBootstrapSliderObj = require('./react-native-bootstrap-slider.jsx');
+    var ReactNativeSlider = reactNativeBootstrapSliderObj.ReactNativeSlider;
+    var ReactBootstrapSlider  = reactNativeBootstrapSliderObj.ReactBootstrapSlider;
+    var ReactNativeBootstrapSlider = reactNativeBootstrapSliderObj.ReactNativeBootstrapSlider;
 
 
-(Check the CommonJS versions let you import all functions)
+##Development
+To develop, issue this command:
+    npm run start
 
+then point your browser to [http://localhost:8080/src/index.html](http://localhost:8080/src/index.html).  You need to edit the code in the /src folder.  It will update in the browser automatically, courtesy via webpack-dev-server.
+
+To build the distribution version, issue:
+    npm run build
+
+The build JavaScript file will go on the /dist folder as react-native-bootstrap-slider.js.  This is the main file for the project, which is used wheneve this the react-bootstrap-native-slider package is loaded from npm.
+
+To build the demo, issue:
+   npm run buildDemo
+
+Wepback will build the JavaScript files for the demo in the /demo/js/ folder.  Your cord will go in the slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap etc) goes into the vendor.min.js file.  Source maps are generated both.
 
 ###Demo
 Is [here](http://users.on.net/~mikeandgeminoz/code/react.bootstrap.slidertest/index.html).

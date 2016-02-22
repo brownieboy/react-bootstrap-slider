@@ -1,11 +1,12 @@
 {
   "name": "react-bootstrap-native-slider",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Native Slider with Boostrap Slider failover component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "babel ./src/js/react-native-bootstrap-slider.jsx -o ./dist/react-native-bootstrap-slider.js"
+    "build": "babel ./src/js/react-native-bootstrap-slider.jsx -o ./dist/react-native-bootstrap-slider.js",
+    "buildDemo": "webpack"
   },
   "main": "dist/react-native-bootstrap-slider.js",
   "repository": {

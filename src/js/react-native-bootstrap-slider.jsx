@@ -7,7 +7,7 @@ import es6BindAll from 'es6bindall';
 // jQuery assumed to be provided as a global
 
 
-class ReactNativeSlider extends React.Component {
+export class ReactNativeSlider extends React.Component {
 	render() {
 	   return (
          <input id="mySlider"
@@ -27,12 +27,7 @@ class ReactNativeSlider extends React.Component {
     }
 }
 
-        // this.mySlider = $(this.getDOMNode()).bootstrapSlider({
-        //     "tooltip": this.props.tooltip || "show"
-        // });
-
-
-class ReactBootstrapSlider extends React.Component {
+export class ReactBootstrapSlider extends React.Component {
 	constructor(props){
 		super(props);
 		es6BindAll(this, ["updateSliderValues"]);
@@ -84,7 +79,7 @@ class ReactBootstrapSlider extends React.Component {
 }
 
 
-class ReactSliderNativeBootstrap extends React.Component {
+export class ReactNativeBootstrapSlider extends React.Component {
     componentWillMount() {
         // Although IE10+ displays the native range control,it:
         //      a) looks crap
@@ -118,8 +113,6 @@ class ReactSliderNativeBootstrap extends React.Component {
     }
 }
 
-
-export default ReactSliderNativeBootstrap;
-
+export default ReactNativeBootstrapSlider;
 
 

@@ -4,6 +4,7 @@ import merge from 'webpack-merge';
 
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
+const srcDir = path.join(__dirname, 'src');
 
 var exportModule;
 
@@ -35,8 +36,27 @@ const common = {
     devtool: 'source-map'
 };
 
+if (TARGET === "buildDemo") {
+    exportModule = merge(common, {
+    output: {
+            path: path.resolve(ROOT_PATH, 'demo/js/'),
+            filename: 'slider-bundle.min.js'
+        },
+        plugins: [
+            new webpack.optimize.CommonsChunkPlugin("vendor", 'vendor.min.js', function(module, count) {
+                return module.resource && module.resource.indexOf(srcDir) === -1;
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+        ]
+    });
+
+}
+
 if (TARGET === 'start' || !TARGET) {
-    console.log("Run start");
     exportModule = merge(common, {
         output: {
             filename: 'src/main.js'
