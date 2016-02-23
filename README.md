@@ -31,7 +31,7 @@ The HTML5 slider control has problems on internet explorer:
 1.  It isn't supported on IE9
 1.  It's poorly implmented visually on IE10 and above.  The part that you have to grap with your mouse, or finger on tablet, to actually slide the values is way too small, IMHO. (Check the **oninput in IE11** video on [this Impressive Webs article](http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/) to see what I mean).
 
-In the end, I made an executive decision in my React Bootstrap Slider component: I don't display the native HTML5 slider control on IE.  At least not for IE 10 or IE 11, but I do on IE 12/Edge.
+In the end, I made an executive decision in my React Bootstrap Slider component: I don't display the native HTML5 slider control on IE.
 
 
 

@@ -87,12 +87,14 @@ export class ReactNativeBootstrapSlider extends React.Component {
         // So have augmented a feature test with some good, old-fashioned
         // browser sniffing to always display the Bootstrap version on IE.
         var browserVersion = parseInt(browser.version, 10);
-        if (browser.name === "ie" && (browserVersion > 9 && browserVersion < 12)) {
-                // IE up to version 11
+        // if (browser.name === "ie" && (browserVersion > 9 && browserVersion < 12)) {
+        if (browser.name === "ie" || browser.name ==="edge") {
+        // IE all versions.  Note: previous versions of this  module used to display
+        // the native control on IE 12/Edge, but it actually looks crap there too.
                 this.supportsRange = false;
         }
         else {
-            // IE 12+ and all other browsers
+            // All other browsers except IE.
             // Test whether range input is accepted by creating such a field, then seeing what its
             // type is set to.
             var input = document.createElement('input');
