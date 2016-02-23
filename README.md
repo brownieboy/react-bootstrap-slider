@@ -92,16 +92,19 @@ Here's how you would do the same using CommonJS:
 
 ##Development
 To develop, issue this command:
+
     npm run start
 
 then point your browser to [http://localhost:8080/src/index.html](http://localhost:8080/src/index.html).  You need to edit the code in the /src folder.  It will update in the browser automatically, courtesy via webpack-dev-server.
 
 To build the distribution version, issue:
+
     npm run build
 
 The build JavaScript file will go on the /dist folder as react-native-bootstrap-slider.js.  This is the main file for the project, which is used wheneve this the react-bootstrap-native-slider package is loaded from npm.
 
 To build the demo, issue:
+
    npm run buildDemo
 
 Wepback will build the JavaScript files for the demo in the /demo/js/ folder.  Your cord will go in the slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap etc) goes into the vendor.min.js file.  Source maps are generated both.
