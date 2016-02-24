@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
     "build": "babel ./src/js/react-native-bootstrap-slider.jsx -o ./dist/react-native-bootstrap-slider.js",
-    "buildDemo": "webpack"
+    "buildDemo": "webpack",
+    "prepublish": "npm run build"
   },
   "main": "dist/react-native-bootstrap-slider.js",
   "repository": {
