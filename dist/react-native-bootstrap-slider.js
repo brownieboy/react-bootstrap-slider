@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', 'react', 'react-dom', 'detect-browser', 'es6bindall', 'bootstrap-slider'], factory);
+        define(['exports', 'react', 'react-dom', 'bootstrap-slider', 'detect-browser', 'es6bindall'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('react'), require('react-dom'), require('detect-browser'), require('es6bindall'), require('bootstrap-slider'));
+        factory(exports, require('react'), require('react-dom'), require('bootstrap-slider'), require('detect-browser'), require('es6bindall'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.reactDom, global.detectBrowser, global.es6bindall, global.bootstrapSlider);
+        factory(mod.exports, global.react, global.reactDom, global.bootstrapSlider, global.detectBrowser, global.es6bindall);
         global.reactNativeBootstrapSlider = mod.exports;
     }
-})(this, function (exports, _react, _reactDom, _detectBrowser, _es6bindall) {
+})(this, function (exports, _react, _reactDom, _bootstrapSlider, _detectBrowser, _es6bindall) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -21,6 +21,8 @@
     var _react2 = _interopRequireDefault(_react);
 
     var _reactDom2 = _interopRequireDefault(_reactDom);
+
+    var _bootstrapSlider2 = _interopRequireDefault(_bootstrapSlider);
 
     var _detectBrowser2 = _interopRequireDefault(_detectBrowser);
 
@@ -136,8 +138,7 @@
             key: 'componentDidMount',
             value: function componentDidMount() {
                 var that = this;
-                $.fn.bootstrapSlider = $.fn.bootstrapSlider || $.fn.slider;
-                this.mySlider = $(_reactDom2.default.findDOMNode(this)).bootstrapSlider({
+                this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), {
                     "tooltip": this.props.tooltip || "show"
                 });
                 this.updateSliderValues();
@@ -145,7 +146,7 @@
                     var fakeEvent = {
                         target: {}
                     };
-                    fakeEvent.target.value = e.value.newValue;
+                    fakeEvent.target.value = e.newValue;
                     that.props.handleChange(fakeEvent);
                 });
             }
@@ -157,17 +158,20 @@
         }, {
             key: 'updateSliderValues',
             value: function updateSliderValues() {
-                $(this.mySlider).bootstrapSlider("setAttribute", "min", this.props.min).bootstrapSlider("setAttribute", "max", this.props.max).bootstrapSlider("setAttribute", "step", this.props.step).bootstrapSlider("setValue", this.props.value);
+                this.mySlider.setAttribute("min", this.props.min);
+                this.mySlider.setAttribute("max", this.props.max);
+                this.mySlider.setAttribute("step", this.props.step);
+                this.mySlider.setValue(this.props.value);
 
                 var sliderEnable = this.props.disabled === "disabled" ? false : true;
-                var currentlyEnabled = $(this.mySlider).bootstrapSlider("isEnabled");
+                var currentlyEnabled = this.mySlider.isEnabled();
                 if (sliderEnable) {
                     if (!currentlyEnabled) {
-                        $(this.mySlider).bootstrapSlider("enable");
+                        this.mySlider.enable();
                     }
                 } else {
                     if (currentlyEnabled) {
-                        $(this.mySlider).bootstrapSlider("disable");
+                        this.mySlider.disable();
                     }
                 }
             }
