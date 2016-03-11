@@ -26,13 +26,6 @@ const common = {
             }
         }]
     },
-    plugins: [
-        // Provide jQuery as a global
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        })
-    ],
     devtool: 'source-map'
 };
 

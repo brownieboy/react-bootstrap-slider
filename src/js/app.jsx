@@ -14,14 +14,14 @@ console.log("stop");
 
 class Demo extends React.Component {
     constructor(props){
-    	super(props);
-      this.state = {
-         currentValue: this.props.startValue,
-         min: this.props.min,
-         max: this.props.max,
-         step: this.props.step
-      };
-     	es6BindAll(this, ["changeValue", "changeAxes"]);
+        super(props);
+        this.state = {
+            currentValue: props.startValue,
+            min: props.min,
+            max: props.max,
+            step: props.step
+        };
+        es6BindAll(this, ["changeValue", "changeAxes"]);
    }
    changeValue(e) {
         console.log("changeValue");
@@ -57,7 +57,7 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo
-		polyfill={false}
+        polyfill={false}
         startValue={3000}
         max={20000}
         min={1000}
