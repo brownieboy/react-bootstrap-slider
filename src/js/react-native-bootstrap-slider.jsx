@@ -7,7 +7,7 @@ import es6BindAll from 'es6bindall';
 export class ReactNativeSlider extends React.Component {
 	render() {
 	   return (
-         <input id="mySlider"
+         <input
              type="range"
              value={this.props.value}
              min={this.props.min}

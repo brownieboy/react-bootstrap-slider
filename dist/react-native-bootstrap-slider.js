@@ -94,7 +94,7 @@
         _createClass(ReactNativeSlider, [{
             key: 'render',
             value: function render() {
-                return _react2.default.createElement('input', { id: 'mySlider',
+                return _react2.default.createElement('input', {
                     type: 'range',
                     value: this.props.value,
                     min: this.props.min,

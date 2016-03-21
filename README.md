@@ -29,7 +29,7 @@ It's about as simple a rendering as you could want in React.  You'd pass some pr
 ####Internet Explorer Problems
 The HTML5 slider control has problems on internet explorer:
 1.  It isn't supported on IE9
-1.  It's poorly implmented visually on IE10 and above.  The part that you have to grap with your mouse, or finger on tablet, to actually slide the values is way too small, IMHO. (Check the **oninput in IE11** video on [this Impressive Webs article](http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/) to see what I mean).
+1.  It's poorly implemented visually on IE10 and above.  The part that you have to grap with your mouse, or finger on tablet, to actually slide the values is way too small, IMHO. (Check the **oninput in IE11** video on [this Impressive Webs article](http://www.impressivewebs.com/onchange-vs-oninput-for-range-sliders/) to see what I mean).
 
 In the end, I made an executive decision in my React Bootstrap Slider component: I don't display the native HTML5 slider control on IE.
 
@@ -52,7 +52,7 @@ or like this for CommonJS:
 The CommonJS syntax is a little more complicated because although CommonJS can handle a default export and named exports, unlike ES6 it cannot handle both at the same time.  Note: this CommonJS syntax is a breaking change from version 1.0.3; sorry about that.
 
 
-The control is implmented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
+The control is implemented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
 
 
 Here's an example of how you might call it in your ReactJS's render method:
@@ -78,7 +78,7 @@ If you want to force the HTML5 native slider control all the time and never see 
 
     import ReactNativeSlider from 'react-bootstrap-native-slider';
 
-Correspondingly, if you want to forcee the Bootstrap version all the time, then import _its_ module like so in ES6:
+Correspondingly, if you want to force the Bootstrap version all the time, then import _its_ module like so in ES6:
 
     import ReactBootstrapSlider from 'react-bootstrap-native-slider';
 
@@ -101,7 +101,7 @@ To build the distribution version, issue:
 
     npm run build
 
-The build JavaScript file will go on the /dist folder as react-native-bootstrap-slider.js.  This is the main file for the project, which is used wheneve this the react-bootstrap-native-slider package is loaded from npm.
+The build JavaScript file will go on the /dist folder as react-native-bootstrap-slider.js.  This is the main file for the project, which is used whenever this the react-bootstrap-native-slider package is loaded from npm.
 
 To build the demo, issue:
 
