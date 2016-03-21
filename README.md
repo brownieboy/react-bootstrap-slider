@@ -12,7 +12,7 @@ Here's how the native JavaScript control is rendered in my plug-in:
 ```JavaScript
     render: function () {
         return (
-            <input id="mySlider"
+            <input
                 type="range"
                 value={this.props.value}
                 min={this.props.min}
