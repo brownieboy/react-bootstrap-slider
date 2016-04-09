@@ -1,8 +1,8 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', 'react', 'react-dom', 'bootstrap-slider', 'detect-browser', 'es6bindall'], factory);
+        define(["exports", "react", "react-dom", "bootstrap-slider", "detect-browser", "es6bindall"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('react'), require('react-dom'), require('bootstrap-slider'), require('detect-browser'), require('es6bindall'));
+        factory(exports, require("react"), require("react-dom"), require("bootstrap-slider"), require("detect-browser"), require("es6bindall"));
     } else {
         var mod = {
             exports: {}
@@ -11,7 +11,7 @@
         global.reactNativeBootstrapSlider = mod.exports;
     }
 })(this, function (exports, _react, _reactDom, _bootstrapSlider, _detectBrowser, _es6bindall) {
-    'use strict';
+    "use strict";
 
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -92,20 +92,19 @@
         }
 
         _createClass(ReactNativeSlider, [{
-            key: 'render',
+            key: "render",
             value: function render() {
-                return _react2.default.createElement('input', {
-                    type: 'range',
+                return _react2.default.createElement("input", { type: "range",
                     value: this.props.value,
                     min: this.props.min,
                     max: this.props.max,
                     onInput: this.props.handleChange,
                     onChange: this.handleOnChange,
                     step: this.props.step,
-                    className: 'react-native-slider' });
+                    className: "react-native-slider" });
             }
         }, {
-            key: 'handleOnChange',
+            key: "handleOnChange",
             value: function handleOnChange() {
                 // Nothing to do here.  Only present to prevent reactjs warning
                 // about onChange not being present
@@ -128,14 +127,14 @@
         }
 
         _createClass(ReactBootstrapSlider, [{
-            key: 'render',
+            key: "render",
             value: function render() {
-                // The slider's an input.  That's all we need.  We'll do the rest in
+                // The slider"s an input.  That"s all we need.  We"ll do the rest in
                 // the componentDidMount() method.
-                return _react2.default.createElement('input', null);
+                return _react2.default.createElement("input", null);
             }
         }, {
-            key: 'componentDidMount',
+            key: "componentDidMount",
             value: function componentDidMount() {
                 var that = this;
                 this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), {
@@ -151,12 +150,12 @@
                 });
             }
         }, {
-            key: 'componentDidUpdate',
+            key: "componentDidUpdate",
             value: function componentDidUpdate() {
                 this.updateSliderValues();
             }
         }, {
-            key: 'updateSliderValues',
+            key: "updateSliderValues",
             value: function updateSliderValues() {
                 this.mySlider.setAttribute("min", this.props.min);
                 this.mySlider.setAttribute("max", this.props.max);
@@ -183,39 +182,37 @@
     var ReactNativeBootstrapSlider = exports.ReactNativeBootstrapSlider = function (_React$Component3) {
         _inherits(ReactNativeBootstrapSlider, _React$Component3);
 
-        function ReactNativeBootstrapSlider() {
+        function ReactNativeBootstrapSlider(props) {
             _classCallCheck(this, ReactNativeBootstrapSlider);
 
-            return _possibleConstructorReturn(this, Object.getPrototypeOf(ReactNativeBootstrapSlider).apply(this, arguments));
+            // Although IE10+ displays the native range control,it:
+            //      a) looks crap
+            //      b) doesn"t respond to its Input or Change events properly.
+            // So have augmented a feature test with some good, old-fashioned
+            // browser sniffing to always display the Bootstrap version on IE.
+            // var browserVersion = parseInt(browser.version, 10);
+            // if (browser.name === "ie" && (browserVersion > 9 && browserVersion < 12)) {
+            var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactNativeBootstrapSlider).call(this, props));
+
+            if (_detectBrowser2.default.name === "ie" || _detectBrowser2.default.name === "edge") {
+                // IE all versions.  Note: previous versions of this  module used to display
+                // the native control on IE 12/Edge, but it actually looks crap there too.
+                _this3.supportsRange = false;
+            } else {
+                // All other browsers except IE.
+                // Test whether range input is accepted by creating such a field, then seeing what its
+                // type is set to.
+                var input = document.createElement("input");
+                input.setAttribute("type", "range");
+                _this3.supportsRange = input.type !== "text" ? true : false;
+            }
+            return _this3;
         }
 
         _createClass(ReactNativeBootstrapSlider, [{
-            key: 'componentWillMount',
-            value: function componentWillMount() {
-                // Although IE10+ displays the native range control,it:
-                //      a) looks crap
-                //      b) doesn't respond to its Input or Change events properly.
-                // So have augmented a feature test with some good, old-fashioned
-                // browser sniffing to always display the Bootstrap version on IE.
-                var browserVersion = parseInt(_detectBrowser2.default.version, 10);
-                // if (browser.name === "ie" && (browserVersion > 9 && browserVersion < 12)) {
-                if (_detectBrowser2.default.name === "ie" || _detectBrowser2.default.name === "edge") {
-                    // IE all versions.  Note: previous versions of this  module used to display
-                    // the native control on IE 12/Edge, but it actually looks crap there too.
-                    this.supportsRange = false;
-                } else {
-                    // All other browsers except IE.
-                    // Test whether range input is accepted by creating such a field, then seeing what its
-                    // type is set to.
-                    var input = document.createElement('input');
-                    input.setAttribute('type', 'range');
-                    this.supportsRange = input.type !== "text" ? true : false;
-                }
-            }
-        }, {
-            key: 'render',
+            key: "render",
             value: function render() {
-                var polyfill = typeof this.props.polyfill == "undefined" ? true : this.props.polyfill;
+                var polyfill = typeof this.props.polyfill === "undefined" ? true : this.props.polyfill;
                 if (polyfill && this.supportsRange) {
                     return _react2.default.createElement(ReactNativeSlider, this.props);
                 } else {

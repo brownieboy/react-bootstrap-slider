@@ -16,9 +16,9 @@ const common = {
     entry: {
         app: path.resolve(ROOT_PATH) + "/src/js/app.jsx"
     },
-    resolve: {
-        modulesDirectories: ["node_modules", "bower_components"]
-    },
+    // resolve: {
+    //     modulesDirectories: ["node_modules", "bower_components"]
+    // },
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -34,7 +34,7 @@ const common = {
 
 if (TARGET === "buildDemo") {
     exportModule = merge(common, {
-    output: {
+        output: {
             path: path.resolve(ROOT_PATH, "demo/js/"),
             filename: "slider-bundle.min.js"
         },
@@ -49,7 +49,6 @@ if (TARGET === "buildDemo") {
             })
         ]
     });
-
 }
 
 if (TARGET === "start" || !TARGET) {

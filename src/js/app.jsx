@@ -43,7 +43,7 @@ class Demo extends React.Component {
                     handleChange = { this.changeValue }
                     step = { this.state.step }
                     max = { this.state.max }
-                    min = { this.state.min }/>
+                    min = { this.state.min } />
                  <br /> <br />
                 Value: { newValue }
                 <br /><br />
