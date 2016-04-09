@@ -118,6 +118,7 @@ Click on the **Change axes!** button, and the slider range changes from 0 to 2,0
 
 
 ##Updates
+Version 1.1.6: April 9 2016.  Changed to point to renamed Git repository.  (No actual code changes.)
 Version 1.1.5: April 9 2016.  Updated to React 15.
 
 

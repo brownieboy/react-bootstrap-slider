@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-native-slider",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Native Slider with Boostrap Slider failover component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
   "main": "dist/react-native-bootstrap-slider.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/brownieboy/react.bootstrap.slidertest.git"
+    "url": "https://github.com/brownieboy/react-bootstrap-native-slider.git"
   },
   "keywords": [
     "react-component",
@@ -22,7 +22,7 @@
     "bootstrap"
   ],
   "bugs": {
-    "url": "https://github.com/brownieboy/react.bootstrap.slidertest/issues"
+    "url": "https://github.com/brownieboy/react-bootstrap-native-slider/issues"
   },
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
