@@ -34,9 +34,22 @@ const common = {
 
 if (TARGET === "buildDemo") {
     exportModule = merge(common, {
+        entry: {
+            app: path.resolve(ROOT_PATH) + "/demosrc/js/app.jsx"
+        },
         output: {
             path: path.resolve(ROOT_PATH, "demo/js/"),
             filename: "slider-bundle.min.js"
+        },
+        module: {
+            loaders: [{
+                test: /\.jsx?$/,
+                include: [path.resolve(__dirname, "demosrc/js")],
+                loader: "babel", // "babel-loader" is also a legal name to reference
+                query: {
+                    presets: ["react", "es2015"]
+                }
+            }]
         },
         plugins: [
             new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.min.js", function(module) {

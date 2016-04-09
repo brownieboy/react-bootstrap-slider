@@ -3,8 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import es6BindAll from "es6bindall";
-import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
-
+import ReactBootstrapSlider from "../../dist/react-bootstrap-slider.js";
 
 class Demo extends React.Component {
     constructor(props) {
@@ -48,7 +47,8 @@ class Demo extends React.Component {
 
 }
 
-ReactDOM.render(<Demo polyfill = { false }
+ReactDOM.render(<Demo
+        polyfill = { false }
         startValue = { 3000 }
         max = { 20000 }
         min = { 1000 }
