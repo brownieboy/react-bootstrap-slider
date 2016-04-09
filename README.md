@@ -117,7 +117,8 @@ On load, the slider range is 1,000 to 20,000 with a step of 1,000.
 Click on the **Change axes!** button, and the slider range changes from 0 to 2,000 with a step of 100.
 
 
-
+##Updates
+Version 1.1.5: April 9 2016.  Updated to React 15.
 
 
 
