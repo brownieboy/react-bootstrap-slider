@@ -60,7 +60,7 @@ To build the demo, issue:
 
    npm run buildDemo
 
-Wepback will build the JavaScript files for the demo in the /demo/js/ folder.  Demo code will go in the slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap and the react-bootstrap-slider itself) goes into the vendor.min.js file.  Source maps are generated both.
+Webpack will build the JavaScript files for the demo in the /demo/js/ folder.  Demo code will go in the slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap and the react-bootstrap-slider itself) goes into the vendor.min.js file.  Source maps are generated both.
 
 
 
