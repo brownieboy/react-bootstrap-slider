@@ -103,9 +103,16 @@
             key: "componentDidMount",
             value: function componentDidMount() {
                 var that = this;
-                this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), {
+                var sliderAttributes = {
                     "tooltip": this.props.tooltip || "show"
-                });
+                };
+                if (this.props.orientation) {
+                    console.log("orientation = " + this.props.orientation);
+                    sliderAttributes.orientation = this.props.orientation;
+                }
+
+                this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), sliderAttributes);
+
                 this.updateSliderValues();
                 this.mySlider.on("change", function (e) {
                     var fakeEvent = {
