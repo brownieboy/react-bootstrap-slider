@@ -7,7 +7,8 @@
     "start": "webpack-dev-server",
     "build": "babel ./src/js/react-bootstrap-slider.jsx -o ./dist/react-bootstrap-slider.js",
     "buildDemo": "npm run build && webpack",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "npm run buildDemo"
   },
   "main": "dist/react-bootstrap-slider.js",
   "repository": {
