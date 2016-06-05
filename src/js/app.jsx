@@ -15,6 +15,11 @@ class Demo extends React.Component {
             max: props.max,
             step: props.step
         };
+        if (this.props.orientation) {
+            console.log("Demo orientation = " + this.props.orientation);
+
+            this.state.orientation = this.props.orientation;
+        }
         es6BindAll(this, ["changeValue", "changeAxes"]);
     }
     changeValue(e) {
@@ -37,7 +42,8 @@ class Demo extends React.Component {
                     handleChange = { this.changeValue }
                     step = { this.state.step }
                     max = { this.state.max }
-                    min = { this.state.min } />
+                    min = { this.state.min }
+                    orientation = {this.state.orientation || undefined} />
                  <br /> <br />
                 Value: { newValue }
                 <br /><br />
@@ -48,8 +54,7 @@ class Demo extends React.Component {
 
 }
 
-ReactDOM.render(<Demo polyfill = { false }
-        startValue = { 3000 }
+ReactDOM.render(<Demo startValue = { 3000 }
         max = { 20000 }
         min = { 1000 }
         step = { 1000 } />, document.getElementById("main"));
