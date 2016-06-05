@@ -34,6 +34,7 @@ Here's an example of how you might call it in your ReactJS's render method:
     step={this.state.step}
     max={this.state.max}
     min={this.state.min}
+    orientation="vertical"
     disabled="disabled" />
     }
 ```
@@ -41,6 +42,8 @@ Here's an example of how you might call it in your ReactJS's render method:
 The **value**, **step**, **max** and **min** parameters should be self-explanatory.  handleChange is the callback method that will be called when the slider actually changes.  (NB: this is the "change" event for the Bootstrap slider.)
 
 If the optional parameter **disabled** is included, and is set to "disabled", then the slider will display in a disabled state.  If the parameter is not included, or is set to anything else except "disabled", then the slider control will be enabled.
+
+The default **orientation** value is 'horizontal', so you only need to include that prop if you want to set it to 'vertical' 
 
 
 ##Development
