@@ -1,7 +1,7 @@
 .module-cache/
 node_modules
 logs
-demo
+demo/js
 *.log
 *.project
 .DS_Store
