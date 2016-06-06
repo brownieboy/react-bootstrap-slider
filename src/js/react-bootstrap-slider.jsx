@@ -18,20 +18,10 @@ export class ReactBootstrapSlider extends React.Component {
 
    componentDidMount() {
       var that = this;
-      // var sliderAttributes = {
-      //     "tooltip": this.props.tooltip || "show"
-      // };
-      // if (this.props.orientation) {
-      //     sliderAttributes.orientation = this.props.orientation;
-      // }
       var sliderAttributes = {
          ...this.props,
          "tooltip": this.props.tooltip || "show"
       };
-      // if (this.props.orientation) {
-      //    sliderAttributes.orientation = this.props.orientation;
-      // }
-
 
       this.mySlider = new Slider(ReactDOM.findDOMNode(this), sliderAttributes);
 

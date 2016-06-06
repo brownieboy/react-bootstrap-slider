@@ -38,16 +38,14 @@ class Demo extends React.Component {
         return (
             <div>
                <ReactBootstrapSlider
+                    { ...this.state }
                     value = { this.state.currentValue }
-                    handleChange = { this.changeValue }
-                    step = { this.state.step }
-                    max = { this.state.max }
-                    min = { this.state.min }
-                    orientation = {this.state.orientation || undefined} />
+                    handleChange = { this.changeValue } />
                  <br /> <br />
                 Value: { newValue }
                 <br /><br />
-                <button onClick = { this.changeAxes } > Change axes! </button>
+                <button onClick = { this.changeAxes } > Change axes </button>
+                <button onClick = { function() {alert("coming soon")} } > Change orientation </button>
             </div>
         );
     }
