@@ -1,14 +1,13 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Bootstrap Slider component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "babel ./src/js/react-bootstrap-slider.jsx -o ./dist/react-bootstrap-slider.js",
+    "build": "node_modules/.bin/babel ./src/js/react-bootstrap-slider.jsx -o ./dist/react-bootstrap-slider.js",
     "buildDemo": "npm run build && webpack",
-    "prepublish": "npm run build",
-    "postinstall": "npm run buildDemo"
+    "prepublish": "npm run build"
   },
   "main": "dist/react-bootstrap-slider.js",
   "repository": {

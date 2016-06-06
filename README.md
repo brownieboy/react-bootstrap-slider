@@ -35,6 +35,7 @@ Here's an example of how you might call it in your ReactJS's render method:
     max={this.state.max}
     min={this.state.min}
     orientation="vertical"
+    reverse={true}
     disabled="disabled" />
     }
 ```
@@ -53,7 +54,7 @@ To develop, issue this command:
 
     npm run start
 
-then point your browser to [http://localhost:8080/src/index.html](http://localhost:8080/src/index.html).  You need to edit the code in the /src folder.  It will update in the browser automatically, courtesy via webpack-dev-server.
+then point your browser to [http://localhost:8080/src/index.html](http://localhost:8080/src/index.html).  You need to edit the code in the /src folder.  It will update in the browser automatically, courtesy of webpack-dev-server.
 
 To build the distribution version, issue:
 
@@ -61,11 +62,14 @@ To build the distribution version, issue:
 
 The build JavaScript file will go on the /dist folder as react-bootstrap-slider.js.  This is the main file for the project, which is used whenever this the react-bootstrap-slider package is loaded from npm.
 
-To build the demo, issue:
 
-   npm run buildDemo
+##Demo
+There is a /demo folder present, but it only contains index.html and the CSS files by default.  The JavaScript files need to be built before you can run this demo.  If there is no /demo/js folder present, then you need to run:
 
-Webpack will build the JavaScript files for the demo in the /demo/js/ folder.  Demo code will go in the slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap and the react-bootstrap-slider itself) goes into the vendor.min.js file.  Source maps are generated both.
+        npm run buildDemo
+
+Webpack will build the JavaScript files for the demo and put them in the /demo/js/ folder.  Demo code will go in the /demo/js/slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap and the react-bootstrap-slider itself) goes into the /demo/js/vendor.min.js file.  Source maps are generated both.  You can then open /demo/index.html in your browser.
+
 
 
 
