@@ -109,4 +109,3 @@ ReactDOM.render(
             step = { 1000 } />
     </div>, document.getElementById("main"));
 
-// style={{marginRight: spacing + 'em'}}
