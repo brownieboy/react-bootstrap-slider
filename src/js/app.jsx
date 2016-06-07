@@ -39,6 +39,7 @@ class Demo extends React.Component {
                 <div style={wrapperDivStyles}>
                    <ReactBootstrapSlider
                         { ...this.state }
+                        id="horizontalSlider"
                         value = { this.state.currentValue }
                         handleChange = { this.changeValue } />
                 </div>
@@ -67,10 +68,10 @@ class DemoVertical extends React.Component {
     }
     changeAxes() {
         this.setState({
-            currentValue: 500,
+            currentValue: 700,
             min: 0,
-            max: 2000,
-            step: 100
+            max: 2500,
+            step: 500
         });
     }
     render() {
@@ -80,6 +81,7 @@ class DemoVertical extends React.Component {
                 <div style={wrapperDivStyles}>
                    <ReactBootstrapSlider
                         { ...this.state }
+                        id="verticalSlider"
                         value = { this.state.currentValue }
                         handleChange = { this.changeValue }
                         orientation = "vertical" />
