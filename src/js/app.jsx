@@ -43,9 +43,9 @@ class Demo extends React.Component {
                         handleChange = { this.changeValue } />
                 </div>
                  <br /> <br />
-                Value: { newValue }
+                Value: <span id="valueSpanHorizontal">{ newValue }</span>
                 <br /><br />
-                <button onClick = { this.changeAxes } > Change axes </button>
+                <button id = "butHorizontal" onClick = { this.changeAxes } > Change axes </button>
             </div>
         );
     }
@@ -85,9 +85,9 @@ class DemoVertical extends React.Component {
                         orientation = "vertical" />
                 </div>
                  <br /> <br />
-                Value: { newValue }
+                Value: <span id="valueSpanVertical">{ newValue }</span>
                 <br /><br />
-                <button onClick = { this.changeAxes } > Change axes </button>
+                <button id="butVertical" onClick = { this.changeAxes } > Change axes </button>
             </div>
         );
     }
