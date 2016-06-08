@@ -11,7 +11,6 @@
     "prepublish": "npm run build",
     "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/",
     "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/",
-
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
   "main": "dist/react-bootstrap-slider.js",
@@ -51,6 +50,8 @@
     "eslint": "^2.11.1",
     "eslint-config-eslint": "^3.0.0",
     "eslint-plugin-react": "^5.1.1",
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.5.4",
     "http-server": "^0.9.0",
     "jasmine-spec-reporter": "^2.4.0",
     "path": "^0.12.7",
