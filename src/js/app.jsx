@@ -3,7 +3,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import es6BindAll from "es6bindall";
-import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
+// import ReactBootstrapSlider from "../../dist/react-bootstrap-slider.js";  // Build version
+import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";          // Dev version
 
 const wrapperDivStyles = {
     "backgroundColor": "#E0E0E0",

@@ -3,7 +3,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import es6BindAll from "es6bindall";
-import ReactBootstrapSlider from "../../dist/react-bootstrap-slider.js";
+import ReactBootstrapSlider from "../../dist/react-bootstrap-slider.js";  // Build version
+// import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";          // Dev version
 
 const wrapperDivStyles = {
     "backgroundColor": "#E0E0E0",
@@ -39,13 +40,14 @@ class Demo extends React.Component {
                 <div style={wrapperDivStyles}>
                    <ReactBootstrapSlider
                         { ...this.state }
+                        id="horizontalSlider"
                         value = { this.state.currentValue }
                         handleChange = { this.changeValue } />
                 </div>
                  <br /> <br />
-                Value: { newValue }
+                Value: <span id="valueSpanHorizontal">{ newValue }</span>
                 <br /><br />
-                <button onClick = { this.changeAxes } > Change axes </button>
+                <button id = "butHorizontal" onClick = { this.changeAxes } > Change axes </button>
             </div>
         );
     }
@@ -67,10 +69,10 @@ class DemoVertical extends React.Component {
     }
     changeAxes() {
         this.setState({
-            currentValue: 500,
+            currentValue: 700,
             min: 0,
-            max: 2000,
-            step: 100
+            max: 2500,
+            step: 500
         });
     }
     render() {
@@ -80,14 +82,15 @@ class DemoVertical extends React.Component {
                 <div style={wrapperDivStyles}>
                    <ReactBootstrapSlider
                         { ...this.state }
+                        id="verticalSlider"
                         value = { this.state.currentValue }
                         handleChange = { this.changeValue }
                         orientation = "vertical" />
                 </div>
                  <br /> <br />
-                Value: { newValue }
+                Value: <span id="valueSpanVertical">{ newValue }</span>
                 <br /><br />
-                <button onClick = { this.changeAxes } > Change axes </button>
+                <button id="butVertical" onClick = { this.changeAxes } > Change axes </button>
             </div>
         );
     }
