@@ -17,3 +17,11 @@ var PATHS = {
 
    }
 };
+
+
+gulp.task("updateDemoSourceJS", function() {
+
+    gulp.src(PATHS.src.js + "/app.jsx")
+        .pipe(replace(/\?v=1.1/g, ""))
+        .pipe(gulp.dest(PATHS.demosrc/js + "/app2.jsx"));
+});
