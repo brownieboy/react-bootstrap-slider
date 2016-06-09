@@ -32,10 +32,10 @@ const common = {
     devtool: "source-map"
 };
 
-if (TARGET === "buildDemo") {
+if (TARGET === "buildDemowp") {
     exportModule = merge(common, {
         entry: {
-            app: path.resolve(ROOT_PATH) + "/demosrc/js/app.jsx"
+            app: path.resolve(ROOT_PATH) + "/demosrc/js/appbuild.jsx"
         },
         output: {
             path: path.resolve(ROOT_PATH, "demo/js/"),
