@@ -2,7 +2,8 @@
 node_modules
 logs
 reports
-demo/js
+demo
+demosrc
 *.log
 *.project
 .DS_Store
