@@ -51,9 +51,9 @@ class Demo extends React.Component {
       var id = this.props.id;
       var valueSpan;
       if (Array.isArray(newValue)) {
-         valueSpan = (<DemoMultiValueSpan
+         valueSpan = <DemoMultiValueSpan
                     id = { id }
-                    value = { newValue } />);
+                    value = { newValue } />;
       } else {
          valueSpan = <DemoSingleValueSpan
             id = { id }
