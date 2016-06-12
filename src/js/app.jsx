@@ -11,38 +11,19 @@ const wrapperDivStyles = {
    "width": "300px"
 };
 
-class DemoSingleValueSpan extends React.Component {
-   constructor(props) {
-      super(props);
-   }
 
-   render() {
-      var value = this.props.value;
-      var id = this.props.id;
-      return (
-         <span>
-            Value: <span id={"valueSpan" + id}>{ value }</span>
-        </span>
-      );
-   }
-}
+const DemoSingleValueSpan = ( {id, value } ) => (
+   <span>
+        Value: <span id={"valueSpan" + id}>{ value }</span>
+    </span>
+);
 
-class DemoMultiValueSpan extends React.Component {
-   constructor(props) {
-      super(props);
-   }
-
-   render() {
-      var value = this.props.value;
-      var id = this.props.id;
-      return (
-         <span>
-            Lower Value: <span id={"valueSpan" + id + "Low"}>{ value[0] }</span>
-            Upper Value: <span id={"valueSpan" + id + "High"}>{ value[1] }</span>
-        </span>
-      );
-   }
-}
+const DemoMultiValueSpan = ( {id, value } ) => (
+   <div>
+        Lower Value: <span id={"valueSpan" + id + "Low"}>{ value[0] }</span><br />
+        Upper Value: <span id={"valueSpan" + id + "Low"}>{ value[1] }</span><br />
+    </div>
+);
 
 class Demo extends React.Component {
    constructor(props) {
