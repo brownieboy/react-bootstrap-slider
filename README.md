@@ -28,7 +28,7 @@ The control is implemented in UMD format, so should also work for AMD/RequireJS,
 Here's an example of how you might call it in your ReactJS's render method:
 
 ```JavaScript
-<ReactBootstrapSlider 
+<ReactBootstrapSlider
     value={this.state.currentValue}
     handleChange={this.changeValue}
     step={this.state.step}
@@ -45,6 +45,8 @@ The **value**, **step**, **max** and **min** parameters should be self-explanato
 If the optional parameter **disabled** is included, and is set to "disabled", then the slider will display in a disabled state.  If the parameter is not included, or is set to anything else except "disabled", then the slider control will be enabled.
 
 The default **orientation** value is 'horizontal', so you only need to include that prop if you want to set it to 'vertical'.
+
+If **value** is a two member array, then the slider will have two handles: minimum and maximum.  You should also pass win a **range** parameter set to true in this case.
 
 As of version 1.0.02, other values passed into the component will also passed into the underlying bootstrap-slider component via the [Object Spread Operator that's been proposed for ES2017](https://github.com/Microsoft/TypeScript/issues/7617) (yes, that's how cutting edge I am!!).  See [seyria's documentation](https://github.com/seiyria/bootstrap-slider) for a full list of these.  Those parameters have not all been tested yet but the `reverse` parameter definitely works, and I have included this in the demo of the vertical slider.
 

@@ -49,7 +49,7 @@ class Demo extends React.Component {
    render() {
       var newValue = this.state.currentValue;
       var id = this.props.id;
-      var valueSpan;
+      var valueSpan, changeAxesButton;
       if (Array.isArray(newValue)) {
          valueSpan = <DemoMultiValueSpan
                     id = { id }
@@ -58,6 +58,7 @@ class Demo extends React.Component {
          valueSpan = <DemoSingleValueSpan
             id = { id }
             value = { newValue } />;
+        changeAxesButton = <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>;
       }
       return (
          <div>
@@ -70,7 +71,7 @@ class Demo extends React.Component {
              <br /> <br />
              { valueSpan }
             <br /><br />
-            <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>
+            { changeAxesButton }
         </div>
       );
    }
