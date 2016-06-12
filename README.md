@@ -28,7 +28,7 @@ The control is implemented in UMD format, so should also work for AMD/RequireJS,
 Here's an example of how you might call it in your ReactJS's render method:
 
 ```JavaScript
-<ReactBootstrapSlider
+<ReactBootstrapSlider 
     value={this.state.currentValue}
     handleChange={this.changeValue}
     step={this.state.step}
