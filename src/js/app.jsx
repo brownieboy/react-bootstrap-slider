@@ -21,7 +21,7 @@ const DemoSingleValueSpan = ( {id, value } ) => (
 const DemoMultiValueSpan = ( {id, value } ) => (
    <div>
         Lower Value: <span id={"valueSpan" + id + "Low"}>{ value[0] }</span><br />
-        Upper Value: <span id={"valueSpan" + id + "Low"}>{ value[1] }</span><br />
+        Upper Value: <span id={"valueSpan" + id + "High"}>{ value[1] }</span><br />
     </div>
 );
 
@@ -80,6 +80,7 @@ class Demo extends React.Component {
 
 ReactDOM.render(
    <div>
+      <div className = "demoWrapper">
         <h3>Horizontal (default) demo</h3>
         <Demo
             id = "horizontalSlider"
@@ -87,8 +88,9 @@ ReactDOM.render(
             max = { 20000 }
             min = { 1000 }
             step = { 1000 } />
-
-        <h3>Vertical Demo</h3>
+      </div>
+      <div className = "demoWrapper">
+      <h3>Vertical Demo</h3>
         <Demo startValue = { 3000 }
             id = "verticalSlider"
             orientation = "vertical"
@@ -96,7 +98,8 @@ ReactDOM.render(
             min = { 1000 }
             step = { 1000 }
             reversed = { true } />
-
+      </div>
+      <div className = "demoWrapper">
         <h3>Dual demo</h3>
         <Demo startValue = { [3000, 10000] }
             range = { true }
@@ -104,5 +107,7 @@ ReactDOM.render(
             max = { 20000 }
             min = { 1000 }
             step = { 1000 } />
-
+      </div>
     </div>, document.getElementById("main"));
+
+
