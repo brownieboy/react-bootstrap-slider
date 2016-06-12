@@ -143,6 +143,10 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
+Version 1.0.5: 13 June 2016.
+* Explained how use dual slider controls.  Added test for same.
+* Cleaned up demo to code to have one Demo class instead of three.
+
 Version 1.0.4: 12 June 2016.
 * Added vertical slider to demo page.
 * Updated build process to copy (and update) CSS and HTML files from /src to /demo folder using Gulp.  So no longer have to update the /demo files manually when updating build.
