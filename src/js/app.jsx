@@ -96,6 +96,51 @@ class DemoVertical extends React.Component {
 
 }
 
+class DemoDual extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...this.props,
+            currentValue: props.startValue
+        };
+        delete this.state.startValue;
+        es6BindAll(this, ["changeValue", "changeAxes"]);
+    }
+    changeValue(e) {
+        this.setState({ currentValue: e.target.value });
+    }
+    changeAxes() {
+        this.setState({
+            currentValue: 500,
+            min: 0,
+            max: 2000,
+            step: 100
+        });
+    }
+    render() {
+        var newValue = this.state.currentValue;
+        return (
+            <div>
+                <div style={wrapperDivStyles}>
+                   <ReactBootstrapSlider
+                        { ...this.state }
+                        id="dualSlider"
+                        range={ true }
+                        value = { this.state.currentValue }
+                        handleChange = { this.changeValue } />
+                </div>
+                 <br /> <br />
+                Lower Value: <span id="valueSpanHorizontalLow">{ newValue[0] }</span><br />
+                Upper Value: <span id="valueSpanHorizontalHigh">{ newValue[1] }</span>
+                <br /><br />
+
+                <button id = "butHorizontal" onClick = { this.changeAxes } > Change axes </button>
+            </div>
+        );
+    }
+
+}
+
 ReactDOM.render(
     <div>
         <h3>Horizontal (default) demo</h3>
@@ -110,5 +155,12 @@ ReactDOM.render(
             min = { 1000 }
             step = { 1000 }
             reversed = { true } />
+
+        <h3>Dual demo</h3>
+        <DemoDual startValue = { [3000, 10000] }
+            max = { 20000 }
+            min = { 1000 }
+            step = { 1000 } />
+
     </div>, document.getElementById("main"));
 
