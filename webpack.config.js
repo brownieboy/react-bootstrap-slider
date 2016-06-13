@@ -1,9 +1,13 @@
 /* eslint-env node */
 
 
-import path from "path";
-import webpack from "webpack";
-import merge from "webpack-merge";
+// import path from "path";
+// import webpack from "webpack";
+// import merge from "webpack-merge";
+var path = require("path");
+var webpack = require("webpack");
+var merge = require("webpack-merge");
+const validate = require("webpack-validator");
 
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
@@ -70,12 +74,10 @@ if (TARGET === "start" || !TARGET) {
             filename: "src/main.js"
         },
         devServer: {
-            colors: true,
             noInfo: false,
             historyApiFallback: true,
             // hot: true,
-            inline: true,
-            progress: true
+            inline: true
         },
         plugins: [
             new webpack.HotModuleReplacementPlugin()
@@ -83,4 +85,4 @@ if (TARGET === "start" || !TARGET) {
     });
 }
 
-export default exportModule;
+module.exports = validate(exportModule);
