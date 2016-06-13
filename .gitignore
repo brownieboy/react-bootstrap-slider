@@ -6,5 +6,6 @@ demo
 demosrc
 *.log
 *.project
+*.caret
 .DS_Store
 .idea
