@@ -48,7 +48,15 @@ The default **orientation** value is 'horizontal', so you only need to include t
 
 If **value** is a two member array, then the slider will have two handles: minimum and maximum.  You should also pass win a **range** parameter set to true in this case.
 
-As of version 1.0.02, other values passed into the component will also passed into the underlying bootstrap-slider component via the [Object Spread Operator that's been proposed for ES2017](https://github.com/Microsoft/TypeScript/issues/7617) (yes, that's how cutting edge I am!!).  See [seyria's documentation](https://github.com/seiyria/bootstrap-slider) for a full list of these.  Those parameters have not all been tested yet but the `reverse` parameter definitely works, and I have included this in the demo of the vertical slider.
+As of version 1.0.5, other values passed into the component will also passed into the underlying bootstrap-slider component via the [Object Spread Operator that's been proposed for ES2017](https://github.com/Microsoft/TypeScript/issues/7617) (yes, that's how cutting edge I am!!).  See [seyria's documentation](https://github.com/seiyria/bootstrap-slider) for a full list of these.  Those parameters have not all been tested yet but the `reverse` parameter definitely works, and I have included this in the demo of the vertical slider.
+
+Version 1.0.6 fixed an issue that prevented ticks props from being rendered.  Pass in ticks props like so:
+
+```JavaScript
+          ticks = {[0, 100, 200, 300, 400]}
+          ticks_labels = {["$0", "$100", "$200", "$300", "$400"]}
+          ticks_snap_bounds = { 30 }
+```
 
 
 ##Development
@@ -143,6 +151,9 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
+Version 1.0.6: 1 August 2016.
+* Fixed issue where ticks props were not being rendered.  This is because the code was assuming that there would always be min and max props, but the ticks props actually override these.
+
 Version 1.0.5: 13 June 2016.
 * Explained how use dual slider controls.  Added test for same.
 * Cleaned up demo to code to have one Demo class instead of three.
