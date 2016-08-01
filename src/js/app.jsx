@@ -108,6 +108,15 @@ ReactDOM.render(
             min = { 1000 }
             step = { 1000 } />
       </div>
+      <div className = "demoWrapper">
+        <h3>Ticks Demo</h3>
+        <Demo id = "ticksSlider"
+          startValue= { 200 }
+          ticks = {[0, 100, 200, 300, 400]}
+          ticks_labels = {["$0", "$100", "$200", "$300", "$400"]}
+          ticks_snap_bounds = { 30 }
+        />
+      </div>
     </div>, document.getElementById("main"));
 
 

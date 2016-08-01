@@ -26,6 +26,10 @@ describe("Page loads", function() {
       expect(element(by.id("valueSpandualSliderHigh")).getText()).toEqual("10000");
    });
 
+   it("should display Ticks Demo value of '200'", function() {
+      expect(element(by.id("valueSpanticksSlider")).getText()).toEqual("200");
+   });
+
 });
 
 describe("Dragging horizontal slider 100px to the right", function() {
@@ -92,6 +96,18 @@ describe("Dragging dual high slider another 70px to the left", function() {
       expect(element(by.id("valueSpandualSliderHigh")).getText()).toEqual("5000");
    });
 });
+
+describe("Dragging ticks slider 40px to the right", function() {
+   it("should display horizontal Demo value of '300'", function() {
+
+      var slider = element(by.css("#ticksSlider .min-slider-handle"));
+      browser.actions().dragAndDrop(
+         slider, { x: 40, y: 0 }
+      ).perform();
+      expect(element(by.id("valueSpanticksSlider")).getText()).toEqual("300");
+   });
+});
+
 
 describe("Clicking Change Axes button for horizontal demo", function() {
    it("should display horizontal Demo value of '500'", function() {
