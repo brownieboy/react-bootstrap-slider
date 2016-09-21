@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Bootstrap Slider component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,9 +34,9 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "bootstrap-slider": "^7.1.0",
-    "es6bindall": "^0.0.3",
-    "jquery": "^2.2.3",
+    "bootstrap-slider": "^9.2.0",
+    "es6bindall": "^0.0.7",
+    "jquery": "^3.1.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
   },
@@ -49,20 +49,17 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
     "babel-register": "^6.9.0",
-    "eslint": "^2.11.1",
-    "eslint-config-eslint": "^3.0.0",
-    "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "http-server": "^0.9.0",
     "jasmine-spec-reporter": "^2.4.0",
     "path": "^0.12.7",
-    "protractor": "^3.3.0",
+    "protractor": "^4.0.8",
     "protractor-jasmine2-screenshot-reporter": "^0.3.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.9.0",
+    "webpack-merge": "^0.14.1",
     "webpack-validator": "^2.1.3"
   }
 }

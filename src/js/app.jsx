@@ -117,6 +117,23 @@ ReactDOM.render(
           ticks_snap_bounds = { 30 }
         />
       </div>
+      <div className = "demoWrapper">
+        <h3>Range Highlights demo</h3>
+        <Demo
+            id = "rangeHighlightsSlider"
+            startValue = { 3000 }
+            max = { 20000 }
+            min = { 1000 }
+            step = { 1000 }
+            rangeHighlights = {[
+              { "start": 1000, "end": 5000 },
+              { "start": 12000, "end": 17000 }
+            ]} />
+      </div>
     </div>, document.getElementById("main"));
+
+
+
+
 
 

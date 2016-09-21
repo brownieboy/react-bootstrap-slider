@@ -100,7 +100,7 @@
         function ReactBootstrapSlider(props) {
             _classCallCheck(this, ReactBootstrapSlider);
 
-            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactBootstrapSlider).call(this, props));
+            var _this = _possibleConstructorReturn(this, (ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call(this, props));
 
             (0, _es6bindall2.default)(_this, ["updateSliderValues"]);
             return _this;

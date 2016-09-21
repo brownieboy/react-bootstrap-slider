@@ -8,3 +8,4 @@ protractor.local.conf.js
 .babelrc
 gulpfile.js
 webpack.config.js
+reports

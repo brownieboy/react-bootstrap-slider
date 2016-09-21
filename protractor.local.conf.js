@@ -40,13 +40,13 @@ var reporter = new HtmlScreenshotReporter({
 exports.config = {
    specs: [ROOT_PATH + "/tests/e2e/*.js"],
    capabilities: {
-      browserName: "firefox"
-      // browserName: "chrome",
-      // chromeOptions: {
-      //     args: [
-      //         "--start-maximized"
-      //     ]
-      // }
+      // browserName: "firefox"
+      browserName: "chrome",
+      chromeOptions: {
+          args: [
+              "--start-maximized"
+          ]
+      }
    },
    baseUrl: "http://localhost:3000",
    beforeLaunch: function() {

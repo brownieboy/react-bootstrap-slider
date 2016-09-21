@@ -8,7 +8,7 @@ A ReactJS wrapper [seiyria's Bootstrap Slider component](https://github.com/seiy
 Note: This project is a split off from my [react-bootstrap-native-slider](https://www.npmjs.com/package/react-bootstrap-native-slider) plugin.  The plan is for the react-bootstrap-slider to become a dependency of react-bootstrap-native-slider, rather than have all the code bundled into the latter, as at present.
 
 
-##How to use
+##How to install
 Install from npm with:
 
     npm install --save react-bootstrap-slider
@@ -25,6 +25,11 @@ or like this for CommonJS:
 The control is implemented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
 
 
+You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  If you're using Webpack, you can import the CSS file directly into your build.  Or you can add simply add it as a link in your HTML file, e.g.:
+
+    <link rel="stylesheet" href="bootstrap-slider/dist/css/bootstrap-slider.min.css" />
+
+##How to use
 Here's an example of how you might call it in your ReactJS's render method:
 
 ```JavaScript
@@ -118,6 +123,7 @@ Note: the latter command will need to be run in a separate terminal window/tab, 
 ###Running Tests Against Built Version
 To run tests against the built version, you obviously need to build that version first!  You then need a server running on port 8082, before finally running the tests in a new terminal window/tab.  The commands to do all of this would be:
 
+         npm run updateSelenium
          npm run buildDemo
          npm run localServer
          npm run testBuild
@@ -151,6 +157,11 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
+Version 1.1.0: 21 Sep 2016.
+* Updated to seiyria's 9.2 version.  This includes the rangeHighlights feature.
+* Updated readme to specify inclusion of bootstrap-slider's CSS file.
+* Removed reports folder from NPM package
+
 Version 1.0.6: 1 August 2016.
 * Fixed issue where ticks props were not being rendered.  This is because the code was assuming that there would always be min and max props, but the ticks props actually override these.
 
