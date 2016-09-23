@@ -26,11 +26,11 @@ export class ReactBootstrapSlider extends React.Component {
         this.mySlider = new Slider(ReactDOM.findDOMNode(this), sliderAttributes);
 
         this.updateSliderValues();
-        this.mySlider.on("change", function(e) {
+        this.mySlider.on("slideStop", function(e) {
             var fakeEvent = {
                 target: {}
             };
-            fakeEvent.target.value = e.newValue;
+            fakeEvent.target.value = e;
             that.props.handleChange(fakeEvent);
         });
     }

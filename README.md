@@ -25,7 +25,7 @@ or like this for CommonJS:
 The control is implemented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
 
 
-You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  If you're using Webpack, you can import the CSS file directly into your build.  Or you can add simply add it as a link in your HTML file, e.g.:
+You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add it as a link in your HTML file, e.g.:
 
     <link rel="stylesheet" href="bootstrap-slider/dist/css/bootstrap-slider.min.css" />
 
@@ -157,6 +157,9 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
+Version 1.1.1 23 Sep 2016
+* Changed main slider trigger event from "change" to "slideStop".  Component should now be less chatty with improved performance.
+
 Version 1.1.0: 21 Sep 2016.
 * Updated to seiyria's 9.2 version.  This includes the rangeHighlights feature.
 * Updated readme to specify inclusion of bootstrap-slider's CSS file.

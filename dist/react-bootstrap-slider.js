@@ -124,7 +124,8 @@
                 this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), sliderAttributes);
 
                 this.updateSliderValues();
-                this.mySlider.on("change", function (e) {
+                this.mySlider.on("slideStop", function (e) {
+                    console.log("slideStop event triggered");
                     var fakeEvent = {
                         target: {}
                     };
