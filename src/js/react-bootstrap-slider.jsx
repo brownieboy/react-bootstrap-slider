@@ -13,7 +13,7 @@ export class ReactBootstrapSlider extends React.Component {
     render() {
         // The slider"s an input.  That"s all we need.  We"ll do the rest in
         // the componentDidMount() method.
-        return <input / >;
+        return <input />;
     }
 
     componentDidMount() {

@@ -125,11 +125,10 @@
 
                 this.updateSliderValues();
                 this.mySlider.on("slideStop", function (e) {
-                    console.log("slideStop event triggered");
                     var fakeEvent = {
                         target: {}
                     };
-                    fakeEvent.target.value = e.newValue;
+                    fakeEvent.target.value = e;
                     that.props.handleChange(fakeEvent);
                 });
             }
