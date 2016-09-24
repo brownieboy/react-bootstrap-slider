@@ -4,6 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Slider from "bootstrap-slider";
 import es6BindAll from "es6bindall";
+import { isPropNumberOrArray } from "./customproptypes.js";
+
 
 export class ReactBootstrapSlider extends React.Component {
     constructor(props) {
@@ -26,13 +28,30 @@ export class ReactBootstrapSlider extends React.Component {
         this.mySlider = new Slider(ReactDOM.findDOMNode(this), sliderAttributes);
 
         this.updateSliderValues();
-        this.mySlider.on("slideStop", function(e) {
-            var fakeEvent = {
-                target: {}
-            };
-            fakeEvent.target.value = e;
-            that.props.handleChange(fakeEvent);
-        });
+        if (this.props.change || this.props.handleChange) {
+            var changeEvent = this.props.change || this.props.handleChange;
+            this.mySlider.on("change", function(e) {
+                var fakeEvent = {
+                    target: {}
+                };
+                // fakeEvent.target.value = e;
+                fakeEvent.target.value = e.newValue;
+                changeEvent(fakeEvent);
+            });
+        }
+
+        if (this.props.slideStop) {
+            this.mySlider.on("slideStop", function(e) {
+                var fakeEvent = {
+                    target: {}
+                };
+                // fakeEvent.target.value = e;
+                fakeEvent.target.value = e;
+                that.props.slideStop(fakeEvent);
+            });
+        }
+
+
     }
     componentDidUpdate() {
         this.updateSliderValues();
@@ -62,5 +81,18 @@ export class ReactBootstrapSlider extends React.Component {
         }
     }
 }
+
+ReactBootstrapSlider.propTypes = {
+    min: React.PropTypes.number,
+    max: React.PropTypes.number,
+    step: React.PropTypes.number,
+    value: isPropNumberOrArray,
+    disabled: React.PropTypes.string,
+    tooltip: React.PropTypes.string,
+    change: React.PropTypes.func,
+    handleChange: React.PropTypes.func,
+    slideStop: React.PropTypes.func
+};
+
 
 export default ReactBootstrapSlider;

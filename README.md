@@ -35,7 +35,8 @@ Here's an example of how you might call it in your ReactJS's render method:
 ```JavaScript
 <ReactBootstrapSlider
     value={this.state.currentValue}
-    handleChange={this.changeValue}
+    change={this.changeValue}
+    slideStop={this.changeValue}
     step={this.state.step}
     max={this.state.max}
     min={this.state.min}
@@ -45,7 +46,7 @@ Here's an example of how you might call it in your ReactJS's render method:
     }
 ```
 
-The **value**, **step**, **max** and **min** parameters should be self-explanatory.  handleChange is the callback method that will be called when the slider actually changes.  (NB: this is the "change" event for the Bootstrap slider.)
+The **value**, **step**, **max** and **min** parameters should be self-explanatory.  The `change` event is the callback method that will be called when the slider actually changes.  (NB: this is the `change` event for the Bootstrap slider.)  As of version 1.1.2, there is a new `slideStop` event, which only triggers when you've _finished_ moving the slider (i.e. you release it).  This makes `slideStop` a deal less "chatty" than the `change` event.  Decide which one you need; you'll only ever one or the other (unlike my example code above!).
 
 If the optional parameter **disabled** is included, and is set to "disabled", then the slider will display in a disabled state.  If the parameter is not included, or is set to anything else except "disabled", then the slider control will be enabled.
 
@@ -157,8 +158,13 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
-Version 1.1.1 23 Sep 2016
-* Changed main slider trigger event from "change" to "slideStop".  Component should now be less chatty with improved performance.
+Version 1.1.2: 24 Sep 2016
+* Reverted change of slider trigger event from `change` to `slideStop` in v1.1.1.  This was a dumb way of doing it, and was a borderline breaking change to boot.
+* Added new `slideStop` event, which maps to the bootstrap-slider event of the same name
+* Added new `change` event, which maps to the bootstrap-slider event of the same name.  Note: this is in _addition_ to the previous `handleChange` event, which will continue to work and is _not_ being deprecated here.
+
+Version 1.1.1: 23 Sep 2016 (NB: Bad version.  Do not use!  See 1.12 comments above.)
+* Changed main slider trigger event from `change` to `slideStop`.  Component should now be less chatty with improved performance.
 
 Version 1.1.0: 21 Sep 2016.
 * Updated to seiyria's 9.2 version.  This includes the rangeHighlights feature.

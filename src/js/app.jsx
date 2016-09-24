@@ -4,82 +4,120 @@ import React from "react";
 import ReactDOM from "react-dom";
 import es6BindAll from "es6bindall";
 import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
+import { isPropNumberOrArray } from "./customproptypes.js";
 
 const wrapperDivStyles = {
-   "backgroundColor": "#E0E0E0",
-   "padding": "20px",
-   "width": "300px"
+  "backgroundColor": "#E0E0E0",
+  "padding": "20px",
+  "width": "300px"
 };
 
 
-const DemoSingleValueSpan = ( {id, value } ) => (
-   <span>
+const DemoSingleValueSpan = ({ id, value }) => (
+  <span>
         Value: <span id={"valueSpan" + id}>{ value }</span>
     </span>
 );
 
-const DemoMultiValueSpan = ( {id, value } ) => (
-   <div>
+DemoSingleValueSpan.propTypes = {
+  id: React.PropTypes.string.isRequired,
+  value: React.PropTypes.number.isRequired
+};
+
+const DemoMultiValueSpan = ({ id, value }) => (
+  <div>
         Lower Value: <span id={"valueSpan" + id + "Low"}>{ value[0] }</span><br />
         Upper Value: <span id={"valueSpan" + id + "High"}>{ value[1] }</span><br />
     </div>
 );
 
+DemoMultiValueSpan.propTypes = {
+  id: React.PropTypes.string.isRequired,
+  value: React.PropTypes.arrayOf(React.PropTypes.number.isRequired).isRequired
+};
+
 class Demo extends React.Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         ...this.props,
-         currentValue: props.startValue
-      };
-      delete this.state.startValue;
-      es6BindAll(this, ["changeValue", "changeAxes"]);
-   }
-   changeValue(e) {
-      this.setState({ currentValue: e.target.value });
-   }
-   changeAxes() {
-      this.setState({
-         currentValue: 500,
-         min: 0,
-         max: 2000,
-         step: 100
-      });
-   }
-   render() {
-      var newValue = this.state.currentValue;
-      var id = this.props.id;
-      var valueSpan, changeAxesButton;
-      if (Array.isArray(newValue)) {
-         valueSpan = <DemoMultiValueSpan
-                    id = { id }
-                    value = { newValue } />;
-      } else {
-         valueSpan = <DemoSingleValueSpan
-            id = { id }
-            value = { newValue } />;
-        changeAxesButton = <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>;
-      }
-      return (
-         <div>
-            <div style={wrapperDivStyles}>
-               <ReactBootstrapSlider
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...this.props,
+      currentValue: props.startValue
+    };
+    delete this.state.startValue;
+    es6BindAll(this, ["changeValue", "changeAxes"]);
+  }
+  changeValue(e) {
+    console.log("changeValue triggered");
+    this.setState({ currentValue: e.target.value });
+  }
+  changeAxes() {
+    this.setState({
+      currentValue: 500,
+      min: 0,
+      max: 2000,
+      step: 100
+    });
+  }
+  render() {
+    var newValue = this.state.currentValue;
+    var id = this.props.id;
+    var sliderControl, valueSpan, changeAxesButton;
+    if (Array.isArray(newValue)) {
+      sliderControl = <ReactBootstrapSlider
                     { ...this.state }
                     value = { this.state.currentValue }
-                    handleChange = { this.changeValue } />
+                    change = { this.changeValue } />;
+      valueSpan = <DemoMultiValueSpan
+                    id = { id }
+                    value = { newValue } />;
+    } else {
+      sliderControl = <ReactBootstrapSlider
+            { ...this.state }
+            value = { this.state.currentValue }
+            slideStop = { this.changeValue } />;
+      valueSpan = <DemoSingleValueSpan
+            id = { id }
+            value = { newValue } />;
+      changeAxesButton = <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>;
+    }
+    return (
+      <div>
+            <div style={wrapperDivStyles}>
+              { sliderControl }
             </div>
              <br /> <br />
              { valueSpan }
             <br /><br />
             { changeAxesButton }
         </div>
-      );
-   }
+    );
+  }
 
 }
 
+
+Demo.propTypes = {
+  id: React.PropTypes.string,
+  value: isPropNumberOrArray,
+  startValue: isPropNumberOrArray
+};
+
+// function isPropMoment(props, propName, componentName) {
+//     if (!moment.isMoment(props[propName])) {
+//         return new Error(
+//             [
+//                 componentName,
+//                 'requires that',
+//                 propName,
+//                 'be a Moment object.'
+//             ].join(' ')
+//         );
+//       }
+//     }
+
+
 ReactDOM.render(
-   <div>
+  <div>
       <div className = "demoWrapper">
         <h3>Horizontal (default) demo</h3>
         <Demo
@@ -131,9 +169,3 @@ ReactDOM.render(
             ]} />
       </div>
     </div>, document.getElementById("main"));
-
-
-
-
-
-
