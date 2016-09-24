@@ -58,11 +58,6 @@ if (TARGET === "buildDemowp") {
         plugins: [
             new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.min.js", function(module) {
                 return module.resource && module.resource.indexOf(srcDir) === -1;
-            }),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
             })
         ]
     });

@@ -94,6 +94,16 @@
         if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
 
+    // import { isPropNumberOrArray } from "./customproptypes.js";
+
+    // Tests to see if prop is a number or an array.  Clunky, but will do for now.
+    function isPropNumberOrArray(props, propName, componentName) {
+        // console.log("props[" + propName + "]=" + props[propName]);
+        if (!(typeof props[propName] === "number" || typeof props[propName] === "undefined" || Array.isArray(props[propName]))) {
+            return new Error([componentName, "requires that", propName, "be a number or an array."].join(" "));
+        }
+    }
+
     var ReactBootstrapSlider = exports.ReactBootstrapSlider = function (_React$Component) {
         _inherits(ReactBootstrapSlider, _React$Component);
 
@@ -124,13 +134,28 @@
                 this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), sliderAttributes);
 
                 this.updateSliderValues();
-                this.mySlider.on("slideStop", function (e) {
-                    var fakeEvent = {
-                        target: {}
-                    };
-                    fakeEvent.target.value = e;
-                    that.props.handleChange(fakeEvent);
-                });
+                if (this.props.change || this.props.handleChange) {
+                    var changeEvent = this.props.change || this.props.handleChange;
+                    this.mySlider.on("change", function (e) {
+                        var fakeEvent = {
+                            target: {}
+                        };
+                        // fakeEvent.target.value = e;
+                        fakeEvent.target.value = e.newValue;
+                        changeEvent(fakeEvent);
+                    });
+                }
+
+                if (this.props.slideStop) {
+                    this.mySlider.on("slideStop", function (e) {
+                        var fakeEvent = {
+                            target: {}
+                        };
+                        // fakeEvent.target.value = e;
+                        fakeEvent.target.value = e;
+                        that.props.slideStop(fakeEvent);
+                    });
+                }
             }
         }, {
             key: "componentDidUpdate",
@@ -167,6 +192,18 @@
 
         return ReactBootstrapSlider;
     }(_react2.default.Component);
+
+    ReactBootstrapSlider.propTypes = {
+        min: _react2.default.PropTypes.number,
+        max: _react2.default.PropTypes.number,
+        step: _react2.default.PropTypes.number,
+        value: isPropNumberOrArray,
+        disabled: _react2.default.PropTypes.string,
+        tooltip: _react2.default.PropTypes.string,
+        change: _react2.default.PropTypes.func,
+        handleChange: _react2.default.PropTypes.func,
+        slideStop: _react2.default.PropTypes.func
+    };
 
     exports.default = ReactBootstrapSlider;
 });

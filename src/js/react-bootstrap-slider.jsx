@@ -4,7 +4,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Slider from "bootstrap-slider";
 import es6BindAll from "es6bindall";
-import { isPropNumberOrArray } from "./customproptypes.js";
+// import { isPropNumberOrArray } from "./customproptypes.js";
+
+// Tests to see if prop is a number or an array.  Clunky, but will do for now.
+function isPropNumberOrArray(props, propName, componentName) {
+  // console.log("props[" + propName + "]=" + props[propName]);
+  if (!((typeof props[propName] === "number") || (typeof props[propName] === "undefined") || Array.isArray(props[propName]))) {
+    return new Error(
+      [
+        componentName,
+        "requires that",
+        propName,
+        "be a number or an array."
+      ].join(" ")
+    );
+  }
+}
 
 
 export class ReactBootstrapSlider extends React.Component {
