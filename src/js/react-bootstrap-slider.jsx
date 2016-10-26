@@ -53,7 +53,6 @@ export class ReactBootstrapSlider extends React.Component {
                 var fakeEvent = {
                     target: {}
                 };
-                // fakeEvent.target.value = e;
                 fakeEvent.target.value = e;
                 that.props.slideStop(fakeEvent);
             });
