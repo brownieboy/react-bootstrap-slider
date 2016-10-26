@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["exports", "react", "react-dom", "bootstrap-slider", "es6bindall"], factory);
+        define(["exports", "react", "bootstrap-slider", "es6bindall"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require("react"), require("react-dom"), require("bootstrap-slider"), require("es6bindall"));
+        factory(exports, require("react"), require("bootstrap-slider"), require("es6bindall"));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.reactDom, global.bootstrapSlider, global.es6bindall);
+        factory(mod.exports, global.react, global.bootstrapSlider, global.es6bindall);
         global.reactBootstrapSlider = mod.exports;
     }
-})(this, function (exports, _react, _reactDom, _bootstrapSlider, _es6bindall) {
+})(this, function (exports, _react, _bootstrapSlider, _es6bindall) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
@@ -19,8 +19,6 @@
     exports.ReactBootstrapSlider = undefined;
 
     var _react2 = _interopRequireDefault(_react);
-
-    var _reactDom2 = _interopRequireDefault(_reactDom);
 
     var _bootstrapSlider2 = _interopRequireDefault(_bootstrapSlider);
 
@@ -117,13 +115,6 @@
         }
 
         _createClass(ReactBootstrapSlider, [{
-            key: "render",
-            value: function render() {
-                // The slider"s an input.  That"s all we need.  We"ll do the rest in
-                // the componentDidMount() method.
-                return _react2.default.createElement("input", null);
-            }
-        }, {
             key: "componentDidMount",
             value: function componentDidMount() {
                 var that = this;
@@ -131,7 +122,7 @@
                     "tooltip": this.props.tooltip || "show"
                 });
 
-                this.mySlider = new _bootstrapSlider2.default(_reactDom2.default.findDOMNode(this), sliderAttributes);
+                this.mySlider = new _bootstrapSlider2.default(this.node, sliderAttributes);
 
                 this.updateSliderValues();
                 if (this.props.change || this.props.handleChange) {
@@ -188,21 +179,32 @@
                     }
                 }
             }
+        }, {
+            key: "render",
+            value: function render() {
+                var _this2 = this;
+
+                // The slider"s an input.  That"s all we need.  We"ll do the rest in
+                // the componentDidMount() method.
+                return _react2.default.createElement("div", { ref: function ref(node) {
+                        return _this2.node = node;
+                    } });
+            }
         }]);
 
         return ReactBootstrapSlider;
     }(_react2.default.Component);
 
     ReactBootstrapSlider.propTypes = {
-        min: _react2.default.PropTypes.number,
-        max: _react2.default.PropTypes.number,
-        step: _react2.default.PropTypes.number,
+        min: _react.PropTypes.number,
+        max: _react.PropTypes.number,
+        step: _react.PropTypes.number,
         value: isPropNumberOrArray,
-        disabled: _react2.default.PropTypes.string,
-        tooltip: _react2.default.PropTypes.string,
-        change: _react2.default.PropTypes.func,
-        handleChange: _react2.default.PropTypes.func,
-        slideStop: _react2.default.PropTypes.func
+        disabled: _react.PropTypes.string,
+        tooltip: _react.PropTypes.string,
+        change: _react.PropTypes.func,
+        handleChange: _react.PropTypes.func,
+        slideStop: _react.PropTypes.func
     };
 
     exports.default = ReactBootstrapSlider;

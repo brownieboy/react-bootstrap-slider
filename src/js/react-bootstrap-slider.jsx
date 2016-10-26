@@ -1,7 +1,6 @@
 /* eslint-env browser */
 
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { PropTypes } from "react";
 import Slider from "bootstrap-slider";
 import es6BindAll from "es6bindall";
 // import { isPropNumberOrArray } from "./customproptypes.js";
@@ -27,11 +26,6 @@ export class ReactBootstrapSlider extends React.Component {
         super(props);
         es6BindAll(this, ["updateSliderValues"]);
     }
-    render() {
-        // The slider"s an input.  That"s all we need.  We"ll do the rest in
-        // the componentDidMount() method.
-        return <input />;
-    }
 
     componentDidMount() {
         var that = this;
@@ -40,7 +34,7 @@ export class ReactBootstrapSlider extends React.Component {
             "tooltip": this.props.tooltip || "show"
         };
 
-        this.mySlider = new Slider(ReactDOM.findDOMNode(this), sliderAttributes);
+        this.mySlider = new Slider(this.node, sliderAttributes);
 
         this.updateSliderValues();
         if (this.props.change || this.props.handleChange) {
@@ -49,7 +43,6 @@ export class ReactBootstrapSlider extends React.Component {
                 var fakeEvent = {
                     target: {}
                 };
-                // fakeEvent.target.value = e;
                 fakeEvent.target.value = e.newValue;
                 changeEvent(fakeEvent);
             });
@@ -65,12 +58,12 @@ export class ReactBootstrapSlider extends React.Component {
                 that.props.slideStop(fakeEvent);
             });
         }
-
-
     }
+
     componentDidUpdate() {
         this.updateSliderValues();
     }
+
     updateSliderValues() {
         if (this.mySlider.min) {
             this.mySlider.setAttribute("min", this.props.min);
@@ -95,18 +88,24 @@ export class ReactBootstrapSlider extends React.Component {
             }
         }
     }
+
+     render() {
+        // The slider"s an input.  That"s all we need.  We"ll do the rest in
+        // the componentDidMount() method.
+        return <div ref={node => this.node = node} />;
+    }
 }
 
 ReactBootstrapSlider.propTypes = {
-    min: React.PropTypes.number,
-    max: React.PropTypes.number,
-    step: React.PropTypes.number,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    step: PropTypes.number,
     value: isPropNumberOrArray,
-    disabled: React.PropTypes.string,
-    tooltip: React.PropTypes.string,
-    change: React.PropTypes.func,
-    handleChange: React.PropTypes.func,
-    slideStop: React.PropTypes.func
+    disabled: PropTypes.string,
+    tooltip: PropTypes.string,
+    change: PropTypes.func,
+    handleChange: PropTypes.func,
+    slideStop: PropTypes.func
 };
 
 

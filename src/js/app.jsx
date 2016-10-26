@@ -29,8 +29,8 @@ const wrapperDivStyles = {
 
 const DemoSingleValueSpan = ({ id, value }) => (
   <span>
-        Value: <span id={"valueSpan" + id}>{ value }</span>
-    </span>
+    Value: <span id={"valueSpan" + id}>{ value }</span>
+  </span>
 );
 
 DemoSingleValueSpan.propTypes = {
@@ -53,13 +53,15 @@ DemoMultiValueSpan.propTypes = {
 class Demo extends React.Component {
   constructor(props) {
     super(props);
+  es6BindAll(this, ["changeValue", "changeAxes"]);
+
     this.state = {
       ...this.props,
       currentValue: props.startValue
     };
     delete this.state.startValue;
-    es6BindAll(this, ["changeValue", "changeAxes"]);
   }
+
   changeValue(e) {
     console.log("changeValue triggered");
     this.setState({ currentValue: e.target.value });
@@ -115,20 +117,6 @@ Demo.propTypes = {
   value: isPropNumberOrArray,
   startValue: isPropNumberOrArray
 };
-
-// function isPropMoment(props, propName, componentName) {
-//     if (!moment.isMoment(props[propName])) {
-//         return new Error(
-//             [
-//                 componentName,
-//                 'requires that',
-//                 propName,
-//                 'be a Moment object.'
-//             ].join(' ')
-//         );
-//       }
-//     }
-
 
 ReactDOM.render(
   <div>
