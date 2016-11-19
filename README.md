@@ -160,7 +160,7 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 ##Update History
 Version 1.1.3: 19 Nov 2016
 * Fixed bug where min, max and step values were not updating correctly when component received new props for them.
-
+* Updated dependencies to latest versions.
 
 Version 1.1.2: 24 Sep 2016
 * Reverted change of slider trigger event from `change` to `slideStop` in v1.1.1.  This was a dumb way of doing it, and was a borderline breaking change to boot.
