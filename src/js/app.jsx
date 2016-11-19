@@ -94,7 +94,7 @@ class Demo extends React.Component {
       valueSpan = <DemoSingleValueSpan
             id = { id }
             value = { newValue } />;
-      changeAxesButton = <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>;
+      changeAxesButton = id === "ticksSlider" ? null : <button id = {"but" + id} onClick = { this.changeAxes } > Change axes </button>;
     }
     return (
       <div>

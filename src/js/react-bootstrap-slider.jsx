@@ -64,13 +64,14 @@ export class ReactBootstrapSlider extends React.Component {
     }
 
     updateSliderValues() {
-        if (this.mySlider.min) {
+        if (this.props.min) {
             this.mySlider.setAttribute("min", this.props.min);
         }
-        if (this.mySlider.max) {
+        if (this.props.max) {
             this.mySlider.setAttribute("max", this.props.max);
         }
-        if (this.mySlider.step) {
+        // }
+        if (this.props.step) {
             this.mySlider.setAttribute("step", this.props.step);
         }
         this.mySlider.setValue(this.props.value);
