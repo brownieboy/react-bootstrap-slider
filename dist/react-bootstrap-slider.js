@@ -131,7 +131,6 @@
                         var fakeEvent = {
                             target: {}
                         };
-                        // fakeEvent.target.value = e;
                         fakeEvent.target.value = e.newValue;
                         changeEvent(fakeEvent);
                     });
@@ -142,7 +141,6 @@
                         var fakeEvent = {
                             target: {}
                         };
-                        // fakeEvent.target.value = e;
                         fakeEvent.target.value = e;
                         that.props.slideStop(fakeEvent);
                     });
@@ -156,15 +154,16 @@
         }, {
             key: "updateSliderValues",
             value: function updateSliderValues() {
-                if (this.mySlider.min || this.mySlider.options.min) {
+                if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {
                     this.mySlider.setAttribute("min", this.props.min);
                 }
-                if (this.mySlider.max || this.mySlider.options.max) {
+                if (this.props.max && (this.mySlider.max || this.mySlider.options.max)) {
                     this.mySlider.setAttribute("max", this.props.max);
                 }
-                if (this.mySlider.step || this.mySlider.options.step) {
+                if (this.props.step && (this.mySlider.step || this.mySlider.options.step)) {
                     this.mySlider.setAttribute("step", this.props.step);
                 }
+
                 this.mySlider.setValue(this.props.value);
 
                 var sliderEnable = this.props.disabled === "disabled" ? false : true;
