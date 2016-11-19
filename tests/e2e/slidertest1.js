@@ -115,9 +115,6 @@ describe("Clicking Change Axes button for horizontal demo", function() {
       expect(element(by.id("valueSpanhorizontalSlider")).getText()).toEqual("500");
    });
 
-   //  #verticalSlider .slider-handle.min-slider-handle aria-valuemax=20000
-   //  element(by.xpath('//div[@my-unique-id]'))
-
    it("should have a Max value of '20000'", function() {
       expect(element(by.css("#verticalSlider .slider-handle.min-slider-handle")).getAttribute("aria-valuemax")).toEqual("20000");
    });
