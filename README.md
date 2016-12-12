@@ -41,7 +41,7 @@ Here's an example of how you might call it in your ReactJS's render method:
     max={this.state.max}
     min={this.state.min}
     orientation="vertical"
-    reverse={true}
+    reversed={true}
     disabled="disabled" />
     }
 ```
@@ -54,7 +54,7 @@ The default **orientation** value is 'horizontal', so you only need to include t
 
 If **value** is a two member array, then the slider will have two handles: minimum and maximum.  You should also pass win a **range** parameter set to true in this case.
 
-As of version 1.0.5, other values passed into the component will also passed into the underlying bootstrap-slider component via the [Object Spread Operator that's been proposed for ES2017](https://github.com/Microsoft/TypeScript/issues/7617) (yes, that's how cutting edge I am!!).  See [seyria's documentation](https://github.com/seiyria/bootstrap-slider) for a full list of these.  Those parameters have not all been tested yet but the `reverse` parameter definitely works, and I have included this in the demo of the vertical slider.
+As of version 1.0.5, other values passed into the component will also passed into the underlying bootstrap-slider component via the [Object Spread Operator that's been proposed for ES2017](https://github.com/Microsoft/TypeScript/issues/7617) (yes, that's how cutting edge I am!!).  See [seyria's documentation](https://github.com/seiyria/bootstrap-slider) for a full list of these.  Those parameters have not all been tested yet but the `reversed` parameter definitely works, and I have included this in the demo of the vertical slider.
 
 Version 1.0.6 fixed an issue that prevented ticks props from being rendered.  Pass in ticks props like so:
 
