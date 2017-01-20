@@ -124,6 +124,7 @@ ReactDOM.render(
         <h3>Horizontal (default) demo</h3>
         <Demo
             id = "horizontalSlider"
+            name = "horizontalSliderName"
             startValue = { 3000 }
             max = { 20000 }
             min = { 1000 }

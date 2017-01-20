@@ -25,9 +25,10 @@ or like this for CommonJS:
 The control is implemented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
 
 
-You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add it as a link in your HTML file, e.g.:
+You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  You'll need Bootstrap's own CSS file too, of course.  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add the files as links in your HTML file, e.g.:
 
-    <link rel="stylesheet" href="bootstrap-slider/dist/css/bootstrap-slider.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.1/bootstrap-slider.min.js" />
 
 ##How to use
 Here's an example of how you might call it in your ReactJS's render method:
