@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["exports", "react", "bootstrap-slider", "es6bindall"], factory);
+        define(["exports", "react", "bootstrap-slider"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require("react"), require("bootstrap-slider"), require("es6bindall"));
+        factory(exports, require("react"), require("bootstrap-slider"));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.bootstrapSlider, global.es6bindall);
+        factory(mod.exports, global.react, global.bootstrapSlider);
         global.reactBootstrapSlider = mod.exports;
     }
-})(this, function (exports, _react, _bootstrapSlider, _es6bindall) {
+})(this, function (exports, _react, _bootstrapSlider) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
@@ -21,8 +21,6 @@
     var _react2 = _interopRequireDefault(_react);
 
     var _bootstrapSlider2 = _interopRequireDefault(_bootstrapSlider);
-
-    var _es6bindall2 = _interopRequireDefault(_es6bindall);
 
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
@@ -110,7 +108,7 @@
 
             var _this = _possibleConstructorReturn(this, (ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call(this, props));
 
-            (0, _es6bindall2.default)(_this, ["updateSliderValues"]);
+            _this.updateSliderValues = _this.updateSliderValues.bind(_this);
             return _this;
         }
 
@@ -121,10 +119,11 @@
                 var sliderAttributes = _extends({}, this.props, {
                     "tooltip": this.props.tooltip || "show"
                 });
+                console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
 
                 this.mySlider = new _bootstrapSlider2.default(this.node, sliderAttributes);
 
-                this.updateSliderValues();
+                //     this.updateSliderValues();
                 if (this.props.change || this.props.handleChange) {
                     var changeEvent = this.props.change || this.props.handleChange;
                     this.mySlider.on("change", function (e) {

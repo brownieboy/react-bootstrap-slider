@@ -2,7 +2,6 @@
 
 import React, { PropTypes } from "react";
 import Slider from "bootstrap-slider";
-import es6BindAll from "es6bindall";
 // import { isPropNumberOrArray } from "./customproptypes.js";
 
 // Tests to see if prop is a number or an array.  Clunky, but will do for now.
@@ -24,7 +23,7 @@ function isPropNumberOrArray(props, propName, componentName) {
 export class ReactBootstrapSlider extends React.Component {
     constructor(props) {
         super(props);
-        es6BindAll(this, ["updateSliderValues"]);
+        this.updateSliderValues = this.updateSliderValues.bind(this);
     }
 
     componentDidMount() {
