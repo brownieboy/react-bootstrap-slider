@@ -12,7 +12,7 @@
     "localServer": "./node_modules/.bin/http-server -a localhost -p 8082 -c-1",
     "prepublish": "npm run build",
     "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/",
-    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/",
+    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/react-bootstrap-slider/demo/",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
