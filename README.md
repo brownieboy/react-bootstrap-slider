@@ -161,6 +161,10 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ##Update History
+Version 1.1.5: 7 Mar 2017
+* Remove unnecessary console.log() calls (thanks to saevarom for the PR).
+* Fixed path to testBuild script in package.json
+
 Version 1.1.4: 11 Feb 2017
 * Removed es6bindall as a dependency.  This allows using react-bootstrap-slider with Require.JS.  (PR merge from TalAter.)
 * Fixed readme.md error: `reverse` parameter should actually be `reversed`.  (Thanks to chunkiat82 for the pick up.)
