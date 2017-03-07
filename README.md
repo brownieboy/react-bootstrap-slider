@@ -44,7 +44,7 @@ Here's an example of how you might call it in your ReactJS's render method:
     orientation="vertical"
     reversed={true}
     disabled="disabled" />
-    
+
 ```
 
 The **value**, **step**, **max** and **min** parameters should be self-explanatory.  The `change` event is the callback method that will be called when the slider actually changes.  (NB: this is the `change` event for the Bootstrap slider.)  As of version 1.1.2, there is a new `slideStop` event, which only triggers when you've _finished_ moving the slider (i.e. you release it).  This makes `slideStop` a deal less "chatty" than the `change` event.  Decide which one you need; you'll only ever need one or the other (unlike my example code above!).
@@ -128,6 +128,8 @@ To run tests against the built version, you obviously need to build that version
          npm run updateSelenium
          npm run buildDemo
          npm run localServer
+The localServer command will tie up your current terminal window, so start up a new one and enter:
+
          npm run testBuild
 
 
