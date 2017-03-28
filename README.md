@@ -161,6 +161,9 @@ Protractor is actually a testing tool designed for AngularJS, and by default, it
 
 
 ## Update History
+Version 1.1.6: 28 Mar 2017
+* Moved bootstrap, jquery, react and react-dom from dependencies to peerDependencies _and_ devDependencies.  (They need to in both because neither `yarn` or `npm install` command actually installs peerDependencies.)
+
 Version 1.1.5: 7 Mar 2017
 * Remove unnecessary console.log() calls (thanks to saevarom for the PR).
 * Fixed path to testBuild script in package.json
