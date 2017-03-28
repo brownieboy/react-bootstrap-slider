@@ -9,3 +9,5 @@ protractor.local.conf.js
 gulpfile.js
 webpack.config.js
 reports
+*.log
+*.lock
