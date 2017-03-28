@@ -1,14 +1,14 @@
 # React Bootstrap Slider
 
-##Overview
+## Overview
 A ReactJS wrapper [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider)
 
 
-##Background
+## Background
 Note: This project is a split off from my [react-bootstrap-native-slider](https://www.npmjs.com/package/react-bootstrap-native-slider) plugin.  The plan is for the react-bootstrap-slider to become a dependency of react-bootstrap-native-slider, rather than have all the code bundled into the latter, as at present.
 
 
-##How to install
+## How to install
 Install from npm with:
 
     npm install --save react-bootstrap-slider
@@ -30,7 +30,7 @@ You must ensure that you have included bootstrap-slider's CSS file, otherwise th
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.1/css/bootstrap-slider.min.css" />
 
-##How to use
+## How to use
 Here's an example of how you might call it in your ReactJS's render method:
 
 ```JavaScript
@@ -66,7 +66,7 @@ Version 1.0.6 fixed an issue that prevented ticks props from being rendered.  Pa
 ```
 
 
-##Development
+## Development
 To develop, issue this command:
 
     npm run start
@@ -80,7 +80,7 @@ To build the distribution version, issue:
 The build JavaScript file will go on the /dist folder as react-bootstrap-slider.js.  This is the main file for the project, which is used whenever this the react-bootstrap-slider package is loaded from npm.
 
 
-##Demo
+## Demo
 There is a /demo folder present, but it only contains index.html and the CSS files by default.  The JavaScript files need to be built before you can run this demo.  If there is no /demo/js folder present, then you need to run:
 
         npm run buildDemo
@@ -94,13 +94,13 @@ CSS files and the index.html file will be copied from the /src folder to the /de
 This will launch http-server running on port 8082, so you can then open the built demo from http://localhost:8082/demo/index.html.
 
 
-##Tests
+## Tests
 There are no unit tests.
 
 End to end (E2E) tests are handled by Protractor with Selenium Web Driver.
 
 
-###Installing Tests Dependencies
+### Installing Tests Dependencies
 Before running the E2E tests, you'll need to install the web driver first by running:
 
         npm run updateSelenium
@@ -108,7 +108,7 @@ Before running the E2E tests, you'll need to install the web driver first by run
 You only have to do this once though.
 
 
-###Running Tests Against Dev Version
+### Running Tests Against Dev Version
 The same set of tests can be run against either the Dev version or the built version of the Demo.  To run run tests against the development version of the Demo, you need to run:
 
         npm run testDev
@@ -122,7 +122,7 @@ This assumes that you already have webpack-dev-server running on port 8080, via 
 Note: the latter command will need to be run in a separate terminal window/tab, because the first terminal will be tied up with running webpack-dev-server.
 
 
-###Running Tests Against Built Version
+### Running Tests Against Built Version
 To run tests against the built version, you obviously need to build that version first!  You then need a server running on port 8082, before finally running the tests in a new terminal window/tab.  The commands to do all of this would be:
 
          npm run updateSelenium
@@ -133,14 +133,14 @@ The localServer command will tie up your current terminal window, so start up a 
          npm run testBuild
 
 
-###Test Results & Reports
+### Test Results & Reports
 Test results will be displayed in whichever terminal to your the `npm run testBuild` or `npm run testDev` commands.
 
 The tests will also generate HTML reports in the /reports folder, courtesy of the [protractor-jasmine2-screenshot-reporter](https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter) package.  Open the /reports/index.html file in a browser to see them.  Note how each test result in this report is a URL.  If you click on the URL, it will take you to a screenshot of how the browser looked when that particular test ran, which is pretty neat, IMHO!
 
 
 
-###Editing Tests
+### Editing Tests
 The tests themselves are in the file tests/e2e/slidertest1.js.  The tests check:
 
 1. The page loads with the correct default values set for both the vertical and horizontal versions of the Demo.
@@ -160,7 +160,7 @@ Whatever other changes you make to protractor.local.conf.js, you _must_ _not_ re
 Protractor is actually a testing tool designed for AngularJS, and by default, it will wait for Angular models to send their update messages before proceeding onto the next test.  This line tells Protractor not to wait for any such messages, which, of course, won't be coming because you're not using Angular, sensible person that you are!
 
 
-##Update History
+## Update History
 Version 1.1.5: 7 Mar 2017
 * Remove unnecessary console.log() calls (thanks to saevarom for the PR).
 * Fixed path to testBuild script in package.json
