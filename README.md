@@ -150,7 +150,7 @@ The tests themselves are in the file tests/e2e/slidertest1.js.  The tests check:
 
 There's a Protractor Tutorial at http://www.protractortest.org/#/tutorial, and the the Protractor API is at http://www.protractortest.org/#/api.
 
-###Further Test Configs
+### Further Test Configs
 Protractor defaults to using the Firefox browser, so make sure that you have it installed!  Or if you want to use Chrome or even IE, then you'll need to make some modifications to the protractor.local.conf.js file.  Google for how to do that.
 
 Whatever other changes you make to protractor.local.conf.js, you _must_ _not_ remove this line:
