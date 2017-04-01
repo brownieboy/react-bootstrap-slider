@@ -52,7 +52,6 @@
     "gulp-replace": "^0.5.4",
     "http-server": "^0.9.0",
     "jasmine-spec-reporter": "^2.7.0",
-    "jquery": "^2.1.1",
     "path": "^0.12.7",
     "protractor": "^4.0.11",
     "protractor-jasmine2-screenshot-reporter": "^0.3.2",
@@ -65,7 +64,6 @@
   },
   "peerDependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^2.1.1",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   }

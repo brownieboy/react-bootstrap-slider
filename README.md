@@ -5,7 +5,7 @@ A ReactJS wrapper [seiyria's Bootstrap Slider component](https://github.com/seiy
 
 
 ## Background
-Note: This project is a split off from my [react-bootstrap-native-slider](https://www.npmjs.com/package/react-bootstrap-native-slider) plugin.  The plan is for the react-bootstrap-slider to become a dependency of react-bootstrap-native-slider, rather than have all the code bundled into the latter, as at present.
+Note: This project started as a split off from my [react-bootstrap-native-slider](https://www.npmjs.com/package/react-bootstrap-native-slider) plugin, which I've subsequently deprecated.
 
 
 ## How to install
@@ -25,7 +25,14 @@ or like this for CommonJS:
 The control is implemented in UMD format, so should also work for AMD/RequireJS, but I've not tested that.  You can also add it as a script tag.
 
 
-You must ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  You'll need Bootstrap's own CSS file too, of course.  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add the files as links in your HTML file, e.g.:
+### Peer Dependencies
+React and Bootstrap are peer dependencies for react-bootstrap-slider.  They will _not_ be installed automatically when you install this component.  You will need to install them yourself, as part of your project, if you have not done so already.  This command will install them for you if you don't yet have them:
+
+    npm install react@^15 react-dom@^15 bootstrap@^3 --save
+or
+    yarn add react@^15 react-dom@^15 bootstrap@^3
+
+You must also ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  You'll need Bootstrap's own CSS file too, of course.  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add the files as links in your HTML file, e.g.:
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.1/bootstrap-slider.min.js"></script>
@@ -67,6 +74,14 @@ Version 1.0.6 fixed an issue that prevented ticks props from being rendered.  Pa
 
 
 ## Development
+After cloning [the repository from Github](https://www.npmjs.com/package/react-bootstrap-slider), run either:
+
+    yarn
+or
+    npm install
+
+to install the dependencies.  Note: React and Boostrap _will_ be installed this time because they are listed as development dependencies as well as peer dependencies for the project.
+
 To develop, issue this command:
 
     npm run start
@@ -85,7 +100,7 @@ There is a /demo folder present, but it only contains index.html and the CSS fil
 
         npm run buildDemo
 
-Webpack will build the JavaScript files for the demo and put them in the /demo/js/ folder.  Demo code will go in the /demo/js/slider-bundle.min.js file.  Any 3rd-party code (jQuery, Bootstrap and the react-bootstrap-slider itself) goes into the /demo/js/vendor.min.js file.  Source maps are generated both.
+Webpack will build the JavaScript files for the demo and put them in the /demo/js/ folder.  Demo code will go in the /demo/js/slider-bundle.min.js file.  Any 3rd-party code (e.g. Bootstrap, React and the react-bootstrap-slider itself) goes into the /demo/js/vendor.min.js file.  Source maps are generated both.
 
 CSS files and the index.html file will be copied from the /src folder to the /demo folder, with the correct script tag reference being inserted into index.html.  You can then open /demo/index.html in your browser from the local server.  To run that local server, issue the command:
 
@@ -100,7 +115,7 @@ There are no unit tests.
 End to end (E2E) tests are handled by Protractor with Selenium Web Driver.
 
 
-### Installing Tests Dependencies
+### Installing E2E Tests Dependencies
 Before running the E2E tests, you'll need to install the web driver first by running:
 
         npm run updateSelenium
@@ -119,24 +134,25 @@ This assumes that you already have webpack-dev-server running on port 8080, via 
         npm run start
         npm run testDev
 
-Note: the latter command will need to be run in a separate terminal window/tab, because the first terminal will be tied up with running webpack-dev-server.
+Note: the last of those three commands will need to be run in a separate terminal window/tab, because the first terminal will be tied up with running webpack-dev-server.
 
 
 ### Running Tests Against Built Version
-To run tests against the built version, you obviously need to build that version first!  You then need a server running on port 8082, before finally running the tests in a new terminal window/tab.  The commands to do all of this would be:
+To run tests against the built version, you obviously need to build that version first!  You then need a server running on port 8082, before finally running the tests in a new terminal window/tab.  I've included [http-server](https://www.npmjs.com/package/http-server) as a development dependency for this purpose, and you can run this via `npm run localServer`.  Putting that all together, the commands to do run the build version tests are:
 
          npm run updateSelenium
          npm run buildDemo
          npm run localServer
-The localServer command will tie up your current terminal window, so start up a new one and enter:
-
          npm run testBuild
+
+Once again, the last command listed here will need to be executed in new console tab/window because the first one will be tied up running the local server.
+
 
 
 ### Test Results & Reports
 Test results will be displayed in whichever terminal to your the `npm run testBuild` or `npm run testDev` commands.
 
-The tests will also generate HTML reports in the /reports folder, courtesy of the [protractor-jasmine2-screenshot-reporter](https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter) package.  Open the /reports/index.html file in a browser to see them.  Note how each test result in this report is a URL.  If you click on the URL, it will take you to a screenshot of how the browser looked when that particular test ran, which is pretty neat, IMHO!
+The tests will also generate HTML reports in the /reports folder, courtesy of the [protractor-jasmine2-screenshot-reporter](https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter) package.  Open the /reports/index.html file in a browser to see them.  Note how each test result in this report is a URL.  If you click on the URL, it will take you to a screen shot of how the browser looked when that particular test ran, which is pretty neat, IMHO!
 
 
 
@@ -151,13 +167,13 @@ The tests themselves are in the file tests/e2e/slidertest1.js.  The tests check:
 There's a Protractor Tutorial at http://www.protractortest.org/#/tutorial, and the the Protractor API is at http://www.protractortest.org/#/api.
 
 ###Further Test Configs
-Protractor defaults to using the Firefox browser, so make sure that you have it installed!  Or if you want to use Chrome or even IE, then you'll need to make some modifications to the protractor.local.conf.js file.  Google for how to do that.
+Protractor defaults to using the Firefox browser, but I've overridden the config so that it uses Chrome instead, so make sure that you have Chrome installed!  If you want to use Firefox or even IE, then you'll need to make some modifications to the protractor.local.conf.js file.  Google for how to do that.
 
 Whatever other changes you make to protractor.local.conf.js, you _must_ _not_ remove this line:
 
         browser.ignoreSynchronization = true;
 
-Protractor is actually a testing tool designed for AngularJS, and by default, it will wait for Angular models to send their update messages before proceeding onto the next test.  This line tells Protractor not to wait for any such messages, which, of course, won't be coming because you're not using Angular, sensible person that you are!
+Protractor is actually a testing tool designed for AngularJS, but hey, nobody's perfect!  By default, Protractor will wait for Angular models to send their update messages before proceeding onto the next test.  This line tells Protractor not to wait for any such messages, which, of course, won't be coming because you're not using Angular.
 
 
 ## Update History
