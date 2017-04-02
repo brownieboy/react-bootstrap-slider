@@ -177,6 +177,12 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 
 ## Update History
+Version 1.1.7: 2 Apr 2017
+* Removed jQuery as any kind of dependency.  It's not actually needed, but it is used by boostrap-slider if present.
+
+Version 1.1.6: 28 Mar 2017
+* Moved bootstrap, jquery, react and react-dom from dependencies to peerDependencies and devDependencies. (They need to in both because neither yarn or npm install command actually installs peerDependencies.)
+
 Version 1.1.5: 7 Mar 2017
 * Remove unnecessary console.log() calls (thanks to saevarom for the PR).
 * Fixed path to testBuild script in package.json

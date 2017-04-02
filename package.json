@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Bootstrap Slider component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,8 +11,8 @@
     "buildDemoSource": "node_modules/.bin/gulp buildDemoFiles",
     "localServer": "./node_modules/.bin/http-server -a localhost -p 8082 -c-1",
     "prepublish": "npm run build",
-    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/",
-    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8082/reports/",
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
+    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8082/reports/index.html",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
@@ -33,7 +33,9 @@
   },
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap-slider": "^9.7.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
