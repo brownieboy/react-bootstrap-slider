@@ -11,8 +11,8 @@
     "buildDemoSource": "node_modules/.bin/gulp buildDemoFiles",
     "localServer": "./node_modules/.bin/http-server -a localhost -p 8082 -c-1",
     "prepublish": "npm run build",
-    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --argv-reportsurl=http://localhost:8080",
-    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --argv-reportsurl=http://localhost:8082",
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/",
+    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8082/reports/",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
@@ -33,9 +33,7 @@
   },
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "bootstrap-slider": "^9.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",

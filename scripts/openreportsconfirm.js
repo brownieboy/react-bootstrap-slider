@@ -38,6 +38,6 @@ prompt.get({
 
   // your code
   // console.log("Action confirmed");
-  open(argv-reportsurl);
+  open(argv.reportsurl);
 
 });
