@@ -11,8 +11,8 @@
     "buildDemoSource": "node_modules/.bin/gulp buildDemoFiles",
     "localServer": "./node_modules/.bin/http-server -a localhost -p 8082 -c-1",
     "prepublish": "npm run build",
-    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && echo open http://localhost:8080/reports to see detailed test reports",
-    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && echo open http://localhost:8082/reports to see detailed test reports",
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --argv-reportsurl=http://localhost:8080",
+    "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --argv-reportsurl=http://localhost:8082",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
@@ -62,7 +62,8 @@
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.17.0",
-    "webpack-validator": "^2.2.9"
+    "webpack-validator": "^2.2.9",
+    "yargs": "^7.0.2"
   },
   "peerDependencies": {
     "bootstrap": "^3.3.7",

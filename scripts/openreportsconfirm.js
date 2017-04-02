@@ -2,6 +2,8 @@
 
 const prompt = require("prompt");
 const open = require("open");
+const argv = require("yargs").argv;
+
 // user confirmation required!
 prompt.start();
 
@@ -36,6 +38,6 @@ prompt.get({
 
   // your code
   // console.log("Action confirmed");
-  open("http://localhost:8082/reports/");
+  open(argv-reportsurl);
 
 });
