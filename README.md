@@ -1,7 +1,7 @@
 # React Bootstrap Slider
 
 ## Overview
-A ReactJS wrapper [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider)
+A ReactJS wrapper for [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider)
 
 
 ## Background
@@ -31,6 +31,10 @@ React and Bootstrap are peer dependencies for react-bootstrap-slider.  They will
     npm install react@^15 react-dom@^15 bootstrap@^3 --save
 or
     yarn add react@^15 react-dom@^15 bootstrap@^3
+
+
+#### jQuery
+The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing depenency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build for how you can workaround this issue.
 
 You must also ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  You'll need Bootstrap's own CSS file too, of course.  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add the files as links in your HTML file, e.g.:
 
