@@ -30,6 +30,7 @@ React and Bootstrap are peer dependencies for react-bootstrap-slider.  They will
 
     npm install react@^15 react-dom@^15 bootstrap@^3 --save
 or
+
     yarn add react@^15 react-dom@^15 bootstrap@^3
 
 
