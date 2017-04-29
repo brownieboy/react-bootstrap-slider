@@ -1,6 +1,5 @@
 /* eslint-env node */
 
-
 // import path from "path";
 // import webpack from "webpack";
 // import merge from "webpack-merge";
@@ -13,7 +12,6 @@ const ROOT_PATH = path.resolve(__dirname);
 const srcDir = path.join(__dirname, "src");
 
 var exportModule;
-
 
 const common = {
   entry: {
@@ -28,14 +26,16 @@ const common = {
     }
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      include: [path.resolve(__dirname, "src/js")],
-      loader: "babel-loader", // "babel-loader" is also a legal name to reference
-      query: {
-        presets: ["react", "es2015"]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        include: [path.resolve(__dirname, "src/js")],
+        loader: "babel-loader", // "babel-loader" is also a legal name to reference
+        query: {
+          presets: ["react", "es2015"]
+        }
       }
-    }]
+    ]
   },
   devtool: "source-map"
 };
@@ -50,14 +50,16 @@ if (TARGET === "buildDemowp") {
       filename: "slider-bundle.min.js"
     },
     module: {
-      loaders: [{
-        test: /\.jsx?$/,
-        include: [path.resolve(__dirname, "demosrc/js")],
-        loader: "babel-loader", // "babel-loader" is also a legal name to reference
-        query: {
-          presets: ["react", "es2015"]
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          include: [path.resolve(__dirname, "demosrc/js")],
+          loader: "babel-loader", // "babel-loader" is also a legal name to reference
+          query: {
+            presets: ["react", "es2015"]
+          }
         }
-      }]
+      ]
     },
     plugins: [
       // new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.min.js", function(module) {
@@ -65,13 +67,30 @@ if (TARGET === "buildDemowp") {
       // })
       new webpack.optimize.CommonsChunkPlugin({
         name: "vendor",
-        filename: "vendor.js",
-        minChunks: (module) => {
+        filename: "vendor.min.js",
+        minChunks: module => {
           const userRequest = module.userRequest;
           // module.userRequest returns name of file, including path
-          return userRequest && userRequest.match(/\.js$/) && userRequest.indexOf("node_modules") >= 0;
+          return (
+            userRequest &&
+            userRequest.match(/\.js$/) &&
+            userRequest.indexOf("node_modules") >= 0
+          );
         }
       }),
+      new webpack.DefinePlugin({
+        "process.env": { NODE_ENV: '"production"' } // eslint-disable-line quotes
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true,
+        compress: {
+          warnings: false
+        }
+      }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
+      })
     ]
   });
 }
@@ -87,9 +106,7 @@ if (TARGET === "start" || !TARGET) {
       // hot: true,
       inline: true
     },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
+    plugins: [new webpack.HotModuleReplacementPlugin()]
   });
 }
 

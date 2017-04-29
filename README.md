@@ -28,10 +28,10 @@ The control is implemented in UMD format, so should also work for AMD/RequireJS,
 ### Peer Dependencies
 React and Bootstrap are peer dependencies for react-bootstrap-slider.  They will _not_ be installed automatically when you install this component.  You will need to install them yourself, as part of your project, if you have not done so already.  This command will install them for you if you don't yet have them:
 
-    npm install react@^15 react-dom@^15 bootstrap@^3 --save
+    npm install react@^15 react-dom@^15 prop-types@15 bootstrap@^3 --save
 or
 
-    yarn add react@^15 react-dom@^15 bootstrap@^3
+    yarn add react@^15 react-dom@^15 prop-types@15 bootstrap@^3
 
 
 #### jQuery

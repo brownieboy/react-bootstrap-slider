@@ -35,8 +35,8 @@ const DemoSingleValueSpan = ({ id, value }) => (
 );
 
 DemoSingleValueSpan.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  value: React.PropTypes.number.isRequired
+  id: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired
 };
 
 const DemoMultiValueSpan = ({ id, value }) => (
@@ -47,8 +47,8 @@ const DemoMultiValueSpan = ({ id, value }) => (
 );
 
 DemoMultiValueSpan.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  value: React.PropTypes.arrayOf(React.PropTypes.number.isRequired).isRequired
+  id: PropTypes.string.isRequired,
+  value: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired
 };
 
 class Demo extends React.Component {
