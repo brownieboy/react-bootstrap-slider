@@ -2,6 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import es6BindAll from "es6bindall";
 import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
 // import { isPropNumberOrArray } from "./customproptypes.js";
@@ -113,7 +114,7 @@ class Demo extends React.Component {
 
 
 Demo.propTypes = {
-  id: React.PropTypes.string,
+  id: PropTypes.string,
   value: isPropNumberOrArray,
   startValue: isPropNumberOrArray
 };

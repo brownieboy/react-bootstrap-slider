@@ -33,10 +33,6 @@
   },
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "bootstrap-slider": "^9.7.2",
-    "prop-types": "^15.5.8"
-  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
@@ -46,7 +42,6 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "babel-register": "^6.18.0",
-    "bootstrap": "^3.3.7",
     "es6bindall": "0.0.9",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
@@ -58,8 +53,6 @@
     "prompt": "^1.0.0",
     "protractor": "^5.1.1",
     "protractor-jasmine2-screenshot-reporter": "^0.3.5",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0",
@@ -67,7 +60,11 @@
   },
   "peerDependencies": {
     "bootstrap": "^3.3.7",
+    "prop-types": "^15.5.0",
     "react": "^15.5.0",
     "react-dom": "^15.5.0"
+  },
+  "dependencies": {
+    "bootstrap-slider": "^9.8.0"
   }
 }
