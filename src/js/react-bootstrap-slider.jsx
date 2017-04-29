@@ -1,6 +1,7 @@
 /* eslint-env browser */
 
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Slider from "bootstrap-slider";
 // import { isPropNumberOrArray } from "./customproptypes.js";
 

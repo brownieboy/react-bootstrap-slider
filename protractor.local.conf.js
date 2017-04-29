@@ -44,7 +44,8 @@ exports.config = {
       browserName: "chrome",
       chromeOptions: {
           args: [
-              "--start-maximized"
+              "--start-maximized",
+              "--disable-extensions"
           ]
       }
    },

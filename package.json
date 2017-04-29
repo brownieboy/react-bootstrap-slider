@@ -11,7 +11,7 @@
     "buildDemoSource": "node_modules/.bin/gulp buildDemoFiles",
     "localServer": "./node_modules/.bin/http-server -a localhost -p 8082 -c-1",
     "prepublish": "npm run build",
-    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/index.html && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
     "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8082/reports/index.html",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
@@ -34,7 +34,8 @@
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap-slider": "^9.7.2"
+    "bootstrap-slider": "^9.7.2",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -55,19 +56,18 @@
     "open": "^0.0.5",
     "path": "^0.12.7",
     "prompt": "^1.0.0",
-    "protractor": "^4.0.11",
-    "protractor-jasmine2-screenshot-reporter": "^0.3.2",
+    "protractor": "^5.1.1",
+    "protractor-jasmine2-screenshot-reporter": "^0.3.5",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^0.17.0",
-    "webpack-validator": "^2.2.9",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0",
     "yargs": "^7.0.2"
   },
   "peerDependencies": {
     "bootstrap": "^3.3.7",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0"
   }
 }

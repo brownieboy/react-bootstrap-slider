@@ -1,16 +1,16 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["exports", "react", "bootstrap-slider"], factory);
+        define(["exports", "react", "prop-types", "bootstrap-slider"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require("react"), require("bootstrap-slider"));
+        factory(exports, require("react"), require("prop-types"), require("bootstrap-slider"));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.bootstrapSlider);
+        factory(mod.exports, global.react, global.propTypes, global.bootstrapSlider);
         global.reactBootstrapSlider = mod.exports;
     }
-})(this, function (exports, _react, _bootstrapSlider) {
+})(this, function (exports, _react, _propTypes, _bootstrapSlider) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
@@ -19,6 +19,8 @@
     exports.ReactBootstrapSlider = undefined;
 
     var _react2 = _interopRequireDefault(_react);
+
+    var _propTypes2 = _interopRequireDefault(_propTypes);
 
     var _bootstrapSlider2 = _interopRequireDefault(_bootstrapSlider);
 
@@ -194,15 +196,15 @@
     }(_react2.default.Component);
 
     ReactBootstrapSlider.propTypes = {
-        min: _react.PropTypes.number,
-        max: _react.PropTypes.number,
-        step: _react.PropTypes.number,
+        min: _propTypes2.default.number,
+        max: _propTypes2.default.number,
+        step: _propTypes2.default.number,
         value: isPropNumberOrArray,
-        disabled: _react.PropTypes.string,
-        tooltip: _react.PropTypes.string,
-        change: _react.PropTypes.func,
-        handleChange: _react.PropTypes.func,
-        slideStop: _react.PropTypes.func
+        disabled: _propTypes2.default.string,
+        tooltip: _propTypes2.default.string,
+        change: _propTypes2.default.func,
+        handleChange: _propTypes2.default.func,
+        slideStop: _propTypes2.default.func
     };
 
     exports.default = ReactBootstrapSlider;

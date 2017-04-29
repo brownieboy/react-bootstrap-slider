@@ -7,7 +7,6 @@
 var path = require("path");
 var webpack = require("webpack");
 var merge = require("webpack-merge");
-const validate = require("webpack-validator");
 
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = path.resolve(__dirname);
@@ -32,7 +31,7 @@ const common = {
     loaders: [{
       test: /\.jsx?$/,
       include: [path.resolve(__dirname, "src/js")],
-      loader: "babel", // "babel-loader" is also a legal name to reference
+      loader: "babel-loader", // "babel-loader" is also a legal name to reference
       query: {
         presets: ["react", "es2015"]
       }
@@ -54,7 +53,7 @@ if (TARGET === "buildDemowp") {
       loaders: [{
         test: /\.jsx?$/,
         include: [path.resolve(__dirname, "demosrc/js")],
-        loader: "babel", // "babel-loader" is also a legal name to reference
+        loader: "babel-loader", // "babel-loader" is also a legal name to reference
         query: {
           presets: ["react", "es2015"]
         }
@@ -85,4 +84,4 @@ if (TARGET === "start" || !TARGET) {
   });
 }
 
-module.exports = validate(exportModule);
+module.exports = exportModule;
