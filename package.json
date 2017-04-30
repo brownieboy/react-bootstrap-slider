@@ -13,7 +13,6 @@
     "prepublish": "npm run build",
     "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/index.html && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
     "testBuild": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8082/demo/ && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8082/reports/index.html",
-    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "updateSelenium": "node_modules/.bin/webdriver-manager update"
   },
   "main": "dist/react-bootstrap-slider.js",

@@ -182,6 +182,9 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 
 ## Update History
+Version 2.0.0: 30 Apr 2017
+* Updated for React 15.5.x and 16 (Fiber) compatibility by using prop-types package.  This version will not work with older versions of React, hence the major version bump.
+
 Version 1.1.7: 2 Apr 2017
 * Removed jQuery as any kind of dependency.  It's not actually needed, but it is used by boostrap-slider if present.
 
