@@ -171,7 +171,7 @@ The tests themselves are in the file tests/e2e/slidertest1.js.  The tests check:
 
 There's a Protractor Tutorial at http://www.protractortest.org/#/tutorial, and the the Protractor API is at http://www.protractortest.org/#/api.
 
-###Further Test Configs
+### Further Test Configs
 Protractor defaults to using the Firefox browser, but I've overridden the config so that it uses Chrome instead, so make sure that you have Chrome installed!  If you want to use Firefox or even IE, then you'll need to make some modifications to the protractor.local.conf.js file.  Google for how to do that.
 
 Whatever other changes you make to protractor.local.conf.js, you _must_ _not_ remove this line:
@@ -182,6 +182,9 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 
 ## Update History
+Version 2.0.1: 19 Aug 2017
+* Module is now destroyed correctly via componentWillUnmount method (thanks to KevBelisle for the PR).
+
 Version 2.0.0: 30 Apr 2017
 * Updated for React 15.5.x and 16 (Fiber) compatibility by using prop-types package.  This version will not work with older versions of React, hence the major version bump.
 
