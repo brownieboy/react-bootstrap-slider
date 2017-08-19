@@ -63,6 +63,10 @@ export class ReactBootstrapSlider extends React.Component {
     componentDidUpdate() {
         this.updateSliderValues();
     }
+    
+    componentWillUnmount() {
+        this.mySlider.destroy();
+    }
 
     updateSliderValues() {
         if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {

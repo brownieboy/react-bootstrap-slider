@@ -153,6 +153,11 @@
                 this.updateSliderValues();
             }
         }, {
+            key: "componentWillUnmount",
+            value: function componentWillUnmount() {
+                this.mySlider.destroy();
+            }
+        }, {
             key: "updateSliderValues",
             value: function updateSliderValues() {
                 if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {
