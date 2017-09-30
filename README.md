@@ -26,16 +26,16 @@ The control is implemented in UMD format, so should also work for AMD/RequireJS,
 
 
 ### Peer Dependencies
-React and Bootstrap are peer dependencies for react-bootstrap-slider.  They will _not_ be installed automatically when you install this component.  You will need to install them yourself, as part of your project, if you have not done so already.  This command will install them for you if you don't yet have them:
+React and Bootstrap are listed as peer dependencies (peerDependencies in package.json) for react-bootstrap-slider.  They will _not_ be installed automatically when you install this component into your own project.  You will need to install them yourself, as part of that project, if you have not done so already.  This command will install them for you if you don't yet have them:
 
-    npm install react@^15 react-dom@^15 prop-types@15 bootstrap@^3 --save
+    npm install react react-dom prop-types bootstrap@^3 --save
 or
 
-    yarn add react@^15 react-dom@^15 prop-types@15 bootstrap@^3
+    yarn add react react-dom prop-types bootstrap@^3
 
 
 #### jQuery
-The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing depenency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build for how you can workaround this issue.
+The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing dependency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build for how you can workaround this issue.
 
 You must also ensure that you have included bootstrap-slider's CSS file, otherwise the control will be blank!  You'll need Bootstrap's own CSS file too, of course.  If you're using Webpack, you can import the CSS file directly into your build.  Or you can simply add the files as links in your HTML file, e.g.:
 
@@ -85,7 +85,7 @@ After cloning [the repository from Github](https://www.npmjs.com/package/react-b
 or
     npm install
 
-to install the dependencies.  Note: React and Boostrap _will_ be installed this time because they are listed as development dependencies as well as peer dependencies for the project.
+to install the dependencies.  Note: React and Bootstrap _will_ be installed this time because they are listed as development dependencies as well as peer dependencies for the project.  (Please see discussion here https://github.com/brownieboy/react-bootstrap-slider/pull/43 for why I've listed these packages under both peerDependencies and devDependencies.)
 
 To develop, issue this command:
 
@@ -182,6 +182,11 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 
 ## Update History
+Version 2.1.0: 30 Sep 2017
+* Updated for React 16 (Fiber).
+* Updated dev dependcies to latest versions too.
+* Removed React and Bootstrap from dependencies list.  They are now in devDependencies and peerDependencies.
+
 Version 2.0.1: 19 Aug 2017
 * Module is now destroyed correctly via componentWillUnmount method (thanks to KevBelisle for the PR).
 

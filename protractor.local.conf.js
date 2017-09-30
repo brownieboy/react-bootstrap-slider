@@ -8,7 +8,7 @@ var HtmlScreenshotReporter = require("protractor-jasmine2-screenshot-reporter");
 
 var TARGET = process.env.npm_lifecycle_event; // This is the name of the package.json script that called this task
 
-var SpecReporter = require("jasmine-spec-reporter");
+var SpecReporter = require("jasmine-spec-reporter").SpecReporter;
 var path = require("path");
 
 var htmlScreenshotReporterDestination, reportTitle;
