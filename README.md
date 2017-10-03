@@ -182,6 +182,10 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 
 ## Update History
+
+Version 2.1.1: 3 Oct 2017
+* Fixed missing peerDependencies and devDependencies issue.
+
 Version 2.1.0: 30 Sep 2017
 * Updated for React 16 (Fiber).
 * Updated dev dependencies to latest versions too.
