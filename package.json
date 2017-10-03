@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Bootstrap Slider component for React",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -41,6 +41,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
+    "bootstrap": "^3.3.7",
     "es6bindall": "0.0.9",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
@@ -61,7 +62,10 @@
     "yargs": "^9.0.1"
   },
   "peerDependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "dependencies": {
     "bootstrap-slider": "9.9.0"

@@ -129,7 +129,8 @@ ReactDOM.render(
             startValue = { 3000 }
             max = { 20000 }
             min = { 1000 }
-            step = { 1000 } />
+            step = { 1000 }
+            tooltip="always" />
       </div>
       <div className = "demoWrapper">
       <h3>Vertical Demo</h3>
