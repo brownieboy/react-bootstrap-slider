@@ -65,7 +65,7 @@ export class ReactBootstrapSlider extends React.Component {
     }
     
     componentWillUnmount() {
-        this.mySlider.destroy();
+        this.mySlider && this.mySlider.destroy && this.mySlider.destroy();
     }
 
     updateSliderValues() {
