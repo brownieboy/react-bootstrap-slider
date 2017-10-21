@@ -118,7 +118,6 @@
         _createClass(ReactBootstrapSlider, [{
             key: "checkAndDoDisabled",
             value: function checkAndDoDisabled() {
-                console.log("checkAndDoDisabled()");
                 var sliderEnable = this.props.disabled === "disabled" ? false : true;
                 var currentlyEnabled = this.mySlider.isEnabled();
                 if (sliderEnable) {

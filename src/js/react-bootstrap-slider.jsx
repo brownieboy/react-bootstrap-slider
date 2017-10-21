@@ -34,7 +34,6 @@ export class ReactBootstrapSlider extends React.Component {
     }
 
     checkAndDoDisabled() {
-        console.log("checkAndDoDisabled()");
         var sliderEnable = this.props.disabled === "disabled" ? false : true;
         var currentlyEnabled = this.mySlider.isEnabled();
         if (sliderEnable) {
