@@ -7,37 +7,58 @@ import Slider from "bootstrap-slider";
 
 // Tests to see if prop is a number or an array.  Clunky, but will do for now.
 function isPropNumberOrArray(props, propName, componentName) {
-  // console.log("props[" + propName + "]=" + props[propName]);
-  if (!((typeof props[propName] === "number") || (typeof props[propName] === "undefined") || Array.isArray(props[propName]))) {
-    return new Error(
-      [
-        componentName,
-        "requires that",
-        propName,
-        "be a number or an array."
-      ].join(" ")
-    );
-  }
+    // console.log("props[" + propName + "]=" + props[propName]);
+    if (
+        !(
+            typeof props[propName] === "number" ||
+            typeof props[propName] === "undefined" ||
+            Array.isArray(props[propName])
+        )
+    ) {
+        return new Error(
+            [
+                componentName,
+                "requires that",
+                propName,
+                "be a number or an array."
+            ].join(" ")
+        );
+    }
 }
-
 
 export class ReactBootstrapSlider extends React.Component {
     constructor(props) {
         super(props);
         this.updateSliderValues = this.updateSliderValues.bind(this);
+        this.checkAndDoDisabled = this.checkAndDoDisabled.bind(this);
+    }
+
+    checkAndDoDisabled() {
+        console.log("checkAndDoDisabled()");
+        var sliderEnable = this.props.disabled === "disabled" ? false : true;
+        var currentlyEnabled = this.mySlider.isEnabled();
+        if (sliderEnable) {
+            if (!currentlyEnabled) {
+                this.mySlider.enable();
+            }
+        } else {
+            if (currentlyEnabled) {
+                this.mySlider.disable();
+            }
+        }
     }
 
     componentDidMount() {
         var that = this;
         var sliderAttributes = {
             ...this.props,
-            "tooltip": this.props.tooltip || "show"
+            tooltip: this.props.tooltip || "show"
         };
         // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
 
         this.mySlider = new Slider(this.node, sliderAttributes);
 
-   //     this.updateSliderValues();
+        //     this.updateSliderValues();
         if (this.props.change || this.props.handleChange) {
             var changeEvent = this.props.change || this.props.handleChange;
             this.mySlider.on("change", function(e) {
@@ -58,46 +79,45 @@ export class ReactBootstrapSlider extends React.Component {
                 that.props.slideStop(fakeEvent);
             });
         }
+        this.checkAndDoDisabled();
     }
 
     componentDidUpdate() {
         this.updateSliderValues();
     }
-    
+
     componentWillUnmount() {
         this.mySlider.destroy();
     }
 
     updateSliderValues() {
-        if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {
+        if (
+            this.props.min &&
+            (this.mySlider.min || this.mySlider.options.min)
+        ) {
             this.mySlider.setAttribute("min", this.props.min);
         }
-        if (this.props.max && (this.mySlider.max || this.mySlider.options.max)) {
+        if (
+            this.props.max &&
+            (this.mySlider.max || this.mySlider.options.max)
+        ) {
             this.mySlider.setAttribute("max", this.props.max);
         }
-        if (this.props.step && (this.mySlider.step || this.mySlider.options.step)) {
+        if (
+            this.props.step &&
+            (this.mySlider.step || this.mySlider.options.step)
+        ) {
             this.mySlider.setAttribute("step", this.props.step);
         }
 
         this.mySlider.setValue(this.props.value);
-
-        var sliderEnable = this.props.disabled === "disabled" ? false : true;
-        var currentlyEnabled = this.mySlider.isEnabled();
-        if (sliderEnable) {
-            if (!currentlyEnabled) {
-                this.mySlider.enable();
-            }
-        } else {
-            if (currentlyEnabled) {
-                this.mySlider.disable();
-            }
-        }
+        this.checkAndDoDisabled();
     }
 
-     render() {
+    render() {
         // The slider"s an input.  That"s all we need.  We"ll do the rest in
         // the componentDidMount() method.
-        return <div ref={node => this.node = node} />;
+        return <div ref={node => (this.node = node)} />;
     }
 }
 
@@ -112,6 +132,5 @@ ReactBootstrapSlider.propTypes = {
     handleChange: PropTypes.func,
     slideStop: PropTypes.func
 };
-
 
 export default ReactBootstrapSlider;

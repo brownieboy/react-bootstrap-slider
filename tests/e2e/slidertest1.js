@@ -30,6 +30,10 @@ describe("Page loads", function() {
       expect(element(by.id("valueSpanticksSlider")).getText()).toEqual("200");
    });
 
+   it("should display Disabled Demo value of '3000'", function() {
+      expect(element(by.id("valueSpandisabledSlider")).getText()).toEqual("3000");
+   });
+
 });
 
 describe("Dragging horizontal slider 100px to the right", function() {
@@ -124,5 +128,16 @@ describe("Clicking Change Axes button for vertical demo", function() {
    it("should display horizontal Demo value of '500'", function() {
       element(by.id("butverticalSlider")).click();
       expect(element(by.id("valueSpanverticalSlider")).getText()).toEqual("500");
+   });
+});
+
+describe("Dragging disabled slider 100px to the right", function() {
+   it("should do nothing (value still shows '3000')", function() {
+
+      var slider = element(by.css("#disabledSlider .min-slider-handle"));
+      browser.actions().dragAndDrop(
+         slider, { x: 100, y: 0 }
+      ).perform();
+      expect(element(by.id("valueSpandisabledSlider")).getText()).toEqual("3000");
    });
 });

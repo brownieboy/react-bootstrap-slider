@@ -111,15 +111,32 @@
             var _this = _possibleConstructorReturn(this, (ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call(this, props));
 
             _this.updateSliderValues = _this.updateSliderValues.bind(_this);
+            _this.checkAndDoDisabled = _this.checkAndDoDisabled.bind(_this);
             return _this;
         }
 
         _createClass(ReactBootstrapSlider, [{
+            key: "checkAndDoDisabled",
+            value: function checkAndDoDisabled() {
+                console.log("checkAndDoDisabled()");
+                var sliderEnable = this.props.disabled === "disabled" ? false : true;
+                var currentlyEnabled = this.mySlider.isEnabled();
+                if (sliderEnable) {
+                    if (!currentlyEnabled) {
+                        this.mySlider.enable();
+                    }
+                } else {
+                    if (currentlyEnabled) {
+                        this.mySlider.disable();
+                    }
+                }
+            }
+        }, {
             key: "componentDidMount",
             value: function componentDidMount() {
                 var that = this;
                 var sliderAttributes = _extends({}, this.props, {
-                    "tooltip": this.props.tooltip || "show"
+                    tooltip: this.props.tooltip || "show"
                 });
                 // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
 
@@ -146,6 +163,7 @@
                         that.props.slideStop(fakeEvent);
                     });
                 }
+                this.checkAndDoDisabled();
             }
         }, {
             key: "componentDidUpdate",
@@ -171,18 +189,7 @@
                 }
 
                 this.mySlider.setValue(this.props.value);
-
-                var sliderEnable = this.props.disabled === "disabled" ? false : true;
-                var currentlyEnabled = this.mySlider.isEnabled();
-                if (sliderEnable) {
-                    if (!currentlyEnabled) {
-                        this.mySlider.enable();
-                    }
-                } else {
-                    if (currentlyEnabled) {
-                        this.mySlider.disable();
-                    }
-                }
+                this.checkAndDoDisabled();
             }
         }, {
             key: "render",

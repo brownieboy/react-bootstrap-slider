@@ -183,6 +183,9 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 ## Update History
 
+Version 2.1.2: 21 Oct 2017
+* Fixed issue where setting the "disabled" prop did not disable the component on load.
+
 Version 2.1.1: 3 Oct 2017
 * Fixed missing peerDependencies and devDependencies issue.
 
