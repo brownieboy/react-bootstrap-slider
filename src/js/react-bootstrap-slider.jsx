@@ -129,7 +129,11 @@ ReactBootstrapSlider.propTypes = {
     tooltip: PropTypes.string,
     change: PropTypes.func,
     handleChange: PropTypes.func,
-    slideStop: PropTypes.func
+    slideStop: PropTypes.func,
+    labelledby: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string)
+    ])
 };
 
 export default ReactBootstrapSlider;
