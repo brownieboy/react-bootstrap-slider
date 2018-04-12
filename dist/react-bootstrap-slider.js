@@ -215,7 +215,8 @@
         tooltip: _propTypes2.default.string,
         change: _propTypes2.default.func,
         handleChange: _propTypes2.default.func,
-        slideStop: _propTypes2.default.func
+        slideStop: _propTypes2.default.func,
+        labelledby: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.arrayOf(_propTypes2.default.string)])
     };
 
     exports.default = ReactBootstrapSlider;
