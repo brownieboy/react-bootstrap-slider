@@ -9,7 +9,7 @@
   },
   "extends": ["eslint"],
   "rules": {
-  "indent": ["error", 2],
+    "indent": [2, 2, {"SwitchCase": 1}],
     "lines-around-comment": "off",
     "newline-after-var": "off",
     "func-style": [
