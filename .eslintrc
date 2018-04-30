@@ -9,7 +9,9 @@
   },
   "extends": ["eslint"],
   "rules": {
-    "indent": "off",
+  "indent": ["error", 2],
+    "lines-around-comment": "off",
+    "newline-after-var": "off",
     "func-style": [
       2,
       "declaration",
