@@ -1,22 +1,32 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(["exports", "react", "prop-types", "bootstrap-slider"], factory);
+        define(["exports", "babel-runtime/helpers/extends", "babel-runtime/helpers/classCallCheck", "babel-runtime/helpers/createClass", "babel-runtime/helpers/possibleConstructorReturn", "babel-runtime/helpers/inherits", "react", "prop-types", "bootstrap-slider"], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require("react"), require("prop-types"), require("bootstrap-slider"));
+        factory(exports, require("babel-runtime/helpers/extends"), require("babel-runtime/helpers/classCallCheck"), require("babel-runtime/helpers/createClass"), require("babel-runtime/helpers/possibleConstructorReturn"), require("babel-runtime/helpers/inherits"), require("react"), require("prop-types"), require("bootstrap-slider"));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.react, global.propTypes, global.bootstrapSlider);
+        factory(mod.exports, global._extends, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.inherits, global.react, global.propTypes, global.bootstrapSlider);
         global.reactBootstrapSlider = mod.exports;
     }
-})(this, function (exports, _react, _propTypes, _bootstrapSlider) {
+})(this, function (exports, _extends2, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _inherits2, _react, _propTypes, _bootstrapSlider) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
     exports.ReactBootstrapSlider = undefined;
+
+    var _extends3 = _interopRequireDefault(_extends2);
+
+    var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+    var _createClass3 = _interopRequireDefault(_createClass2);
+
+    var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+    var _inherits3 = _interopRequireDefault(_inherits2);
 
     var _react2 = _interopRequireDefault(_react);
 
@@ -30,68 +40,6 @@
         };
     }
 
-    var _extends = Object.assign || function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i];
-
-            for (var key in source) {
-                if (Object.prototype.hasOwnProperty.call(source, key)) {
-                    target[key] = source[key];
-                }
-            }
-        }
-
-        return target;
-    };
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    var _createClass = function () {
-        function defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, descriptor.key, descriptor);
-            }
-        }
-
-        return function (Constructor, protoProps, staticProps) {
-            if (protoProps) defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) defineProperties(Constructor, staticProps);
-            return Constructor;
-        };
-    }();
-
-    function _possibleConstructorReturn(self, call) {
-        if (!self) {
-            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-        }
-
-        return call && (typeof call === "object" || typeof call === "function") ? call : self;
-    }
-
-    function _inherits(subClass, superClass) {
-        if (typeof superClass !== "function" && superClass !== null) {
-            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-        }
-
-        subClass.prototype = Object.create(superClass && superClass.prototype, {
-            constructor: {
-                value: subClass,
-                enumerable: false,
-                writable: true,
-                configurable: true
-            }
-        });
-        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-    }
-
     // import { isPropNumberOrArray } from "./customproptypes.js";
 
     // Tests to see if prop is a number or an array.  Clunky, but will do for now.
@@ -100,22 +48,22 @@
         if (!(typeof props[propName] === "number" || typeof props[propName] === "undefined" || Array.isArray(props[propName]))) {
             return new Error([componentName, "requires that", propName, "be a number or an array."].join(" "));
         }
-    }
+    } /* eslint-env browser */
 
     var ReactBootstrapSlider = exports.ReactBootstrapSlider = function (_React$Component) {
-        _inherits(ReactBootstrapSlider, _React$Component);
+        (0, _inherits3.default)(ReactBootstrapSlider, _React$Component);
 
         function ReactBootstrapSlider(props) {
-            _classCallCheck(this, ReactBootstrapSlider);
+            (0, _classCallCheck3.default)(this, ReactBootstrapSlider);
 
-            var _this = _possibleConstructorReturn(this, (ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call(this, props));
+            var _this = (0, _possibleConstructorReturn3.default)(this, (ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call(this, props));
 
             _this.updateSliderValues = _this.updateSliderValues.bind(_this);
             _this.checkAndDoDisabled = _this.checkAndDoDisabled.bind(_this);
             return _this;
         }
 
-        _createClass(ReactBootstrapSlider, [{
+        (0, _createClass3.default)(ReactBootstrapSlider, [{
             key: "checkAndDoDisabled",
             value: function checkAndDoDisabled() {
                 var sliderEnable = this.props.disabled === "disabled" ? false : true;
@@ -134,7 +82,7 @@
             key: "componentDidMount",
             value: function componentDidMount() {
                 var that = this;
-                var sliderAttributes = _extends({}, this.props, {
+                var sliderAttributes = (0, _extends3.default)({}, this.props, {
                     tooltip: this.props.tooltip || "show"
                 });
                 // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
@@ -202,7 +150,6 @@
                     } });
             }
         }]);
-
         return ReactBootstrapSlider;
     }(_react2.default.Component);
 

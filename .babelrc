@@ -1,4 +1,8 @@
 {
-  "presets": ["es2015", "react",  "stage-2"],
-  "plugins": "transform-es2015-modules-umd"
+    "presets": ["es2015", "react", "stage-2"],
+    "plugins": ["transform-es2015-modules-umd", ["transform-runtime",
+    {
+        "polyfill": false,
+        "regenerator": true
+    }]]
 }

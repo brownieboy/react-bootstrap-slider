@@ -5,12 +5,12 @@ const EC = protractor.ExpectedConditions;
 describe("Page loads", () => {
   // setup
   // browser.driver.sleep(5000);
-  it("should display   horizontal Demo value of '3000'", () => {
+  it("should display horizontal Demo value of '3000'", async () => {
     // browser.get("http://localhost:8080/src/index.html");
-    browser.get("index.html");
+    await browser.get("index.html");
 
-    browser.wait(EC.presenceOf(element(by.css("body")), 1000));
-    browser.wait(
+    await browser.wait(EC.presenceOf(element(by.css("body")), 1000));
+    await browser.wait(
       EC.presenceOf(element(by.id("valueSpanhorizontalSlider")), 2000)
     );
     expect(element(by.id("valueSpanhorizontalSlider")).getText()).toEqual(
@@ -42,9 +42,9 @@ describe("Page loads", () => {
 });
 
 describe("Dragging horizontal slider 100px to the right", () => {
-  it("should display horizontal Demo value of '12000'", () => {
+  it("should display horizontal Demo value of '12000'", async () => {
     const slider = element(by.css("#horizontalSlider .min-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: 100, y: 0 })
       .perform();
@@ -55,10 +55,10 @@ describe("Dragging horizontal slider 100px to the right", () => {
 });
 
 describe("Dragging vertical slider 50px upwards", () => {
-  it("should display vertical Demo value of '8000'", () => {
+  it("should display vertical Demo value of '8000'", async () => {
     const slider = element(by.css("#verticalSlider .min-slider-handle"));
     // NB: .dragAndDrop() part of Selenium, not Protractor: http://release.seleniumhq.org/selenium-core/1.0.1/reference.html
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: 0, y: -50 })
       .perform();
@@ -67,9 +67,9 @@ describe("Dragging vertical slider 50px upwards", () => {
 });
 
 describe("Dragging dual low slider 20px to the right", () => {
-  it("should display dual low Demo value of '5000'", () => {
+  it("should display dual low Demo value of '5000'", async () => {
     const slider = element(by.css("#dualSlider .min-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: 20, y: 0 })
       .perform();
@@ -79,9 +79,9 @@ describe("Dragging dual low slider 20px to the right", () => {
 });
 
 describe("Dragging dual high slider 20px to the left", () => {
-  it("should display dual low Demo value of '8000'", () => {
+  it("should display dual low Demo value of '8000'", async () => {
     const slider = element(by.css("#dualSlider .max-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: -20, y: 0 })
       .perform();
@@ -92,9 +92,9 @@ describe("Dragging dual high slider 20px to the left", () => {
 
 // Values should swap over is max handle goes below the min handle
 describe("Dragging dual high slider another 70px to the left", () => {
-  it("should display dual low Demo value of '2000'", () => {
+  it("should display dual low Demo value of '2000'", async () => {
     const slider = element(by.css("#dualSlider .max-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: -70, y: 0 })
       .perform();
@@ -109,9 +109,9 @@ describe("Dragging dual high slider another 70px to the left", () => {
 });
 
 describe("Dragging ticks slider 40px to the right", () => {
-  it("should display horizontal Demo value of '300'", () => {
+  it("should display horizontal Demo value of '300'", async () => {
     const slider = element(by.css("#ticksSlider .min-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: 40, y: 0 })
       .perform();
@@ -144,9 +144,9 @@ describe("Clicking Change Axes button for vertical demo", () => {
 });
 
 describe("Dragging disabled slider 100px to the right", () => {
-  it("should do nothing (value still shows '3000')", () => {
+  it("should do nothing (value still shows '3000')", async () => {
     const slider = element(by.css("#disabledSlider .min-slider-handle"));
-    browser
+    await browser
       .actions()
       .dragAndDrop(slider, { x: 100, y: 0 })
       .perform();
