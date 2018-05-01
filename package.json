@@ -69,6 +69,7 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "bootstrap-slider": "9.9.0"
+    "bootstrap-slider": "9.9.0",
+    "es6bindall": "^0.0.9"
   }
 }
