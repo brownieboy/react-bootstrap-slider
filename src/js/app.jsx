@@ -61,7 +61,7 @@ DemoMultiValueSpan.propTypes = {
 class Demo extends React.Component {
   constructor(props) {
     super(props);
-    es6BindAll(this, ["changeValue", "changeAxes"]);
+    // es6BindAll(this, ["changeValue", "changeAxes"]);
 
     this.state = {
       ...this.props,
@@ -70,22 +70,24 @@ class Demo extends React.Component {
     delete this.state.startValue;
   }
 
-  changeValue(e) {
+  changeValue = e => {
     // console.log("changeValue triggered");
     this.setState({ currentValue: e.target.value });
-  }
-  changeAxes() {
+  };
+
+  changeAxes = () => {
     this.setState({
       currentValue: 500,
       min: 0,
       max: 2000,
       step: 100
     });
-  }
+  };
+
   render() {
-    var newValue = this.state.currentValue;
-    var id = this.props.id;
-    var sliderControl, valueSpan, changeAxesButton;
+    const newValue = this.state.currentValue;
+    const id = this.props.id;
+    let sliderControl, valueSpan, changeAxesButton;
     if (Array.isArray(newValue)) {
       sliderControl = (
         <ReactBootstrapSlider
@@ -205,6 +207,16 @@ ReactDOM.render(
         tooltip="always"
       />
     </div>
+    <h3>Everything starts at zero demo</h3>
+    <Demo
+      id="startZeroSlider"
+      name="startZeroSliderName"
+      startValue={0}
+      max={0}
+      min={0}
+      step={0}
+      tooltip="always"
+    />
   </div>,
   document.getElementById("main")
 );

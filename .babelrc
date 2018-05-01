@@ -1,8 +1,15 @@
 {
-    "presets": ["es2015", "react", "stage-2"],
-    "plugins": ["transform-es2015-modules-umd", ["transform-runtime",
-    {
+  "presets": ["env", "react"],
+  "plugins": [
+    "transform-es2015-modules-umd",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    [
+      "transform-runtime",
+      {
         "polyfill": false,
         "regenerator": true
-    }]]
+      }
+    ]
+  ]
 }

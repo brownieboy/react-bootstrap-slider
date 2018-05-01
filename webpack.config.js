@@ -31,9 +31,9 @@ const common = {
         test: /\.jsx?$/,
         include: [path.resolve(__dirname, "src/js")],
         loader: "babel-loader", // "babel-loader" is also a legal name to reference
-        query: {
-          presets: ["react", "es2015"]
-        }
+        // query: {
+        //   presets: ["react", "es2015"]
+        // }
       }
     ]
   },
@@ -55,9 +55,9 @@ if (TARGET === "buildDemowp") {
           test: /\.jsx?$/,
           include: [path.resolve(__dirname, "demosrc/js")],
           loader: "babel-loader", // "babel-loader" is also a legal name to reference
-          query: {
-            presets: ["react", "es2015"]
-          }
+          // query: {
+          //   presets: ["react", "es2015"]
+          // }
         }
       ]
     },

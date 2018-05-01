@@ -1,37 +1,33 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 2017,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true,
-      "experimentalObjectRestSpread": true
+    "parser": "babel-eslint",
+    "env":
+    {
+        "browser": true,
+        "es6": true
+    },
+    "plugins": ["react"],
+    "extends": ["eslint", "plugin:react/recommended"],
+    "rules":
+    {
+        "func-style": [
+            2,
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "class-methods-use-this": "off",
+        "generator-star-spacing": "off",
+        "indent": [2, 2, {"SwitchCase": 1}],
+        "require-jsdoc": "off",
+        "lines-around-comment": "off",
+        "newline-after-var": "off",
+        "no-invalid-this": "off",
+        "no-confusing-arrow": [
+            "error",
+            {
+                "allowParens": true
+            }
+        ]
     }
-  },
-  "extends": ["eslint"],
-  "rules": {
-    "indent": [2, 2, {"SwitchCase": 1}],
-    "lines-around-comment": "off",
-    "newline-after-var": "off",
-    "space-before-function-paren": ["error", {
-        "anonymous": "always",
-        "named": "always",
-        "asyncArrow": "ignore"
-    }],
-    "func-style": [
-      2,
-      "declaration",
-      {
-        "allowArrowFunctions": true
-      }
-    ],
-    "semi": 2,
-    "valid-jsdoc": [
-      2,
-      {
-        "prefer": {
-          "return": "return"
-        }
-      }
-    ]
-  }
 }
