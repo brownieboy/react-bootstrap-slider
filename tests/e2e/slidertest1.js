@@ -9,7 +9,7 @@ describe("Page loads", () => {
     // browser.get("http://localhost:8080/src/index.html");
     await browser.get("index.html");
 
-    await browser.wait(EC.presenceOf(element(by.css("body")), 1000));
+    // await browser.wait(EC.presenceOf(element(by.css("body")), 1000));
     await browser.wait(
       EC.presenceOf(element(by.id("valueSpanhorizontalSlider")), 2000)
     );
