@@ -183,6 +183,12 @@ Protractor is actually a testing tool designed for AngularJS, but hey, nobody's 
 
 ## Update History
 
+Version 2.1.5: 2 May 2018
+* Fixed issue where control was permanently disabled if initial `max` value was set to zero.
+
+Version 2.1.4: 13 Apr 2018
+* Explicitly allow labelledby to be passed into the control 
+
 Version 2.1.2 & 2.1.3: 21 Oct 2017
 * 2.1.2 Fixed issue where setting the "disabled" prop did not disable the component on load.
 * 2.1.3 Removed a debugging console.log that I introduced in 2.1.2 (doh!).
