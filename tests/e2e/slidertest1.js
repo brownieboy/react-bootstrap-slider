@@ -12,7 +12,6 @@ describe("Page loads", () => {
     await browser.wait(
       EC.presenceOf(element(by.id("valueSpanhorizontalSlider")), 2000)
     );
-    console.log("valueSpanhorizontalSlider");
 
     expect(element(by.id("valueSpanhorizontalSlider")).getText()).toEqual(
       "3000"
@@ -158,7 +157,7 @@ describe("Dragging disabled slider 100px to the right", () => {
 
 describe("Clicking Change Axes button for start zero demo", () => {
   it("should display horizontal Demo value of '500'", () => {
-    element(by.id("startZeroSlider")).click();
-    expect(element(by.id("startZeroSlider")).getText()).toEqual("500");
+    element(by.id("butstartZeroSlider")).click();
+    expect(element(by.id("valueSpanstartZeroSlider")).getText()).toEqual("500");
   });
 });

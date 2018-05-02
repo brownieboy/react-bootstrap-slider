@@ -92,13 +92,25 @@ export class ReactBootstrapSlider extends React.Component {
   }
 
   updateSliderValues = () => {
-    if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {
+    if (
+      typeof this.props.min !== "undefined" &&
+      (typeof this.mySlider.min !== "undefined" ||
+        typeof this.mySlider.options.min !== "undefined")
+    ) {
       this.mySlider.setAttribute("min", this.props.min);
     }
-    if (this.props.max && (this.mySlider.max || this.mySlider.options.max)) {
+    if (
+      typeof this.props.max !== "undefined" &&
+      (typeof this.mySlider.max !== "undefined" ||
+        typeof this.mySlider.options.max !== "undefined")
+    ) {
       this.mySlider.setAttribute("max", this.props.max);
     }
-    if (this.props.step && (this.mySlider.step || this.mySlider.options.step)) {
+    if (
+      typeof this.props.step !== "undefined" &&
+      (typeof this.mySlider.step !== "undefined" ||
+        typeof this.mySlider.options.step !== "undefined")
+    ) {
       this.mySlider.setAttribute("step", this.props.step);
     }
 
