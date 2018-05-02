@@ -35,7 +35,7 @@ const wrapperDivStyles = {
 
 const DemoSingleValueSpan = ({ id, value }) => (
   <span>
-    Value: <span id={"valueSpan" + id}>{value}</span>
+    Value: <span id={`valueSpan ${id}`}>{value}</span>
   </span>
 );
 
@@ -46,9 +46,9 @@ DemoSingleValueSpan.propTypes = {
 
 const DemoMultiValueSpan = ({ id, value }) => (
   <div>
-    Lower Value: <span id={"valueSpan" + id + "Low"}>{value[0]}</span>
+    Lower Value: <span id={`valueSpan ${id} Low`}>{value[0]}</span>
     <br />
-    Upper Value: <span id={"valueSpan" + id + "High"}>{value[1]}</span>
+    Upper Value: <span id={`valueSpan ${id} High`}>{value[1]}</span>
     <br />
   </div>
 );
@@ -67,7 +67,7 @@ class Demo extends React.Component {
       ...this.props,
       currentValue: props.startValue
     };
-    delete this.state.startValue;
+    //   delete this.state.startValue;
   }
 
   changeValue = e => {
@@ -86,7 +86,7 @@ class Demo extends React.Component {
 
   render() {
     const newValue = this.state.currentValue;
-    const id = this.props.id;
+    const { changeAxesEnabled, id } = this.props;
     let sliderControl, valueSpan, changeAxesButton;
     if (Array.isArray(newValue)) {
       sliderControl = (
@@ -106,13 +106,12 @@ class Demo extends React.Component {
         />
       );
       valueSpan = <DemoSingleValueSpan id={id} value={newValue} />;
-      changeAxesButton =
-        id === "ticksSlider" || id === "disabledSlider" ? null : (
-          <button id={"but" + id} onClick={this.changeAxes}>
-            {" "}
-            Change axes{" "}
-          </button>
-        );
+      changeAxesButton = changeAxesEnabled && (
+        <button id={`but ${id}`} onClick={this.changeAxes}>
+          {" "}
+          Change axes{" "}
+        </button>
+      );
     }
     return (
       <div>
@@ -130,7 +129,8 @@ class Demo extends React.Component {
 Demo.propTypes = {
   id: PropTypes.string,
   value: isPropNumberOrArray,
-  startValue: isPropNumberOrArray
+  startValue: isPropNumberOrArray,
+  changeAxesEnabled: PropTypes.bool
 };
 
 ReactDOM.render(
@@ -145,6 +145,7 @@ ReactDOM.render(
         min={1000}
         step={1000}
         tooltip="always"
+        changeAxesEnabled={true}
       />
     </div>
     <div className="demoWrapper">
@@ -157,6 +158,7 @@ ReactDOM.render(
         min={1000}
         step={1000}
         reversed={true}
+        changeAxesEnabled={true}
       />
     </div>
     <div className="demoWrapper">
@@ -216,6 +218,7 @@ ReactDOM.render(
       min={0}
       step={0}
       tooltip="always"
+      changeAxesEnabled={true}
     />
   </div>,
   document.getElementById("main")
