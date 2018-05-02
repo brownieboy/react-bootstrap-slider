@@ -3,10 +3,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-import es6BindAll from "es6bindall";
+// import es6BindAll from "es6bindall";
 import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
 // import { isPropNumberOrArray } from "./customproptypes.js";
 
+/*
 function isPropNumberOrArray(props, propName, componentName) {
   // console.log("props[" + propName + "]=" + props[propName]);
   if (
@@ -26,6 +27,7 @@ function isPropNumberOrArray(props, propName, componentName) {
     );
   }
 }
+*/
 
 const wrapperDivStyles = {
   backgroundColor: "#E0E0E0",
@@ -128,8 +130,14 @@ class Demo extends React.Component {
 
 Demo.propTypes = {
   id: PropTypes.string,
-  value: isPropNumberOrArray,
-  startValue: isPropNumberOrArray,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number.isRequired).isRequired
+  ]),
+  startValue: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number.isRequired).isRequired
+  ]),
   changeAxesEnabled: PropTypes.bool
 };
 

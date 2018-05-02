@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Slider from "bootstrap-slider";
 // import { isPropNumberOrArray } from "./customproptypes.js";
 
+/*
 // Tests to see if prop is a number or an array.  Clunky, but will do for now.
 function isPropNumberOrArray(props, propName, componentName) {
   // console.log("props[" + propName + "]=" + props[propName]);
@@ -25,17 +26,18 @@ function isPropNumberOrArray(props, propName, componentName) {
     );
   }
 }
+*/
 
 export class ReactBootstrapSlider extends React.Component {
-  constructor(props) {
-    super(props);
-    this.updateSliderValues = this.updateSliderValues.bind(this);
-    this.checkAndDoDisabled = this.checkAndDoDisabled.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.updateSliderValues = this.updateSliderValues.bind(this);
+  //   // this.checkAndDoDisabled = this.checkAndDoDisabled.bind(this);
+  // }
 
-  checkAndDoDisabled() {
-    var sliderEnable = this.props.disabled === "disabled" ? false : true;
-    var currentlyEnabled = this.mySlider.isEnabled();
+  checkAndDoDisabled = () => {
+    const sliderEnable = this.props.disabled !== "disabled";
+    const currentlyEnabled = this.mySlider.isEnabled();
     if (sliderEnable) {
       if (!currentlyEnabled) {
         this.mySlider.enable();
@@ -45,11 +47,11 @@ export class ReactBootstrapSlider extends React.Component {
         this.mySlider.disable();
       }
     }
-  }
+  };
 
   componentDidMount() {
-    var that = this;
-    var sliderAttributes = {
+    const that = this;
+    const sliderAttributes = {
       ...this.props,
       tooltip: this.props.tooltip || "show"
     };
@@ -59,9 +61,9 @@ export class ReactBootstrapSlider extends React.Component {
 
     //     this.updateSliderValues();
     if (this.props.change || this.props.handleChange) {
-      var changeEvent = this.props.change || this.props.handleChange;
-      this.mySlider.on("change", function(e) {
-        var fakeEvent = {
+      const changeEvent = this.props.change || this.props.handleChange;
+      this.mySlider.on("change", e => {
+        const fakeEvent = {
           target: {}
         };
         fakeEvent.target.value = e.newValue;
@@ -70,8 +72,8 @@ export class ReactBootstrapSlider extends React.Component {
     }
 
     if (this.props.slideStop) {
-      this.mySlider.on("slideStop", function(e) {
-        var fakeEvent = {
+      this.mySlider.on("slideStop", e => {
+        const fakeEvent = {
           target: {}
         };
         fakeEvent.target.value = e;
@@ -89,7 +91,7 @@ export class ReactBootstrapSlider extends React.Component {
     this.mySlider.destroy();
   }
 
-  updateSliderValues() {
+  updateSliderValues = () => {
     if (this.props.min && (this.mySlider.min || this.mySlider.options.min)) {
       this.mySlider.setAttribute("min", this.props.min);
     }
@@ -102,7 +104,7 @@ export class ReactBootstrapSlider extends React.Component {
 
     this.mySlider.setValue(this.props.value);
     this.checkAndDoDisabled();
-  }
+  };
 
   render() {
     // The slider"s an input.  That"s all we need.  We"ll do the rest in
@@ -115,7 +117,10 @@ ReactBootstrapSlider.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  value: isPropNumberOrArray,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.number.isRequired).isRequired
+  ]).isRequired,
   disabled: PropTypes.string,
   tooltip: PropTypes.string,
   change: PropTypes.func,

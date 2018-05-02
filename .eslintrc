@@ -27,13 +27,6 @@
                 "allowParens": true
             }
         ],
-        "space-before-function-paren": [
-            "warn",
-            {
-                "anonymous": "always",
-                "named": "always",
-                "asyncArrow": "ignore"
-            }
-        ]
+        "space-before-function-paren": "off"
     }
 }
