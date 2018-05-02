@@ -1,14 +1,12 @@
 {
     "parser": "babel-eslint",
-    "env":
-    {
+    "env": {
         "browser": true,
         "es6": true
     },
     "plugins": ["react"],
     "extends": ["eslint", "plugin:react/recommended"],
-    "rules":
-    {
+    "rules": {
         "func-style": [
             2,
             "declaration",
@@ -18,7 +16,7 @@
         ],
         "class-methods-use-this": "off",
         "generator-star-spacing": "off",
-        "indent": [2, 2, {"SwitchCase": 1}],
+        "indent": [2, 2, { "SwitchCase": 1 }],
         "require-jsdoc": "off",
         "lines-around-comment": "off",
         "newline-after-var": "off",
@@ -27,6 +25,14 @@
             "error",
             {
                 "allowParens": true
+            }
+        ],
+        "space-before-function-paren": [
+            "warn",
+            {
+                "anonymous": "always",
+                "named": "always",
+                "asyncArrow": "ignore"
             }
         ]
     }

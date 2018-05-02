@@ -55,7 +55,7 @@ exports.config = {
     browserName: "chrome",
     // binary: "/opt/google/chrome/chrome",
     chromeOptions: {
-      args: ["--start-maximized", "--disable-extensions"]
+      args: ["--disable-extensions"]
     }
   },
   baseUrl: "http://localhost:3000",
@@ -66,10 +66,10 @@ exports.config = {
   framework: "jasmine",
   onPrepare: () => {
     browser.ignoreSynchronization = true; // Important. Stops Protractor waiting on Angular rubbish.
-    browser.driver
-      .manage()
-      .window()
-      .maximize(); // Doesn't work with Chrome.  Specify in its capabilities
+    // browser.driver
+    //   .manage()
+    //   .window()
+    //   .maximize(); // Doesn't work with Chrome.  Specify in its capabilities
 
     require("babel-register");
     jasmine.getEnv().addReporter(

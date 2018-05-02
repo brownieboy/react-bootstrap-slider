@@ -35,7 +35,7 @@ const wrapperDivStyles = {
 
 const DemoSingleValueSpan = ({ id, value }) => (
   <span>
-    Value: <span id={`valueSpan ${id}`}>{value}</span>
+    Value: <span id={`valueSpan${id}`}>{value}</span>
   </span>
 );
 
@@ -46,9 +46,9 @@ DemoSingleValueSpan.propTypes = {
 
 const DemoMultiValueSpan = ({ id, value }) => (
   <div>
-    Lower Value: <span id={`valueSpan ${id} Low`}>{value[0]}</span>
+    Lower Value: <span id={`valueSpan${id}Low`}>{value[0]}</span>
     <br />
-    Upper Value: <span id={`valueSpan ${id} High`}>{value[1]}</span>
+    Upper Value: <span id={`valueSpan${id}High`}>{value[1]}</span>
     <br />
   </div>
 );
@@ -107,7 +107,7 @@ class Demo extends React.Component {
       );
       valueSpan = <DemoSingleValueSpan id={id} value={newValue} />;
       changeAxesButton = changeAxesEnabled && (
-        <button id={`but ${id}`} onClick={this.changeAxes}>
+        <button id={`but${id}`} onClick={this.changeAxes}>
           {" "}
           Change axes{" "}
         </button>

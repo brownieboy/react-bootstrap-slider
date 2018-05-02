@@ -8,11 +8,12 @@ describe("Page loads", () => {
   it("should display horizontal Demo value of '3000'", async () => {
     // browser.get("http://localhost:8080/src/index.html");
     await browser.get("index.html");
-
     // await browser.wait(EC.presenceOf(element(by.css("body")), 1000));
     await browser.wait(
       EC.presenceOf(element(by.id("valueSpanhorizontalSlider")), 2000)
     );
+    console.log("valueSpanhorizontalSlider");
+
     expect(element(by.id("valueSpanhorizontalSlider")).getText()).toEqual(
       "3000"
     );
@@ -151,5 +152,13 @@ describe("Dragging disabled slider 100px to the right", () => {
       .dragAndDrop(slider, { x: 100, y: 0 })
       .perform();
     expect(element(by.id("valueSpandisabledSlider")).getText()).toEqual("3000");
+  });
+
+});
+
+describe("Clicking Change Axes button for start zero demo", () => {
+  it("should display horizontal Demo value of '500'", () => {
+    element(by.id("startZeroSlider")).click();
+    expect(element(by.id("startZeroSlider")).getText()).toEqual("500");
   });
 });
