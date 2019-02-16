@@ -28,23 +28,26 @@ const PATHS = {
   }
 };
 
-gulp.task("copySrcCSSToDemo", function() {
+gulp.task("copySrcCSSToDemo", function(done) {
   gulp.src(PATHS.src.css + "/**/*").pipe(gulp.dest(PATHS.demo.css));
+  done();
 });
 
-gulp.task("copySrcHTMLToDemo", function() {
+gulp.task("copySrcHTMLToDemo", function(done) {
   gulp
     .src(PATHS.src.root + "/index.html")
     .pipe(replace(PATHS.src.htmlScriptPath, PATHS.demo.htmlScriptPath))
     .pipe(gulp.dest(PATHS.demo.root));
+  done();
 });
 
-gulp.task("updateDemoSourceJS", function() {
+gulp.task("updateDemoSourceJS", function(done) {
   gulp
     .src(PATHS.src.js + "/app.js")
     .pipe(replace(PATHS.src.sliderImportPath, PATHS.demosrc.sliderImportPath))
     .pipe(rename("appbuild.js"))
     .pipe(gulp.dest(PATHS.demosrc.js));
+  done();
 });
 
 gulp.task("buildDemoFiles", function(done) {
