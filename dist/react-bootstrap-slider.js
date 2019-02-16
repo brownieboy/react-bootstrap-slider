@@ -1,163 +1,194 @@
-(function (global, factory) {
-  if (typeof define === "function" && define.amd) {
-    define(["exports", "babel-runtime/helpers/extends", "babel-runtime/helpers/classCallCheck", "babel-runtime/helpers/createClass", "babel-runtime/helpers/possibleConstructorReturn", "babel-runtime/helpers/inherits", "react", "prop-types", "bootstrap-slider"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(exports, require("babel-runtime/helpers/extends"), require("babel-runtime/helpers/classCallCheck"), require("babel-runtime/helpers/createClass"), require("babel-runtime/helpers/possibleConstructorReturn"), require("babel-runtime/helpers/inherits"), require("react"), require("prop-types"), require("bootstrap-slider"));
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod.exports, global._extends, global.classCallCheck, global.createClass, global.possibleConstructorReturn, global.inherits, global.react, global.propTypes, global.bootstrapSlider);
-    global.reactBootstrapSlider = mod.exports;
-  }
-})(this, function (exports, _extends2, _classCallCheck2, _createClass2, _possibleConstructorReturn2, _inherits2, _react, _propTypes, _bootstrapSlider) {
-  "use strict";
+"use strict";
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.ReactBootstrapSlider = undefined;
-
-  var _extends3 = _interopRequireDefault(_extends2);
-
-  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-  var _createClass3 = _interopRequireDefault(_createClass2);
-
-  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-  var _inherits3 = _interopRequireDefault(_inherits2);
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _propTypes2 = _interopRequireDefault(_propTypes);
-
-  var _bootstrapSlider2 = _interopRequireDefault(_bootstrapSlider);
-
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
-
-  var ReactBootstrapSlider = exports.ReactBootstrapSlider = function (_React$Component) {
-    (0, _inherits3.default)(ReactBootstrapSlider, _React$Component);
-
-    function ReactBootstrapSlider() {
-      var _ref;
-
-      var _temp, _this, _ret;
-
-      (0, _classCallCheck3.default)(this, ReactBootstrapSlider);
-
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = ReactBootstrapSlider.__proto__ || Object.getPrototypeOf(ReactBootstrapSlider)).call.apply(_ref, [this].concat(args))), _this), _this.checkAndDoDisabled = function () {
-        var sliderEnable = _this.props.disabled !== "disabled";
-        var currentlyEnabled = _this.mySlider.isEnabled();
-        if (sliderEnable) {
-          if (!currentlyEnabled) {
-            _this.mySlider.enable();
-          }
-        } else {
-          if (currentlyEnabled) {
-            _this.mySlider.disable();
-          }
-        }
-      }, _this.updateSliderValues = function () {
-        if (typeof _this.props.min !== "undefined" && (typeof _this.mySlider.min !== "undefined" || typeof _this.mySlider.options.min !== "undefined")) {
-          _this.mySlider.setAttribute("min", _this.props.min);
-        }
-        if (typeof _this.props.max !== "undefined" && (typeof _this.mySlider.max !== "undefined" || typeof _this.mySlider.options.max !== "undefined")) {
-          _this.mySlider.setAttribute("max", _this.props.max);
-        }
-        if (typeof _this.props.step !== "undefined" && (typeof _this.mySlider.step !== "undefined" || typeof _this.mySlider.options.step !== "undefined")) {
-          _this.mySlider.setAttribute("step", _this.props.step);
-        }
-
-        _this.mySlider.setValue(_this.props.value);
-        _this.checkAndDoDisabled();
-      }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
-    }
-    // constructor(props) {
-    //   super(props);
-    //   // this.updateSliderValues = this.updateSliderValues.bind(this);
-    //   // this.checkAndDoDisabled = this.checkAndDoDisabled.bind(this);
-    // }
-
-    (0, _createClass3.default)(ReactBootstrapSlider, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        var that = this;
-        var sliderAttributes = (0, _extends3.default)({}, this.props, {
-          tooltip: this.props.tooltip || "show"
-        });
-        // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
-
-        this.mySlider = new _bootstrapSlider2.default(this.node, sliderAttributes);
-
-        //     this.updateSliderValues();
-        if (this.props.change || this.props.handleChange) {
-          var changeEvent = this.props.change || this.props.handleChange;
-          this.mySlider.on("change", function (e) {
-            var fakeEvent = {
-              target: {}
-            };
-            fakeEvent.target.value = e.newValue;
-            changeEvent(fakeEvent);
-          });
-        }
-
-        if (this.props.slideStop) {
-          this.mySlider.on("slideStop", function (e) {
-            var fakeEvent = {
-              target: {}
-            };
-            fakeEvent.target.value = e;
-            that.props.slideStop(fakeEvent);
-          });
-        }
-        this.checkAndDoDisabled();
-      }
-    }, {
-      key: "componentDidUpdate",
-      value: function componentDidUpdate() {
-        this.updateSliderValues();
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function componentWillUnmount() {
-        this.mySlider.destroy();
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        // The slider"s an input.  That"s all we need.  We"ll do the rest in
-        // the componentDidMount() method.
-        return _react2.default.createElement("div", { ref: function ref(node) {
-            return _this2.node = node;
-          } });
-      }
-    }]);
-    return ReactBootstrapSlider;
-  }(_react2.default.Component);
-
-  ReactBootstrapSlider.propTypes = {
-    min: _propTypes2.default.number,
-    max: _propTypes2.default.number,
-    step: _propTypes2.default.number,
-    value: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.arrayOf(_propTypes2.default.number.isRequired).isRequired]).isRequired,
-    disabled: _propTypes2.default.string,
-    tooltip: _propTypes2.default.string,
-    change: _propTypes2.default.func,
-    handleChange: _propTypes2.default.func,
-    slideStop: _propTypes2.default.func,
-    labelledby: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.arrayOf(_propTypes2.default.string)])
-  };
-
-  exports.default = ReactBootstrapSlider;
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.default = exports.ReactBootstrapSlider = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _bootstrapSlider = _interopRequireDefault(require("bootstrap-slider"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// import { isPropNumberOrArray } from "./customproptypes.js";
+
+/*
+// Tests to see if prop is a number or an array.  Clunky, but will do for now.
+function isPropNumberOrArray(props, propName, componentName) {
+  // console.log("props[" + propName + "]=" + props[propName]);
+  if (
+    !(
+      typeof props[propName] === "number" ||
+      typeof props[propName] === "undefined" ||
+      Array.isArray(props[propName])
+    )
+  ) {
+    return new Error(
+      [
+        componentName,
+        "requires that",
+        propName,
+        "be a number or an array."
+      ].join(" ")
+    );
+  }
+}
+*/
+var ReactBootstrapSlider =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ReactBootstrapSlider, _React$Component);
+
+  function ReactBootstrapSlider() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ReactBootstrapSlider);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ReactBootstrapSlider)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "checkAndDoDisabled", function () {
+      var sliderEnable = _this.props.disabled !== "disabled";
+
+      var currentlyEnabled = _this.mySlider.isEnabled();
+
+      if (sliderEnable) {
+        if (!currentlyEnabled) {
+          _this.mySlider.enable();
+        }
+      } else {
+        if (currentlyEnabled) {
+          _this.mySlider.disable();
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateSliderValues", function () {
+      if (typeof _this.props.min !== "undefined" && (typeof _this.mySlider.min !== "undefined" || typeof _this.mySlider.options.min !== "undefined")) {
+        _this.mySlider.setAttribute("min", _this.props.min);
+      }
+
+      if (typeof _this.props.max !== "undefined" && (typeof _this.mySlider.max !== "undefined" || typeof _this.mySlider.options.max !== "undefined")) {
+        _this.mySlider.setAttribute("max", _this.props.max);
+      }
+
+      if (typeof _this.props.step !== "undefined" && (typeof _this.mySlider.step !== "undefined" || typeof _this.mySlider.options.step !== "undefined")) {
+        _this.mySlider.setAttribute("step", _this.props.step);
+      }
+
+      _this.mySlider.setValue(_this.props.value);
+
+      _this.checkAndDoDisabled();
+    });
+
+    return _this;
+  }
+
+  _createClass(ReactBootstrapSlider, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var that = this;
+
+      var sliderAttributes = _objectSpread({}, this.props, {
+        tooltip: this.props.tooltip || "show"
+      }); // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
+
+
+      this.mySlider = new _bootstrapSlider.default(this.node, sliderAttributes); //     this.updateSliderValues();
+
+      if (this.props.change || this.props.handleChange) {
+        var changeEvent = this.props.change || this.props.handleChange;
+        this.mySlider.on("change", function (e) {
+          var fakeEvent = {
+            target: {}
+          };
+          fakeEvent.target.value = e.newValue;
+          changeEvent(fakeEvent);
+        });
+      }
+
+      if (this.props.slideStop) {
+        this.mySlider.on("slideStop", function (e) {
+          var fakeEvent = {
+            target: {}
+          };
+          fakeEvent.target.value = e;
+          that.props.slideStop(fakeEvent);
+        });
+      }
+
+      this.checkAndDoDisabled();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.updateSliderValues();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.mySlider.destroy();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      // The slider"s an input.  That"s all we need.  We"ll do the rest in
+      // the componentDidMount() method.
+      return _react.default.createElement("div", {
+        ref: function ref(node) {
+          return _this2.node = node;
+        }
+      });
+    }
+  }]);
+
+  return ReactBootstrapSlider;
+}(_react.default.Component);
+
+exports.ReactBootstrapSlider = ReactBootstrapSlider;
+ReactBootstrapSlider.propTypes = {
+  min: _propTypes.default.number,
+  max: _propTypes.default.number,
+  step: _propTypes.default.number,
+  value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.arrayOf(_propTypes.default.number.isRequired).isRequired]).isRequired,
+  disabled: _propTypes.default.string,
+  tooltip: _propTypes.default.string,
+  change: _propTypes.default.func,
+  handleChange: _propTypes.default.func,
+  slideStop: _propTypes.default.func,
+  labelledby: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.arrayOf(_propTypes.default.string)])
+};
+var _default = ReactBootstrapSlider;
+exports.default = _default;

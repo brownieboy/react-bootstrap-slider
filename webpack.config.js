@@ -14,6 +14,7 @@ const srcDir = path.join(__dirname, "src");
 var exportModule;
 
 const common = {
+  mode: "development",
   entry: {
     app: path.resolve(ROOT_PATH) + "/src/js/app.jsx"
   },
@@ -26,7 +27,7 @@ const common = {
     }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         include: [path.resolve(__dirname, "src/js")],
@@ -50,7 +51,7 @@ if (TARGET === "buildDemowp") {
       filename: "slider-bundle.min.js"
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.jsx?$/,
           include: [path.resolve(__dirname, "demosrc/js")],

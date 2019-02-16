@@ -1,15 +1,4 @@
 {
-  "presets": ["env", "react"],
-  "plugins": [
-    "transform-es2015-modules-umd",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
-  ]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
