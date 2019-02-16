@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "node_modules/.bin/babel ./src/js/react-bootstrap-slider.jsx -o ./dist/react-bootstrap-slider.js",
+    "build": "node_modules/.bin/babel ./src/js/react-bootstrap-slider.js -o ./dist/react-bootstrap-slider.js",
     "buildDemo": "npm run build && npm run buildDemoSource && npm run buildDemowp",
     "buildDemowp": "./node_modules/.bin/webpack",
     "buildDemoSource": "node_modules/.bin/gulp buildDemoFiles",
@@ -44,6 +44,7 @@
     "bootstrap": "^3.3.0",
     "eslint": "^5.14.0",
     "eslint-config-eslint": "^5.0.1",
+    "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-react": "^7.12.4",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.2.2",
@@ -71,7 +72,6 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
-    "bootstrap-slider": "10.6.1",
-    "es6bindall": "^0.0.9"
+    "bootstrap-slider": "10.6.1"
   }
 }

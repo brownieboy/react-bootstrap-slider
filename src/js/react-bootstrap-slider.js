@@ -3,30 +3,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Slider from "bootstrap-slider";
-// import { isPropNumberOrArray } from "./customproptypes.js";
-
-/*
-// Tests to see if prop is a number or an array.  Clunky, but will do for now.
-function isPropNumberOrArray(props, propName, componentName) {
-  // console.log("props[" + propName + "]=" + props[propName]);
-  if (
-    !(
-      typeof props[propName] === "number" ||
-      typeof props[propName] === "undefined" ||
-      Array.isArray(props[propName])
-    )
-  ) {
-    return new Error(
-      [
-        componentName,
-        "requires that",
-        propName,
-        "be a number or an array."
-      ].join(" ")
-    );
-  }
-}
-*/
 
 export class ReactBootstrapSlider extends React.Component {
   // constructor(props) {
@@ -50,7 +26,7 @@ export class ReactBootstrapSlider extends React.Component {
   };
 
   componentDidMount() {
-    const that = this;
+    // const that = this;
     const sliderAttributes = {
       ...this.props,
       tooltip: this.props.tooltip || "show"
@@ -59,25 +35,31 @@ export class ReactBootstrapSlider extends React.Component {
 
     this.mySlider = new Slider(this.node, sliderAttributes);
 
+    const { change, handleChange, slideStop } = this.props;
+
     //     this.updateSliderValues();
-    if (this.props.change || this.props.handleChange) {
-      const changeEvent = this.props.change || this.props.handleChange;
+    if (change || handleChange) {
+      const changeEvent = change || handleChange;
       this.mySlider.on("change", e => {
         const fakeEvent = {
-          target: {}
+          target: {
+            value: e.newValue
+          }
         };
-        fakeEvent.target.value = e.newValue;
+        // fakeEvent.target.value = e.newValue;
         changeEvent(fakeEvent);
       });
     }
 
-    if (this.props.slideStop) {
+    if (slideStop) {
       this.mySlider.on("slideStop", e => {
         const fakeEvent = {
-          target: {}
+          target: {
+            value: e
+          }
         };
-        fakeEvent.target.value = e;
-        that.props.slideStop(fakeEvent);
+        // fakeEvent.target.value = e;
+        slideStop(fakeEvent);
       });
     }
     this.checkAndDoDisabled();
@@ -92,19 +74,20 @@ export class ReactBootstrapSlider extends React.Component {
   }
 
   updateSliderValues = () => {
+    const { min, max } = this.props;
     if (
-      typeof this.props.min !== "undefined" &&
+      typeof min !== "undefined" &&
       (typeof this.mySlider.min !== "undefined" ||
         typeof this.mySlider.options.min !== "undefined")
     ) {
-      this.mySlider.setAttribute("min", this.props.min);
+      this.mySlider.setAttribute("min", min);
     }
     if (
-      typeof this.props.max !== "undefined" &&
+      typeof max !== "undefined" &&
       (typeof this.mySlider.max !== "undefined" ||
         typeof this.mySlider.options.max !== "undefined")
     ) {
-      this.mySlider.setAttribute("max", this.props.max);
+      this.mySlider.setAttribute("max", max);
     }
     if (
       typeof this.props.step !== "undefined" &&

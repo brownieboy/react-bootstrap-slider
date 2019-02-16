@@ -3,31 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-// import es6BindAll from "es6bindall";
-import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
-// import { isPropNumberOrArray } from "./customproptypes.js";
-
-/*
-function isPropNumberOrArray(props, propName, componentName) {
-  // console.log("props[" + propName + "]=" + props[propName]);
-  if (
-    !(
-      typeof props[propName] === "number" ||
-      typeof props[propName] === "undefined" ||
-      Array.isArray(props[propName])
-    )
-  ) {
-    return new Error(
-      [
-        componentName,
-        "requires that",
-        propName,
-        "be a number or an array."
-      ].join(" ")
-    );
-  }
-}
-*/
+import ReactBootstrapSlider from "./react-bootstrap-slider.js";
 
 const wrapperDivStyles = {
   backgroundColor: "#E0E0E0",

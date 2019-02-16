@@ -14,9 +14,9 @@ const srcDir = path.join(__dirname, "src");
 var exportModule;
 
 const common = {
-  mode: "development",
+  mode: "production",
   entry: {
-    app: path.resolve(ROOT_PATH) + "/src/js/app.jsx"
+    app: path.resolve(ROOT_PATH) + "/src/js/app.js"
   },
   // resolve: {
   //     modulesDirectories: ["node_modules", "bower_components"]
@@ -29,7 +29,7 @@ const common = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         include: [path.resolve(__dirname, "src/js")],
         loader: "babel-loader", // "babel-loader" is also a legal name to reference
         // query: {
@@ -44,7 +44,7 @@ const common = {
 if (TARGET === "buildDemowp") {
   exportModule = merge(common, {
     entry: {
-      app: path.resolve(ROOT_PATH) + "/demosrc/js/appbuild.jsx"
+      app: path.resolve(ROOT_PATH) + "/demosrc/js/appbuild.js"
     },
     output: {
       path: path.resolve(ROOT_PATH, "demo/js/"),
@@ -53,7 +53,7 @@ if (TARGET === "buildDemowp") {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.js?$/,
           include: [path.resolve(__dirname, "demosrc/js")],
           loader: "babel-loader", // "babel-loader" is also a legal name to reference
           // query: {
@@ -98,6 +98,7 @@ if (TARGET === "buildDemowp") {
 
 if (TARGET === "start" || !TARGET) {
   exportModule = merge(common, {
+    mode: "development",
     output: {
       filename: "src/main.js"
     },

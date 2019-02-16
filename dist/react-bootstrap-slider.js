@@ -35,30 +35,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// import { isPropNumberOrArray } from "./customproptypes.js";
-
-/*
-// Tests to see if prop is a number or an array.  Clunky, but will do for now.
-function isPropNumberOrArray(props, propName, componentName) {
-  // console.log("props[" + propName + "]=" + props[propName]);
-  if (
-    !(
-      typeof props[propName] === "number" ||
-      typeof props[propName] === "undefined" ||
-      Array.isArray(props[propName])
-    )
-  ) {
-    return new Error(
-      [
-        componentName,
-        "requires that",
-        propName,
-        "be a number or an array."
-      ].join(" ")
-    );
-  }
-}
-*/
 var ReactBootstrapSlider =
 /*#__PURE__*/
 function (_React$Component) {
@@ -94,12 +70,16 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "updateSliderValues", function () {
-      if (typeof _this.props.min !== "undefined" && (typeof _this.mySlider.min !== "undefined" || typeof _this.mySlider.options.min !== "undefined")) {
-        _this.mySlider.setAttribute("min", _this.props.min);
+      var _this$props = _this.props,
+          min = _this$props.min,
+          max = _this$props.max;
+
+      if (typeof min !== "undefined" && (typeof _this.mySlider.min !== "undefined" || typeof _this.mySlider.options.min !== "undefined")) {
+        _this.mySlider.setAttribute("min", min);
       }
 
-      if (typeof _this.props.max !== "undefined" && (typeof _this.mySlider.max !== "undefined" || typeof _this.mySlider.options.max !== "undefined")) {
-        _this.mySlider.setAttribute("max", _this.props.max);
+      if (typeof max !== "undefined" && (typeof _this.mySlider.max !== "undefined" || typeof _this.mySlider.options.max !== "undefined")) {
+        _this.mySlider.setAttribute("max", max);
       }
 
       if (typeof _this.props.step !== "undefined" && (typeof _this.mySlider.step !== "undefined" || typeof _this.mySlider.options.step !== "undefined")) {
@@ -117,33 +97,40 @@ function (_React$Component) {
   _createClass(ReactBootstrapSlider, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var that = this;
-
+      // const that = this;
       var sliderAttributes = _objectSpread({}, this.props, {
         tooltip: this.props.tooltip || "show"
       }); // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
 
 
-      this.mySlider = new _bootstrapSlider.default(this.node, sliderAttributes); //     this.updateSliderValues();
+      this.mySlider = new _bootstrapSlider.default(this.node, sliderAttributes);
+      var _this$props2 = this.props,
+          change = _this$props2.change,
+          handleChange = _this$props2.handleChange,
+          slideStop = _this$props2.slideStop; //     this.updateSliderValues();
 
-      if (this.props.change || this.props.handleChange) {
-        var changeEvent = this.props.change || this.props.handleChange;
+      if (change || handleChange) {
+        var changeEvent = change || handleChange;
         this.mySlider.on("change", function (e) {
           var fakeEvent = {
-            target: {}
-          };
-          fakeEvent.target.value = e.newValue;
+            target: {
+              value: e.newValue
+            }
+          }; // fakeEvent.target.value = e.newValue;
+
           changeEvent(fakeEvent);
         });
       }
 
-      if (this.props.slideStop) {
+      if (slideStop) {
         this.mySlider.on("slideStop", function (e) {
           var fakeEvent = {
-            target: {}
-          };
-          fakeEvent.target.value = e;
-          that.props.slideStop(fakeEvent);
+            target: {
+              value: e
+            }
+          }; // fakeEvent.target.value = e;
+
+          slideStop(fakeEvent);
         });
       }
 
