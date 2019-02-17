@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
+// import "./css/bootstrap.min.css";
+// import "./css/bootstrap-slider.min.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-slider/dist/css/bootstrap-slider.css"
 import SliderAppDemo from "./js/slider-app-demo.js";
 
 class App extends Component {

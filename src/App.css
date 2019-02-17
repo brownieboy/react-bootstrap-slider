@@ -10,7 +10,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +29,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  margin: 20px;
+}
+#main .react-native-slider {
+  width: 200px;
+}
+.demoWrapper {
+  width: 400px;
+  display: inline-block;
+}
+#rangeHighlightsSlider .slider-rangeHighlight {
+  background: #f70616;
 }
