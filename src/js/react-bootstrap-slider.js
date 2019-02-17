@@ -3,38 +3,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Slider from "bootstrap-slider";
-// import { isPropNumberOrArray } from "./customproptypes.js";
-
-/*
-// Tests to see if prop is a number or an array.  Clunky, but will do for now.
-function isPropNumberOrArray(props, propName, componentName) {
-  // console.log("props[" + propName + "]=" + props[propName]);
-  if (
-    !(
-      typeof props[propName] === "number" ||
-      typeof props[propName] === "undefined" ||
-      Array.isArray(props[propName])
-    )
-  ) {
-    return new Error(
-      [
-        componentName,
-        "requires that",
-        propName,
-        "be a number or an array."
-      ].join(" ")
-    );
-  }
-}
-*/
 
 export class ReactBootstrapSlider extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.updateSliderValues = this.updateSliderValues.bind(this);
-  //   // this.checkAndDoDisabled = this.checkAndDoDisabled.bind(this);
-  // }
-
   checkAndDoDisabled = () => {
     const sliderEnable = this.props.disabled !== "disabled";
     const currentlyEnabled = this.mySlider.isEnabled();
@@ -64,9 +34,11 @@ export class ReactBootstrapSlider extends React.Component {
       const changeEvent = this.props.change || this.props.handleChange;
       this.mySlider.on("change", e => {
         const fakeEvent = {
-          target: {}
+          target: {
+            value:e.newValue
+          }
         };
-        fakeEvent.target.value = e.newValue;
+        // fakeEvent.target.value = e.newValue;
         changeEvent(fakeEvent);
       });
     }
@@ -74,9 +46,11 @@ export class ReactBootstrapSlider extends React.Component {
     if (this.props.slideStop) {
       this.mySlider.on("slideStop", e => {
         const fakeEvent = {
-          target: {}
+          target: {
+            value: e
+          }
         };
-        fakeEvent.target.value = e;
+        // fakeEvent.target.value = e;
         that.props.slideStop(fakeEvent);
       });
     }
