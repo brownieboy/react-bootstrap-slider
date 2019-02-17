@@ -1,10 +1,9 @@
 /* eslint-env browser */
 
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 // import es6BindAll from "es6bindall";
-import ReactBootstrapSlider from "./react-bootstrap-slider.jsx";
+import ReactBootstrapSlider from "./react-bootstrap-slider.js";
 // import { isPropNumberOrArray } from "./customproptypes.js";
 
 /*
@@ -110,8 +109,7 @@ class Demo extends React.Component {
       valueSpan = <DemoSingleValueSpan id={id} value={newValue} />;
       changeAxesButton = changeAxesEnabled && (
         <button id={`but${id}`} onClick={this.changeAxes}>
-          {" "}
-          Change axes{" "}
+          Change axes
         </button>
       );
     }
@@ -141,7 +139,7 @@ Demo.propTypes = {
   changeAxesEnabled: PropTypes.bool
 };
 
-ReactDOM.render(
+const SliderAppDemo = () => (
   <div>
     <div className="demoWrapper">
       <h3>Horizontal (default) demo</h3>
@@ -228,6 +226,7 @@ ReactDOM.render(
       tooltip="always"
       changeAxesEnabled={true}
     />
-  </div>,
-  document.getElementById("main")
+  </div>
 );
+
+export default SliderAppDemo;
