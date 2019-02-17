@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 // import es6BindAll from "es6bindall";
 import ReactBootstrapSlider from "./react-bootstrap-slider.js";
@@ -114,14 +114,14 @@ class Demo extends React.Component {
       );
     }
     return (
-      <div>
+      <Fragment>
         <div style={wrapperDivStyles}>{sliderControl}</div>
         <br /> <br />
         {valueSpan}
         <br />
         <br />
         {changeAxesButton}
-      </div>
+      </Fragment>
     );
   }
 }
@@ -140,7 +140,7 @@ Demo.propTypes = {
 };
 
 const SliderAppDemo = () => (
-  <div>
+  <div className="demoOuterWrapper">
     <div className="demoWrapper">
       <h3>Horizontal (default) demo</h3>
       <Demo
@@ -215,17 +215,19 @@ const SliderAppDemo = () => (
         tooltip="always"
       />
     </div>
-    <h3>Everything starts at zero demo</h3>
-    <Demo
-      id="startZeroSlider"
-      name="startZeroSliderName"
-      startValue={0}
-      max={0}
-      min={0}
-      step={0}
-      tooltip="always"
-      changeAxesEnabled={true}
-    />
+    <div className="demoWrapper">
+      <h3>Everything starts at zero demo</h3>
+      <Demo
+        id="startZeroSlider"
+        name="startZeroSliderName"
+        startValue={0}
+        max={0}
+        min={0}
+        step={0}
+        tooltip="always"
+        changeAxesEnabled={true}
+      />
+    </div>
   </div>
 );
 

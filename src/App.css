@@ -31,15 +31,21 @@
   }
 }
 
-body {
-  margin: 20px;
-}
-#main .react-native-slider {
-  width: 200px;
+.demoOuterWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
 }
 .demoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
   width: 400px;
-  display: inline-block;
+  margin-right: 10px;
+  /* border: 1px red dotted; */
 }
 #rangeHighlightsSlider .slider-rangeHighlight {
   background: #f70616;
