@@ -193,6 +193,7 @@ const SliderAppDemo = () => (
     </div>
     <div className="demoWrapper">
       <h3>Everything starts at zero demo</h3>
+      The min, max and step props are all zero, so effectively disabled at first.
       <Demo
         id="startZeroSlider"
         name="startZeroSliderName"
