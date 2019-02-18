@@ -35,7 +35,7 @@ export class ReactBootstrapSlider extends React.Component {
       this.mySlider.on("change", e => {
         const fakeEvent = {
           target: {
-            value:e.newValue
+            value: e.newValue
           }
         };
         changeEvent(fakeEvent);
@@ -52,6 +52,8 @@ export class ReactBootstrapSlider extends React.Component {
         that.props.slideStop(fakeEvent);
       });
     }
+    setTimeout(() => this.mySlider.refresh({ useCurrentValue: true }), 300);
+    // this.mySlider.refresh({ useCurrentValue: true });
     this.checkAndDoDisabled();
   }
 
