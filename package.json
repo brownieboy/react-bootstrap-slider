@@ -25,6 +25,7 @@
     "@babel/register": "^7.0.0",
     "bootstrap": "^3.3.7",
     "jasmine-spec-reporter": "^4.2.1",
+    "prop-types": "^15.7.2",
     "protractor": "^5.4.2",
     "protractor-jasmine2-screenshot-reporter": "^0.5.0"
   },
@@ -82,6 +83,7 @@
   },
   "peerDependencies": {
     "bootstrap": "^3.3.7",
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
   },
@@ -90,9 +92,8 @@
     "build": "node scripts/build.js",
     "buildComponent": "NODE_ENV=production node_modules/.bin/babel ./src/js/react-bootstrap-slider.js -o ./dist/react-bootstrap-slider.js",
     "test": "node scripts/test.js",
-    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js ./config/protractor.local.conf.js --baseUrl=http://localhost:3000",
-    "testDevReport": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:8080/src/index.html && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
-    "updateSelenium": "node_modules/.bin/webdriver-manager update"
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:3000 && node ./scripts/openreportsconfirm.js --reportsurl=http://localhost:8080/reports/index.html",
+    "updateWebDriver": "node_modules/.bin/webdriver-manager update"
   },
   "eslintConfig": {
     "extends": "react-app"

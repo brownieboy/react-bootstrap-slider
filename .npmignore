@@ -1,0 +1,12 @@
+demo
+tests
+node_modules
+demosrc
+protractor.local.conf.js
+.eslintrc
+.babelrc
+gulpfile.js
+webpack.config.js
+reports
+*.log
+*.lock
