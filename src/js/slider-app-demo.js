@@ -38,13 +38,11 @@ DemoMultiValueSpan.propTypes = {
 class Demo extends React.Component {
   constructor(props) {
     super(props);
-    // es6BindAll(this, ["changeValue", "changeAxes"]);
 
     this.state = {
       ...this.props,
       currentValue: props.startValue
     };
-    //   delete this.state.startValue;
   }
 
   changeValue = e => {
