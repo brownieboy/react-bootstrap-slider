@@ -4,16 +4,10 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import ReactBootstrapSlider from "./react-bootstrap-slider.js";
 
-const wrapperDivStyles = {
-  backgroundColor: "#E0E0E0",
-  padding: "20px",
-  width: "300px"
-};
-
 const DemoSingleValueSpan = ({ id, value }) => (
-  <span>
+  <div className="demoValueDisplay">
     Value: <span id={`valueSpan${id}`}>{value}</span>
-  </span>
+  </div>
 );
 
 DemoSingleValueSpan.propTypes = {
@@ -23,9 +17,12 @@ DemoSingleValueSpan.propTypes = {
 
 const DemoMultiValueSpan = ({ id, value }) => (
   <div>
-    Lower Value: <span id={`valueSpan${id}Low`}>{value[0]}</span>
-    <br />
-    Upper Value: <span id={`valueSpan${id}High`}>{value[1]}</span>
+    <div className="demoValueDisplay">
+      Lower Value: <span id={`valueSpan${id}Low`}>{value[0]}</span>
+    </div>
+    <div className="demoValueDisplay">
+      Upper Value: <span id={`valueSpan${id}High`}>{value[1]}</span>
+    </div>
     <br />
   </div>
 );
@@ -82,18 +79,19 @@ class Demo extends React.Component {
       );
       valueSpan = <DemoSingleValueSpan id={id} value={newValue} />;
       changeAxesButton = changeAxesEnabled && (
-        <button id={`but${id}`} onClick={this.changeAxes}>
+        <button
+          id={`but${id}`}
+          onClick={this.changeAxes}
+          className="demoAxesButtonDisplay"
+        >
           Change axes
         </button>
       );
     }
     return (
       <Fragment>
-        <div style={wrapperDivStyles}>{sliderControl}</div>
-        <br /> <br />
+        <div className="demoWrapperDivStyles">{sliderControl}</div>
         {valueSpan}
-        <br />
-        <br />
         {changeAxesButton}
       </Fragment>
     );
@@ -191,7 +189,8 @@ const SliderAppDemo = () => (
     </div>
     <div className="demoWrapper">
       <h3>Everything starts at zero demo</h3>
-      The min, max and step props are all zero, so effectively disabled at first.
+      The min, max and step props are all zero, so effectively disabled at
+      first.
       <Demo
         id="startZeroSlider"
         name="startZeroSliderName"

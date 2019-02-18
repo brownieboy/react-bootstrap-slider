@@ -22,14 +22,14 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 .demoOuterWrapper {
   display: flex;
@@ -43,10 +43,21 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  width: 400px;
+  width: 300px;
   margin-right: 10px;
   /* border: 1px red dotted; */
 }
+.demoValueDisplay,
+.demoAxesButtonDisplay {
+  margin-top: 10px;
+}
+
+.demoWrapperDivStyles {
+  background-color: #e0e0e0;
+  padding: 20px;
+  width: 300px;
+}
+
 #rangeHighlightsSlider .slider-rangeHighlight {
   background: #f70616;
 }

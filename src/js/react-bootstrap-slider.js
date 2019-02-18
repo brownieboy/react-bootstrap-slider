@@ -38,7 +38,6 @@ export class ReactBootstrapSlider extends React.Component {
             value:e.newValue
           }
         };
-        // fakeEvent.target.value = e.newValue;
         changeEvent(fakeEvent);
       });
     }
@@ -50,7 +49,6 @@ export class ReactBootstrapSlider extends React.Component {
             value: e
           }
         };
-        // fakeEvent.target.value = e;
         that.props.slideStop(fakeEvent);
       });
     }
