@@ -125,7 +125,7 @@ You need to edit the code in the /src folder.  There are two files there: react-
 
 To build a distribution version, issue:
 
-    npm run build
+    npm run buildComponents
 
 The build JavaScript file will go on the /dist folder as react-bootstrap-slider.js.  This is the main file for the project, which is used whenever this the react-bootstrap-slider package is loaded from npm.
 
