@@ -1,9 +1,9 @@
-import _objectSpread from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/objectSpread";
-import _classCallCheck from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/classCallCheck";
-import _createClass from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/createClass";
-import _possibleConstructorReturn from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn";
-import _getPrototypeOf from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/getPrototypeOf";
-import _inherits from "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/@babel/runtime/helpers/esm/inherits";
+import _objectSpread from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/objectSpread";
+import _classCallCheck from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/classCallCheck";
+import _createClass from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/createClass";
+import _possibleConstructorReturn from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn";
+import _getPrototypeOf from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/getPrototypeOf";
+import _inherits from "/home/brownieboy/Development/react-bootstrap-slider/node_modules/@babel/runtime/helpers/esm/inherits";
 
 /* eslint-env browser */
 import React from "react";
@@ -82,8 +82,7 @@ function (_React$Component) {
             target: {
               value: e.newValue
             }
-          }; // fakeEvent.target.value = e.newValue;
-
+          };
           changeEvent(fakeEvent);
         });
       }
@@ -94,8 +93,7 @@ function (_React$Component) {
             target: {
               value: e
             }
-          }; // fakeEvent.target.value = e;
-
+          };
           that.props.slideStop(fakeEvent);
         });
       }

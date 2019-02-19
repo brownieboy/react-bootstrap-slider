@@ -4,6 +4,11 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import ReactBootstrapSlider from "./react-bootstrap-slider.js";
 
+console.log("process.env:");
+console.log(process.env);
+// console.log("In Demo, my var: " + process.env.NODE_USE_PROD_PACKAGE);
+
+
 const DemoSingleValueSpan = ({ id, value }) => (
   <div className="demoValueDisplay">
     Value: <span id={`valueSpan${id}`}>{value}</span>

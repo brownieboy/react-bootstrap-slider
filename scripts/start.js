@@ -3,6 +3,16 @@
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
+// process.env.NODE_USE_PROD_PACKAGE = "true";
+
+// console.log("Mike env:");
+// console.log(process.env);
+// const useProdPackage = process.env.NODE_USE_PROD_PACKAGE;
+// // console.log("My var: " + process.env.NODE_USE_PROD_PACKAGE);
+// if (typeof useProdPackage !== "undefined") {
+//   console.log("setting my var");
+//   process.env.NODE_USE_PROD_PACKAGE = useProdPackage;
+// }
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
