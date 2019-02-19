@@ -156,6 +156,7 @@ const SliderAppDemo = () => (
         id="ticksSlider"
         startValue={200}
         ticks={[0, 100, 200, 300, 400]}
+        ticks_positions={[0, 25, 50, 75, 100]}
         ticks_labels={["$0", "$100", "$200", "$300", "$400"]}
         ticks_snap_bounds={30}
       />

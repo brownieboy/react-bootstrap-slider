@@ -52,8 +52,6 @@ export class ReactBootstrapSlider extends React.Component {
         that.props.slideStop(fakeEvent);
       });
     }
-    setTimeout(() => this.mySlider.refresh({ useCurrentValue: true }), 300);
-    // this.mySlider.refresh({ useCurrentValue: true });
     this.checkAndDoDisabled();
   }
 
