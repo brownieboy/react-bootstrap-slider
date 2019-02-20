@@ -26,7 +26,10 @@
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-react-app": "^7.0.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
@@ -40,7 +43,8 @@
     "react-dom": "^16.8.2"
   },
   "scripts": {
-    "buildComponent": "NODE_ENV=production node_modules/.bin/babel ./src/js/react-bootstrap-slider.js -o ./dist/react-bootstrap-slider.js"
+    "buildComponent": "NODE_ENV=production node_modules/.bin/babel ./src/react-bootstrap-slider.js -o ./dist/react-bootstrap-slider.js",
+    "build": "NODE_ENV=production webpack"
   },
   "browserslist": [
     ">0.2%",

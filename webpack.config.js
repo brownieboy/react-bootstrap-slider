@@ -16,5 +16,14 @@ module.exports = {
         use: "babel-loader"
       }
     ]
+  },
+  resolve: {
+    alias: {
+      jquery: (function() {
+        const jQueryAlias = path.join(__dirname, "./src/jquery-stub.js");
+        console.log("jQueryAlias = " + jQueryAlias);
+        return jQueryAlias;
+      })()
+    }
   }
 };
