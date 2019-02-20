@@ -2,7 +2,7 @@
 
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import ReactBootstrapSlider from "./react-bootstrap-slider.js";
+import ReactBootstrapSlider from "../../../src/react-bootstrap-slider.js";
 
 console.log("process.env:");
 console.log(process.env);
