@@ -2,15 +2,7 @@
 
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-
-// Importing from above the /src folder will cause CRA to treat the files differently, in
-// that they are assumed to be transpiled already.  By creating a symlink to the higher
-// folder we can trick it into thinking the file is with the /src folder.
-// import ReactBootstrapSlider from "../../../src/react-bootstrap-slider.js";
-// import ReactBootstrapSlider from "../../../dist/react-bootstrap-slider.js";
-
-import ReactBootstrapSlider from "./react-bootstrap-slider-symlink.js";
-
+import ReactBootstrapSlider from "../../../src/react-bootstrap-slider.js";
 
 console.log("process.env:");
 console.log(process.env);

@@ -1,10 +1,34 @@
 {
-  "name": "test-cra",
-  "version": "0.1.0",
+  "name": "react-bootstrap-slider",
+  "version": "2.2.0",
   "private": true,
+  "main": "dist/react-bootstrap-slider.js",
+  "description": "Bootstrap Slider component for React",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brownieboy/react-bootstrap-slider.git"
+  },
+  "keywords": [
+    "react-component",
+    "react",
+    "slider",
+    "component",
+    "bootstrap"
+  ],
+  "bugs": {
+    "url": "https://github.com/brownieboy/react-bootstrap-slider/issues"
+  },
+  "author": "Michael Brown <brownieboy@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "jasmine-spec-reporter": "^4.2.1",
+    "prop-types": "^15.7.2",
+    "protractor": "^5.4.2",
+    "protractor-jasmine2-screenshot-reporter": "^0.5.0"
+  },
   "dependencies": {
     "@babel/core": "7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -13,6 +37,8 @@
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.1",
     "bfj": "6.1.1",
+    "bootstrap": "^3.3.7",
+    "bootstrap-slider": "^10.6.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
@@ -40,9 +66,9 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.5.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-app-polyfill": "^0.2.1",
-    "react-bootstrap-slider": "^2.1.5",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.2",
     "resolve": "1.10.0",
@@ -55,17 +81,11 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "jasmine-spec-reporter": "^4.2.1",
-    "prop-types": "^15.7.2",
-    "protractor": "^5.4.2",
-    "protractor-jasmine2-screenshot-reporter": "^0.5.0"
-  },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "testDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:3000",
+    "updateWebDriver": "node_modules/.bin/webdriver-manager update"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -117,16 +137,13 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/michaelbrown/Development/test-cra/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/michaelbrown/Development/test-cra/node_modules/jest-watch-typeahead/testname.js"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
+      "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/jest-watch-typeahead/filename.js",
+      "/Users/michaelbrown/Development/react-bootstrap-slider-cra/node_modules/jest-watch-typeahead/testname.js"
     ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ]
+    "babel": {
+      "presets": [
+        "react-app"
+      ]
+    }
   }
 }
