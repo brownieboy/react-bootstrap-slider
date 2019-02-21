@@ -65,7 +65,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "e2eDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js protractor.local.conf.js --baseUrl=http://localhost:3000"
   },
   "eslintConfig": {
     "extends": "react-app"
