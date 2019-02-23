@@ -8,6 +8,7 @@ A ReactJS wrapper for [seiyria's Bootstrap Slider component](https://github.com/
 
 
 ### Bootstrap 4 Support
+
 Bootstrap 4 is not currently supported, but is under investigation.  I am dependent on upstream issues to be resolved first, see [#689](https://github.com/seiyria/bootstrap-slider/issues/689) and [#856](https://github.com/seiyria/bootstrap-slider/pull/856) on the Bootstrap Slider Github repository.
 
 ## Background
@@ -42,6 +43,7 @@ or
     yarn add react react-dom prop-types bootstrap@^3
 
 #### jQuery
+
 The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing dependency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see [How do I exclude the optional JQuery dependency from my build?](https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build) on the Bootstrap Slider's Readme for how you can workaround this issue.
 
 You must also ensure that you have included bootstrap-slider's CSS file in your build, otherwise the control will be blank!  You'll also need Bootstrap's own CSS file too, of course.  If you're using Webpack, which you will be if you have a Create React App based project, then you can import the CSS file directly into your build, like so:
@@ -50,6 +52,7 @@ You must also ensure that you have included bootstrap-slider's CSS file in your 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css"
 ```
+
 Those two imports need to be in your top-level JavaScript file, e.g. App.js.
 
 Or you can simply add the files as links in your HTML file as a link e.g.:
@@ -58,6 +61,7 @@ Or you can simply add the files as links in your HTML file as a link e.g.:
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.1/bootstrap-slider.min.js"></script>
 ```
+
 checking that the versions match those of Bootstrap and Bootsrap Slider themselves.
 
 ## How to use
@@ -104,7 +108,7 @@ or
 
     npm install
 
-to install the dependencies.  Note: React, React Dom, Prop Types and Bootstrap _will_ all be installed this time because they are listed as development dependencies as well as peer dependencies for the project.  Please see [discussion on PR43](https://github.com/brownieboy/react-bootstrap-slider/pull/43) for why I've listed these packages under both peerDependencies and devDependencies.)
+in the project's root folder to install the dependencies.  Note: React, React Dom, Prop Types and Bootstrap _will_ all be installed this time because they are listed as development dependencies as well as peer dependencies for the project.  Please see [discussion on PR43](https://github.com/brownieboy/react-bootstrap-slider/pull/43) for why I've listed these packages under both peerDependencies and devDependencies.)
 
 To develop, issue this command:
 
