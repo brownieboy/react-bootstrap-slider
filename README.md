@@ -1,4 +1,4 @@
-# React Boostrap Slider
+# React Bootstrap Slider
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  It was then ejected due to jQuery issue (see below).
 
@@ -218,10 +218,11 @@ Protractor is actually a testing tool designed for AngularJS and Angular, but he
 
 ## Update History
 
-Version 2.2.0: 23 Feb 2019
+Version 2.2.0 and 2.2.1: 23 Feb 2019
 
 * Update to bootstrap-slider 10.
 * Major overhaul of Demo vs Component source code.  They're now split into separate folders with separate built steps and package.json files.
+* 2.2.1 is a Readme correctly only.  No actual code changes.
 
 Version 2.1.5: 2 May 2018
 
@@ -254,7 +255,7 @@ Version 2.0.0: 30 Apr 2017
 * Updated for React 15.5.x and 16 (Fiber) compatibility by using prop-types package.  This version will not work with older versions of React, hence the major version bump.
 
 Version 1.1.7: 2 Apr 2017
-* Removed jQuery as any kind of dependency.  It's not actually needed, but it is used by boostrap-slider if present.
+* Removed jQuery as any kind of dependency.  It's not actually needed, but it is used by bootstrap-slider if present.
 
 Version 1.1.6: 28 Mar 2017
 * Moved bootstrap, jquery, react and react-dom from dependencies to peerDependencies and devDependencies. (They need to in both because neither yarn or npm install command actually installs peerDependencies.)
