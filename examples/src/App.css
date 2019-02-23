@@ -34,7 +34,7 @@
 .demoOuterWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -45,6 +45,7 @@
   margin-bottom: 20px;
   width: 300px;
   margin-right: 10px;
+  margin-left: 10px
   /* border: 1px red dotted; */
 }
 .demoValueDisplay,
