@@ -68,7 +68,7 @@
     "test": "node scripts/test.js",
     "e2eDev": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js ./config/protractor.local.conf.js --baseUrl=http://localhost:3000",
     "e2eProd": "node_modules/.bin/protractor --specs=./tests/e2e/slidertest1.js ./config/protractor.local.conf.js --baseUrl=http://localhost:5000",
-    "updateWebDriver": "node_modules/.bin/webdriver-manager update"
+    "updateWebDriver": "node_modules/.bin/webdriver-manager update --versions.chrome 2.44"
   },
   "eslintConfig": {
     "extends": "react-app"
