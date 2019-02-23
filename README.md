@@ -11,9 +11,6 @@ A ReactJS wrapper for [seiyria's Bootstrap Slider component](https://github.com/
 
 Bootstrap 4 is not currently supported, but is under investigation.  I am dependent on upstream issues to be resolved first, see [#689](https://github.com/seiyria/bootstrap-slider/issues/689) and [#856](https://github.com/seiyria/bootstrap-slider/pull/856) on the Bootstrap Slider Github repository.
 
-## Background
-
-Note: This project started as a split off from my [react-bootstrap-native-slider](https://www.npmjs.com/package/react-bootstrap-native-slider) plugin, which I've subsequently deprecated.
 
 ## How to install
 
@@ -25,7 +22,7 @@ or
 
     yarn add react-bootstrap-slider
 
-Immport like so for ES6:
+Import like so for ES6:
 
     import ReactBootstrapSlider from 'react-bootstrap-slider';
 
@@ -44,7 +41,7 @@ or
 
 #### jQuery
 
-The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing dependency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see [How do I exclude the optional JQuery dependency from my build?](https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build) on the Bootstrap Slider's Readme for how you can workaround this issue.
+The bootstrap-slider component - and, therefore, react-bootstrap-slider - will work with jQuery if it detects it in your project setup, but it is _not_ a requirement.  It works fine without jQuery.  However, if you are using Webpack or Browserify to build your project, you may get a "missing dependency" build error if jQuery is not present.  This is a known, upstream issue in bootstrap-slider.  Please see [How do I exclude the optional JQuery dependency from my build?](https://github.com/seiyria/bootstrap-slider#how-do-i-exclude-the-optional-jquery-dependency-from-my-build) on the Bootstrap Slider's Readme for how you can workaround this issue.  You can also see how I did it by inspecting the /examples/config/webpack.config.js file and searching for "jQuery".
 
 You must also ensure that you have included bootstrap-slider's CSS file in your build, otherwise the control will be blank!  You'll also need Bootstrap's own CSS file too, of course.  If you're using Webpack, which you will be if you have a Create React App based project, then you can import the CSS file directly into your build, like so:
 
@@ -64,7 +61,7 @@ Or you can simply add the files as links in your HTML file as a link e.g.:
 
 checking that the versions match those of Bootstrap and Bootsrap Slider themselves.
 
-## How to use
+## How to use react-bootstrap-slider
 
 Here's an example of how you might call it in your ReactJS's render method:
 
@@ -111,7 +108,7 @@ or
 
     npm install
 
-in the project's root folder to install the dependencies.  Note: React, React Dom, Prop Types and Bootstrap _will_ all be installed this time because they are listed as development dependencies as well as peer dependencies for the project.  Please see [discussion on PR43](https://github.com/brownieboy/react-bootstrap-slider/pull/43) for why I've listed these packages under both peerDependencies and devDependencies.)
+in the project's root folder to install the dependencies.  Note: React, React Dom, Prop Types and Bootstrap _will_ all be installed this time because they are listed as development dependencies as well as peer dependencies for the project.  (Please see [discussion on PR43](https://github.com/brownieboy/react-bootstrap-slider/pull/43) for why I've listed these packages under both peerDependencies and devDependencies.)
 
 The source code for the component is the /src/react-bootstrap-slider.js file.  You'll probably find it easiest to run the example demo (see next section) in order to see any changes that you make to the component's source.
 
@@ -145,7 +142,9 @@ or
 
     npm run start
 
-This should launch your browser and load <https://localhost:3000> with the demo running.  This version takes its react-bootstrap-slider code from development source code in the /src folder of the project's root folder.  So any change that you make to that source code will hotload straight into the demo.  (You'll note in the demo source code that it's actually imported via a symlink.  This to work around an issue with how the Webpack build treats packages imported from outside of current project's hierarchy.)
+This should launch your browser and load <https://localhost:3000> with the demo running.  This version takes its react-bootstrap-slider code from development source code in the /src folder of the project's root folder.  So any change that you make to that source code will hotload straight into the demo.  
+
+You may notice that the demo source code that it's actually imported via a symlink.  This to work around an issue with how the Webpack build treats packages imported from outside of current project's hierarchy.  (Note: this will probably not work on Windows.  I haven't tested it there.)
 
 To build a Production version of the demo, from the /examples folder again, it's:
 
@@ -183,7 +182,7 @@ The same set of tests can be run against either the Dev version or the built ver
 
 This assumes that you already have the Demo running on port 3000 via an `npm run start` or `yarn start` in the project's root folder (see above).
 
-To run run tests against the Pevelopment version of the Demo, you need to run:
+To run run tests against the Production version of the Demo, you need to run:
 
         npm run e2eProd
 
