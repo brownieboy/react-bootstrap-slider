@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-import React, { Fragment } from "react";
+import React, { Fragment, lazy, Suspense } from "react";
 import PropTypes from "prop-types";
 
 // Importing from above the /src folder will cause CRA to treat the files differently, in
@@ -9,13 +9,26 @@ import PropTypes from "prop-types";
 // import ReactBootstrapSlider from "../../../src/react-bootstrap-slider.js";
 // import ReactBootstrapSlider from "../../../dist/react-bootstrap-slider.js";
 
-import ReactBootstrapSlider from "./react-bootstrap-slider-symlink.js";
+// import ReactBootstrapSlider from "./react-bootstrap-slider.js";
 
+let ReactBootstrapSlider;
+if (process.env.NODE_ENV === "production") {
+  // Dist version, directly from parent folder so don't forget to run build in root folder first!
+  console.log("Lady loading production react-bootstrap-loader...");
+  ReactBootstrapSlider = lazy(() =>
+    import("../../../dist/react-bootstrap-slider.js")
+  );
+} else {
+  // Symlinked from parent folder.
+  console.log("lazy loading dev (symlinked) react-bootstrap-loader...");
+  ReactBootstrapSlider = lazy(() => import("./react-bootstrap-slider-symlink.js"));
+}
 
-console.log("process.env:");
-console.log(process.env);
-// console.log("In Demo, my var: " + process.env.NODE_USE_PROD_PACKAGE);
+// const ReactBootstrapSlider = lazy(() =>
+//   import("./react-bootstrap-slider.js")
+// );
 
+// const Recipe = lazy(() =>import(`./docs/app/Recipes/${props.componentName}`));
 
 const DemoSingleValueSpan = ({ id, value }) => (
   <div className="demoValueDisplay">
@@ -75,20 +88,24 @@ class Demo extends React.Component {
     let sliderControl, valueSpan, changeAxesButton;
     if (Array.isArray(newValue)) {
       sliderControl = (
-        <ReactBootstrapSlider
-          {...this.state}
-          value={this.state.currentValue}
-          change={this.changeValue}
-        />
+        <Suspense fallback={<div>Fetching component...</div>}>
+          <ReactBootstrapSlider
+            {...this.state}
+            value={this.state.currentValue}
+            change={this.changeValue}
+          />
+        </Suspense>
       );
       valueSpan = <DemoMultiValueSpan id={id} value={newValue} />;
     } else {
       sliderControl = (
-        <ReactBootstrapSlider
-          {...this.state}
-          value={this.state.currentValue}
-          slideStop={this.changeValue}
-        />
+        <Suspense fallback={<div>Fetching component...</div>}>
+          <ReactBootstrapSlider
+            {...this.state}
+            value={this.state.currentValue}
+            slideStop={this.changeValue}
+          />
+        </Suspense>
       );
       valueSpan = <DemoSingleValueSpan id={id} value={newValue} />;
       changeAxesButton = changeAxesEnabled && (

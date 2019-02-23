@@ -7,9 +7,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css"
 import SliderAppDemo from "./js/slider-app-demo.js";
 
-console.log("App.js, process.env:");
-console.log(process.env);
-
 class App extends Component {
   render() {
     return (
