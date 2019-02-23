@@ -270,7 +270,6 @@ module.exports = function(webpackEnv) {
             __dirname,
             "../src/js/stubs/jquery-stub.js"
           );
-          console.log("jQueryAlias = " + jQueryAlias);
           return jQueryAlias;
         })()
       },
