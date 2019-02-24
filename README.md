@@ -153,7 +153,7 @@ or
 
     npm run build
 
-This will put a production ready version of the demo in the /examples/build folder.  Note: this version will import its react-bootstrap-slider component from the /dist folder of the project's root folder - i.e., the built version of the component.  So make sure that you've actually built the component (see above) before building the demo!
+This will put a production ready version of the demo in the /examples/build folder.  Note: this version will import its react-bootstrap-slider component from the /dist folder of the project's root folder - i.e., the built version of the component.  So make sure that you've actually built the component (see above) before building the demo!  You must also have installed all the packages (`yarn` or `npm i`) in the root folder of the project, so that the slider component can find its local version of React itelf.
 
 Once you've built the Production version of the Demo, you can open it with the local web server of your choice.  Because the demo project was created with Create React App, you'll see a prompt telling you how to do this with Server, i.e. `serve -s build`.  If you don't have Serve, you can install it globally via `npm i serve -g`.
 
