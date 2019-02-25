@@ -218,6 +218,10 @@ Protractor is actually a testing tool designed for AngularJS and Angular, but he
 
 ## Update History
 
+Version 2.2.2: 25 Feb 2019
+
+* Fixed absolute require bug regression in 2.2.0/2.2.1.  (It's @babel/react preset, not @babel/react-app !)
+
 Version 2.2.0 and 2.2.1: 23 Feb 2019
 
 * Update to bootstrap-slider 10.
