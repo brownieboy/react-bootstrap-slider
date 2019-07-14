@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.2.2",
+    "@babel/core": "^7.5",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@svgr/webpack": "4.1.0",
     "babel-core": "7.0.0-bridge.0",
@@ -42,7 +42,7 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.8.2",
     "react-app-polyfill": "^0.2.1",
-    "react-bootstrap-slider": "^2.1.5",
+    "react-bootstrap-slider": "^2.2.2",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.2",
     "resolve": "1.10.0",
