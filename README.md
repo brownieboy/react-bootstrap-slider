@@ -180,7 +180,7 @@ The same set of tests can be run against either the Dev version or the built ver
 
         npm run e2eDev
 
-This assumes that you already have the Demo running on port 3000 via an `npm run start` or `yarn start` in the project's root folder (see above).
+This assumes that you already have the Demo running on port 3000 via an `npm run start` or `yarn start` in the project's /examples folder (see above).
 
 To run run tests against the Production version of the Demo, you need to run:
 
