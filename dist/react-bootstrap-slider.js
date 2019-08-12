@@ -23,96 +23,147 @@
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+  function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+  function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+  function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+  function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-  class ReactBootstrapSlider extends _react.default.Component {
-    constructor(...args) {
-      super(...args);
+  var ReactBootstrapSlider =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inherits(ReactBootstrapSlider, _React$Component);
 
-      _defineProperty(this, "checkAndDoDisabled", () => {
-        const sliderEnable = this.props.disabled !== "disabled";
-        const currentlyEnabled = this.mySlider.isEnabled();
+    function ReactBootstrapSlider() {
+      var _getPrototypeOf2;
+
+      var _this;
+
+      _classCallCheck(this, ReactBootstrapSlider);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ReactBootstrapSlider)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+      _defineProperty(_assertThisInitialized(_this), "checkAndDoDisabled", function () {
+        var sliderEnable = _this.props.disabled !== "disabled";
+
+        var currentlyEnabled = _this.mySlider.isEnabled();
 
         if (sliderEnable) {
           if (!currentlyEnabled) {
-            this.mySlider.enable();
+            _this.mySlider.enable();
           }
         } else {
           if (currentlyEnabled) {
-            this.mySlider.disable();
+            _this.mySlider.disable();
           }
         }
       });
 
-      _defineProperty(this, "updateSliderValues", () => {
-        if (typeof this.props.min !== "undefined" && (typeof this.mySlider.min !== "undefined" || typeof this.mySlider.options.min !== "undefined")) {
-          this.mySlider.setAttribute("min", this.props.min);
+      _defineProperty(_assertThisInitialized(_this), "updateSliderValues", function () {
+        if (typeof _this.props.min !== "undefined" && (typeof _this.mySlider.min !== "undefined" || typeof _this.mySlider.options.min !== "undefined")) {
+          _this.mySlider.setAttribute("min", _this.props.min);
         }
 
-        if (typeof this.props.max !== "undefined" && (typeof this.mySlider.max !== "undefined" || typeof this.mySlider.options.max !== "undefined")) {
-          this.mySlider.setAttribute("max", this.props.max);
+        if (typeof _this.props.max !== "undefined" && (typeof _this.mySlider.max !== "undefined" || typeof _this.mySlider.options.max !== "undefined")) {
+          _this.mySlider.setAttribute("max", _this.props.max);
         }
 
-        if (typeof this.props.step !== "undefined" && (typeof this.mySlider.step !== "undefined" || typeof this.mySlider.options.step !== "undefined")) {
-          this.mySlider.setAttribute("step", this.props.step);
+        if (typeof _this.props.step !== "undefined" && (typeof _this.mySlider.step !== "undefined" || typeof _this.mySlider.options.step !== "undefined")) {
+          _this.mySlider.setAttribute("step", _this.props.step);
         }
 
-        this.mySlider.setValue(this.props.value);
+        _this.mySlider.setValue(_this.props.value);
+
+        _this.checkAndDoDisabled();
+      });
+
+      return _this;
+    }
+
+    _createClass(ReactBootstrapSlider, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        var that = this;
+
+        var sliderAttributes = _objectSpread({}, this.props, {
+          tooltip: this.props.tooltip || "show"
+        }); // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
+
+
+        this.mySlider = new _bootstrapSlider.default(this.node, sliderAttributes); //     this.updateSliderValues();
+
+        if (this.props.change || this.props.handleChange) {
+          var changeEvent = this.props.change || this.props.handleChange;
+          this.mySlider.on("change", function (e) {
+            var fakeEvent = {
+              target: {
+                value: e.newValue
+              }
+            };
+            changeEvent(fakeEvent);
+          });
+        }
+
+        if (this.props.slideStop) {
+          this.mySlider.on("slideStop", function (e) {
+            var fakeEvent = {
+              target: {
+                value: e
+              }
+            };
+            that.props.slideStop(fakeEvent);
+          });
+        }
+
         this.checkAndDoDisabled();
-      });
-    }
+      }
+    }, {
+      key: "componentDidUpdate",
+      value: function componentDidUpdate() {
+        this.updateSliderValues();
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        this.mySlider.destroy();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this2 = this;
 
-    componentDidMount() {
-      const that = this;
-      const sliderAttributes = { ...this.props,
-        tooltip: this.props.tooltip || "show"
-      }; // console.log("sliderAttributes = " + JSON.stringify(sliderAttributes, null, 4));
-
-      this.mySlider = new _bootstrapSlider.default(this.node, sliderAttributes); //     this.updateSliderValues();
-
-      if (this.props.change || this.props.handleChange) {
-        const changeEvent = this.props.change || this.props.handleChange;
-        this.mySlider.on("change", e => {
-          const fakeEvent = {
-            target: {
-              value: e.newValue
-            }
-          };
-          changeEvent(fakeEvent);
+        // The slider"s an input.  That"s all we need.  We"ll do the rest in
+        // the componentDidMount() method.
+        return _react.default.createElement("div", {
+          ref: function ref(node) {
+            return _this2.node = node;
+          }
         });
       }
+    }]);
 
-      if (this.props.slideStop) {
-        this.mySlider.on("slideStop", e => {
-          const fakeEvent = {
-            target: {
-              value: e
-            }
-          };
-          that.props.slideStop(fakeEvent);
-        });
-      }
-
-      this.checkAndDoDisabled();
-    }
-
-    componentDidUpdate() {
-      this.updateSliderValues();
-    }
-
-    componentWillUnmount() {
-      this.mySlider.destroy();
-    }
-
-    render() {
-      // The slider"s an input.  That"s all we need.  We"ll do the rest in
-      // the componentDidMount() method.
-      return _react.default.createElement("div", {
-        ref: node => this.node = node
-      });
-    }
-
-  }
+    return ReactBootstrapSlider;
+  }(_react.default.Component);
 
   _exports.ReactBootstrapSlider = ReactBootstrapSlider;
   ReactBootstrapSlider.propTypes = {
