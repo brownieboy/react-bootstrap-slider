@@ -54,7 +54,7 @@ exports.config = {
   specs: [ROOT_PATH + "/tests/e2e/*.js"],
   chromeDriver: path.resolve(
     ROOT_PATH,
-    "node_modules/webdriver-manager/selenium/chromedriver_79.0.3945.130"
+    "node_modules/webdriver-manager/selenium/chromedriver_79.0.3945.36"
   ),
   capabilities: {
     // browserName: "firefox"
@@ -64,7 +64,7 @@ exports.config = {
       args: ["--disable-extensions"]
     }
   },
-  baseUrl: "http://localhost:4444",
+  baseUrl: "http://localhost:5000",
   beforeLaunch: () =>
     new Promise(resolve => {
       reporter.beforeLaunch(resolve);
