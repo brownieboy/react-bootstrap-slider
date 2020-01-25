@@ -218,6 +218,9 @@ Protractor is actually a testing tool designed for AngularJS and Angular, but he
 
 ## Update History
 
+Version 2.2.3: 25 Jan 2020
+* Control now transpiled to ES5.  Should fix errors on IE 11 etc.
+
 Version 2.2.2: 25 Feb 2019
 
 * Fixed absolute require bug regression in 2.2.0/2.2.1.  (It's @babel/react preset, not @babel/react-app !)
