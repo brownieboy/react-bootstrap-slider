@@ -4,12 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 
-A ReactJS wrapper for [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider) using Bootstrap 3.
-
-
-### Bootstrap 4 Support
-
-Bootstrap 4 is not currently supported, but is under investigation.  I am dependent on upstream issues to be resolved first, see [#689](https://github.com/seiyria/bootstrap-slider/issues/689) and [#856](https://github.com/seiyria/bootstrap-slider/pull/856) on the Bootstrap Slider Github repository.
+A ReactJS wrapper for [seiyria's Bootstrap Slider component](https://github.com/seiyria/bootstrap-slider) using Bootstrap 4.
 
 
 ## How to install
@@ -34,10 +29,10 @@ The control is implemented in UMD format, so should also work for AMD/RequireJS,
 
 React, React Dom and Bootstrap are listed as peer dependencies (peerDependencies section in package.json) for react-bootstrap-slider.  They will _not_ be installed automatically when you install this component into your own project.  You will need to install them yourself, as part of that project, if you have not done so already.  This command will install them for you if you don't yet have them:
 
-    npm install react react-dom prop-types bootstrap@^3 --save
+    npm install react react-dom prop-types bootstrap@^4 --save
 or
 
-    yarn add react react-dom prop-types bootstrap@^3
+    yarn add react react-dom prop-types bootstrap@^4
 
 #### jQuery
 
@@ -55,8 +50,8 @@ Those two imports need to be in your top-level JavaScript file, e.g. App.js.
 Or you can simply add the files as links in your HTML file as a link e.g.:
 
 ```HTML
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.4.1/bootstrap-slider.min.js"></script>
+<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"></script>
 ```
 
 checking that the versions match those of Bootstrap and Bootsrap Slider themselves.
@@ -217,6 +212,11 @@ Whatever other changes you make to protractor.local.conf.js, you _must_ _not_ re
 Protractor is actually a testing tool designed for AngularJS and Angular, but hey, nobody's perfect! :wink:  By default, Protractor will wait for Angular models to send their update messages before proceeding onto the next test.  This line tells Protractor not to wait for any such messages, which, of course, won't be coming because you're not using Angular.
 
 ## Update History
+
+Version 2.3.0: 10 Jun 2020
+
+* Update to bootstrap-slider 11.
+* Update to bootstrap 4.
 
 Version 2.2.2: 25 Feb 2019
 

@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "main": "dist/react-bootstrap-slider.js",
   "description": "Bootstrap Slider component for React",
   "repository": {
@@ -35,10 +35,10 @@
     "react-dom": "^16.8.2"
   },
   "dependencies": {
-    "bootstrap-slider": "^10.6.1"
+    "bootstrap-slider": "^11.0.0"
   },
   "peerDependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
