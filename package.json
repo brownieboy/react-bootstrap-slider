@@ -20,28 +20,28 @@
   "author": "Michael Brown <brownieboy@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@babel/plugin-transform-modules-umd": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
+    "@babel/plugin-transform-modules-umd": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/register": "^7.10.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-es3": "^1.0.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "bootstrap-slider": "^11.0.0"
+    "bootstrap-slider": "^11.0.2"
   },
   "peerDependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.5.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "build": "NODE_ENV=production node_modules/.bin/babel ./src/react-bootstrap-slider.js -o ./dist/react-bootstrap-slider.js"
