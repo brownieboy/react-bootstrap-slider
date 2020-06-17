@@ -52,10 +52,10 @@ const reporter = new HtmlScreenshotReporter({
 exports.config = {
   directConnect: true,
   specs: [ROOT_PATH + "/tests/e2e/*.js"],
-  chromeDriver: path.resolve(
-    ROOT_PATH,
-    "node_modules/webdriver-manager/selenium/chromedriver_79.0.3945.36"
-  ),
+  // chromeDriver: path.resolve(
+  //   ROOT_PATH,
+  //   "node_modules/webdriver-manager/selenium/chromedriver_79.0.3945.36"
+  // ),
   capabilities: {
     // browserName: "firefox"
     browserName: "chrome",
