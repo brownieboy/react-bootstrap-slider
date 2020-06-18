@@ -1,6 +1,6 @@
 {
-  "name": "test-cra",
-  "version": "0.1.0",
+  "name": "test-rbs",
+  "version": "3.0.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",

@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-slider",
-  "version": "2.2.3",
+  "version": "3.0.0",
   "main": "dist/react-bootstrap-slider.js",
   "description": "Bootstrap Slider component for React",
   "repository": {
