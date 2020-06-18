@@ -1,6 +1,7 @@
 3.0.0 / 2020-06-18
 ========================
 * Bootstrap 4 support.
+* Split README.md into 3 files, adding CHANGELOG.md and CONTRIBUTING.md.
 
 2.2.3 / 2020-01-25
 ========================
