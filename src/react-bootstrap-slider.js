@@ -42,6 +42,16 @@ export class ReactBootstrapSlider extends React.Component {
       });
     }
 
+    if (this.props.slideStart) {
+      this.mySlider.on("slideStart", e => {
+        const fakeEvent = {
+          target: {
+            value: e
+          }
+        };
+        that.props.slideStart(fakeEvent);
+      });
+    }
     if (this.props.slideStop) {
       this.mySlider.on("slideStop", e => {
         const fakeEvent = {
@@ -109,6 +119,7 @@ ReactBootstrapSlider.propTypes = {
   tooltip: PropTypes.string,
   change: PropTypes.func,
   handleChange: PropTypes.func,
+  slideStart: PropTypes.func,
   slideStop: PropTypes.func,
   labelledby: PropTypes.oneOfType([
     PropTypes.string,
