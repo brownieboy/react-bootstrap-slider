@@ -1,3 +1,7 @@
+# DEPRECATED ⛔️
+
+I no longer have the time to maintain this project.  If anybody else wants to take on ownership and maintenance then I'd be happy to hand it over, although I've no idea how one actually does that!
+
 # React Bootstrap Slider
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  It was then ejected due to jQuery issue (see below).
